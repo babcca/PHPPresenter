@@ -1,0 +1,150 @@
+<?php
+	require_once(dirname(__file__).'/smarty/Smarty.class.php'); 
+	
+	/**
+	 * Interface pro nastavovani hlavicek html dokumentu
+	 * @author Petr Babicka
+	 */
+	class BHead {
+			private $header;
+			public function __construct($header) {
+				$this->header = $header;
+			}	
+			public function __set($head, $val) {
+			}
+	};
+	
+	/**
+	 * Fronta se statickym ulozistem. 
+	 * Pouziti pro uchovani vsech dat v ruznych instancich renderu.
+	 * @author Petr Babicka
+	 *
+	 */
+	class BQueue {
+		private static $queue = array();
+		public static function push($str) {
+			self::$queue[] = $str;
+		}
+		public static function pop() {
+			return array_pop(self::$queue);
+		}
+		
+		public static function dump() {
+			foreach (self::$queue as $data) { echo $data; }
+		}
+	};
+	
+	/**
+	 * Potomek Smarty, uklada data do staticke fronty, ktere posleze 
+	 * najednou vykresli (vypise). Ruzne instance zdili stejnou frontu.
+	 * @author Petr Babicka
+	 *
+	 */
+	class BRender extends Smarty {
+		static protected $head;
+		private $queue;
+		
+		public function __construct($app) {
+			parent::__construct();
+			self::$head = new BHead(array(
+				'title' => 'default',
+				'encoding' => 'utf-8'				
+			));
+			
+			/** TODO: Inicializace smarty */ 
+			$this->template_dir = dirname(__file__).'/../app/'.$app.'/templates';
+		}
+		
+		public function header($head) {
+		
+		}
+		/**
+		 * Zapise data do fronty
+		 * @param $template Smarty template jako retezec<br>Smarty template soubor
+		 * @param $args_array Argumenty pro Smarty templaty
+		 */		
+		public function write($template, $args_array = array()) {
+			BQueue::push($this->parse($template, $args_array));
+		}
+		
+		public function parse($template, $args_array = array()) {
+			foreach ($args_array as $k=>$v) {
+				$this->assign($k, $v);
+			}
+			$prefix = preg_match('/.tpl$/', $template) ? 'file:' : 'string:';
+			return $this->fetch($prefix.$template);
+		}
+		public function get_translate($lang) {
+			if (LanguageLoader::load_language($lang, $table)) 
+				$this->assign('trans', $table);
+		}
+		
+		public function dump() {
+			BQueue::dump();
+		}
+	};
+	
+	function smarty_block_admin_edit($params, $content, $template, &$repeat) {
+		if (!$repeat) {
+			if(isset($content)) {
+				return '<b>'.$content.'</b>';
+			}
+		}
+	}
+	
+	
+	/*
+	 * post processing na url (prepnuti na jinou stranku)
+	 */
+	// editace parametru ([a-z-]+)
+	function argument_exis($argument, $pattern, $where) {
+		return preg_match('#$argument=$pattern#', $pattern, $where);
+	}
+	
+	function argument_replace($argument, $new, $argm_pattern, $where) {
+		//if (argument_exis($argument, $dest_pattern, $where)) {
+			if (!($where == preg_replace("#(.+)$parameter=$dest_pattern(.*)#", "$1{$new}$2", $where))) {
+				return $where;
+			}
+		//} else
+		
+		/*
+		f (preg_match('#lang=([a-z]{2})#', $uri)) {
+				$uri = preg_replace('#(.+lang=)[a-z]{2}(.*)#', "$1{$params['lang']}$2", $uri);*/
+		//	} else { $uri .= "&$parameter={$params['lang']}"; }
+	}
+	//function edit_url($url, array $parameters, array )
+
+	
+	// call aplication from smarty, parcial derivation of index
+	function smarty_function_call_app($param, $template) {
+		$queryParts = explode(',', $param['param']); 
+    	$params = array();
+    	foreach ($queryParts as $p) { 
+        	$item = explode('=', $p); 
+        	$params[$item[0]] = $item[1]; 
+    	} 
+		return Presenter::$controller->call($param['app'], $param['method'], $params);
+	}
+	
+	function edit_url($url) {
+		$url = $_SERVER['REQUEST_URI'];
+		$pattern = array('id=%([a-z-.]+)[home]'=>$table[$id[1]][0], 'lang=%{en, de}[en]');
+	}
+	
+	function smarty_function_edit_url($params, $template) {
+		if (LanguageLoader::load_language($params['lang'], $table)) {
+			$uri = $_SERVER['REQUEST_URI'];
+			if (preg_match('#id=(a-z-])+#', $uri, $id)) {
+				$uri = preg_replace('#(.+id=)[a-z-]+(.*)#', "$1{$table[$id[1]][0]}$2", $uri);
+			} 
+			
+			if (preg_match('#lang=[a-z]{2}#', $uri)) {
+				$uri = preg_replace('#(.+lang=)[a-z]{2}(.*)#', "$1{$params['lang']}$2", $uri);
+			} else { $uri .= "&lang={$params['lang']}"; }
+			
+			return $uri;
+		}
+		
+	}
+?>

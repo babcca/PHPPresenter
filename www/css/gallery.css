@@ -1,0 +1,15 @@
+.gallery {	
+	width: 650px;
+}
+.gallery a {
+	text-decoration: none;
+	padding-right: 6px;
+}
+.gallery img {
+	border: 5px solid #cecece;
+	width: 200px;
+	height: 130px;
+}
+.gallery img:hover {
+	border-color: #757575;
+}

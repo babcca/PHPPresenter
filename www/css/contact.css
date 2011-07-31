@@ -1,0 +1,22 @@
+/*CSS - Contact us*/
+#contact_info {
+	width: 320px;
+}
+#contact_form {
+	background-color: #7F7F6C;
+	padding: 10px;
+	width: 300px;
+}
+#textarea_label {
+	width: 280px;
+	color: #FFF;
+}
+#submit_button {
+	float: right;
+}
+#contact_form label {
+	display: inline;
+	float: left;
+	width: 75px;
+	color: #FFF;
+}
