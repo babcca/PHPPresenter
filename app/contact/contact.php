@@ -31,17 +31,17 @@
 							<p>Name: <b>' . "$name" . '</b><br />
 							Email: <b>' . "$email" . '</b><br />
 							Phone: <b>' . "$phone" . '</b><br />
-							Message: <b>' . "$message" . '</b></p>
+							Message: <b>' . htmlspecialchars($message) . '</b></p>
 						</body>
 					</html>';
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			
-			if (mail("$to", "$subject", "$body", "$headers")) {
-				echo("<p>Message successfully sent!</p>");
-			} else {
-				echo("<p>Message delivery failed...</p>");
-			}
+			//if (mail("$to", "$subject", "$body", "$headers")) {
+			//	echo("<p>Message successfully sent!</p>");
+			//} else {
+			//	echo("<p>Message delivery failed...</p>");
+			//}
 		}
 	}
 ?>
