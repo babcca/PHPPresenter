@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="/css/humanity/jquery-ui-1.8.14.custom.css" />
 	<link rel="stylesheet" type="text/css" href="/css/gallery.css" />
 	<link rel="stylesheet" type="text/css" href="/css/contact.css" />
+	<link rel="stylesheet" type="text/css" href="/css/book.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
     
 	<script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript"></script>

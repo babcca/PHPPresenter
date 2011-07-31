@@ -19,8 +19,8 @@
 	}
 	dibi::connect(array(
 		'driver'=>'mysql',
-		'username'=> '',
-		'password'=>'',
+		'username'=> 'w6811_barbora',
+		'password'=>'Kverty246',
 		'host'=>($_SERVER['SERVER_NAME'] != 'apartments-barbora.com' ? 'localhost' : 'wm8.wedos.net'),
 		'database'=>'d6811_barbora',
 		'charset'=>'utf8'
@@ -94,7 +94,7 @@
 		var_dump($fn);var_dump($enum);var_dump($regexp);var_dump($default);
 	}
 	$app_manager = ApplicationManager::instance();
-	$app_manager->register(new Application("index", array(new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"))));
+	$app_manager->register(new Application("index", array(new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
 	
 	$controller = new Controller();
 	Presenter::$controller = $controller;
