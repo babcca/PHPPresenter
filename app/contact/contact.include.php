@@ -13,7 +13,7 @@
 	Presenter::view("contact", array(
 								"class"=>"contact_model",
 								"method"=>"contact_email",
-								"params"=>array("name"=>"%([^<]+)",
+								"params"=>array("name"=>"%([^<>]+)",
 												"email"=>"%(^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$)",
 												"message"=>"%(.*)",
 												"phone"=>"%(^\+?[0-9 ]*)[]")
