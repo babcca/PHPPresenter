@@ -20,6 +20,28 @@
 	class contact_model {
 		public function contact_email($name, $email, $message, $phone) {
 			echo "$name, $email, $message, $phone";
+			
+			$to = "kolesar.martin@gmail.com";
+			$subject = "NO-REPLY | Apartments Barbora - Quick Contact Message";
+			$body = '<html>
+						<head> </head>
+						<body>
+							This email was sent via quick contact form from website www.apartments-barbora.com. <br />
+							<p>Original message:</p>
+							<p>Name: <b>' . "$name" . '</b><br />
+							Email: <b>' . "$email" . '</b><br />
+							Phone: <b>' . "$phone" . '</b><br />
+							Message: <b>' . "$message" . '</b></p>
+						</body>
+					</html>';
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			
+			if (mail("$to", "$subject", "$body", "$headers")) {
+				echo("<p>Message successfully sent!</p>");
+			} else {
+				echo("<p>Message delivery failed...</p>");
+			}
 		}
 	}
 ?>
