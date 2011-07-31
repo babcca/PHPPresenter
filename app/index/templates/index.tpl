@@ -97,7 +97,7 @@
 		</tr>
 	</table>
 </div>
-<div class="bar2" style="background-color: #7f7f6c; text-align: center; color: #FFF; height: 40px;">Footer</div>
+<div style="background-color: #7f7f6c; text-align: center; color: #FFF; height: 40px;">Footer</div>
 <script type="text/javascript"> Cufon.now(); </script>
 </body>
 </html>
