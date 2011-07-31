@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require_once dirname(__file__).'/../lib/controller.php';
 	require_once dirname(__file__).'/../lib/application_manager.php';
 	require_once dirname(__file__).'/../lib/render.php';
@@ -17,9 +18,10 @@
 			$this->write(microtime() - $this->b);
 		}
 	}
+	
 	dibi::connect(array(
 		'driver'=>'mysql',
-		'username'=> 'd6811_barbora____',
+		'username'=> 'w6811_barbora',
 		'password'=>'Kverty246',
 		'host'=>($_SERVER['SERVER_NAME'] != 'apartments-barbora.com' ? 'localhost' : 'wm8.wedos.net'),
 		'database'=>'d6811_barbora',

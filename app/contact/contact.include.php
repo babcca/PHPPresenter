@@ -10,7 +10,8 @@
 								"class"=>"contact",
 								"method"=>"contact_us",
 								"params"=>array("text_id"=>"%(.*)", "lang"=>"%(.*)")));
-	Presenter::view("contact", array(
+	
+	Presenter::method("contact", array(
 								"class"=>"contact_model",
 								"method"=>"contact_email",
 								"params"=>array("name"=>"%([^<>]+)",

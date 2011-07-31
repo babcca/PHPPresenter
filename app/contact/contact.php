@@ -13,14 +13,13 @@
 		public function contact_us($text_id, $lang) {
 			$contact = dibi::query("select * from [contact_contacts] cc inner join [page_content] pc on [pc.id] = %i where [cc.id]=1", $text_id)->fetch();
 			$this->get_translate($lang);
+			//$this->get_form_data();
 			return $this->parse("contact.tpl", $contact);
 		}
 	}
 	
 	class contact_model {
 		public function contact_email($name, $email, $message, $phone) {
-			echo "$name, $email, $message, $phone";
-			
 			$to = "kolesar.martin@gmail.com";
 			$subject = "NO-REPLY | Apartments Barbora - Quick Contact Message";
 			$body = '<html>

@@ -1,4 +1,6 @@
-<?php 
+<?php
+	require_once dirname(__file__).'/language_loader.php';
+	 
 	class URLParser {
 		// 0 - get|post 1 - /app/view/param1/.../?opt1=val&...
 		private $url_type = 0;
@@ -8,9 +10,6 @@
 		 */
 		public static function parse($keyword) {
 			switch ($_SERVER['REQUEST_METHOD']) {
-				case 'POST':
-					return $_POST;
-					break;
 				case 'GET':
 					return $_GET;
 					break;
@@ -28,47 +27,61 @@
 		}
 	}
 	
-	class LanguageLoader {
-		private static $translate_table = array();
-		public static function load_language($lang, &$table) {
-			if (array_key_exists($lang, self::$translate_table)) $table = self::$translate_table[$lang];
-			else {
-				$lang_file = dirname(__file__).'/../app/index/translate/'.$lang.'.php';
-				if (!is_file($lang_file)) return false;
-				require_once $lang_file;
-				self::$translate_table[$lang] = $ttable;
-				$table = self::$translate_table[$lang];
-			}
-			return true;
-		}
-	}
 	class Controller {
-		private $callbacks = array();
+		private $callbacks_view = array();
+		private $callbacks_method = array();
 		public $post_refresh = true;
 		public $use_default = false;
+		public $error;
+		public $warning;
+		
 		public function __construct() {
+			$this->error = array();
+			$this->warning = array();
+		}
+				
+		public function run() {
+			switch ($_SERVER['REQUEST_METHOD']) {
+				case 'GET':
+					$this->run_view();
+					break;
+				case 'POST':
+					$this->run_method();
+					break;
+				default:
+					break;
+			}
 		}
 		
 		public function call($app, $method, $params = array()) {
 			ApplicationManager::instance()->import($app);
-			$data = $this->callbacks[$app]->$method;
+			$data = $this->callbacks_view[$app]->$method;
 			if ($data == null) { throw new Exception("Address not found", 0); }
 			//check_permision($data);
 			return $this->call_method($data, $params);	
 		}
 		
+		public function run_method() {
+			$url = $_POST;
+			ApplicationManager::instance()->import($url["app"]);
+			$data = $this->callbacks_method[$url['app']]->$url['method'];
+			if ($data == null) { throw new Exception("Address not found", 0); }
+			$_SESSION["backup"][$url["app"]]["__return"] = $this->call_method($data, $url, $this->use_default);
+			if ($this->post_refresh) header('location: '. $_SERVER['REQUEST_URI']);
+		}
 		
-		public function run() {
-			$t = new Timer();
-			$t->start();
+		public function run_view() {
 			$url = URLParser::parse(NULL);
 			ApplicationManager::instance()->import($url["app"]);
-			$data = $this->callbacks[$url['app']]->$url['method'];
-			if ($data == null) { throw new Exception("Address not found", 0); }
+			$data = $this->callbacks_view[$url['app']]->$url['method'];
+			if ($data == null) { 
+					header("HTTP/1.0 404 Not Found");
+					header("Location: /?app=index&method=error404");
+					//throw new Exception("Address not found", 0);
+			}
 			//check_permision($data);
+			//if (isset($_SESSION["backup"][$url["app"]])) 
 			$this->call_method($data, $url, $this->use_default);
-			$t->stop();
-			if (($_SERVER['REQUEST_METHOD'] == 'POST') && $this->post_refresh) header('location: '. $_SERVER['REQUEST_URI']);
 		}
 		
 		public function parse_extended($what, $where, $use_default) {
@@ -76,12 +89,14 @@
 			foreach ($what as $param=>$pattern) {
 				if (!array_key_exists($param, $where)) {
 					if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
-						else { throw new Exception("Expected parameter $param", 0); } 
+						else { $this->error[] = array("parameter_expected", $aparam, 0); } 
 					} else if (!$this->check_param($where[$param], $pattern)) {
 						if ($use_default === true) {
-							if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
-							else throw new Exception("Bad parameter $param format", 0);
-						} else { throw new Exception("Bad parameter $param format", 0); }
+							if (preg_match('#\[(\w+)\]$#', $pattern, $default)) {
+									$parameters[$param] = $default[1];
+							}
+							else $this->error[] = array("parameter_format", $param, 0);
+						} else { $this->error[] = array("parameter_format", $param, 0); }
 					} else { $parameters[$param] = $where[$param]; }
 			}
 			return $parameters;
@@ -102,6 +117,7 @@
 				return preg_match("&^{$regexp[1]}$&", $param) == true;
 			} else return false;
 		}
+		
 		/**
 		 * @param app = application_name
 		 * @param Array $callback = array(
@@ -112,12 +128,18 @@
 		 * 				"login" => True | False,
 		 * 				"groups" => array("group1", ...)
 		 */
-		public function register_callback($app, $callback) {
-			if (!array_key_exists($app, $this->callbacks)) $this->callbacks[$app] = new callback_struct();
-			$this->callbacks[$app]->insert($callback);
+		public function register_view($app, $callback) {
+			if (!array_key_exists($app, $this->callbacks_view)) $this->callbacks_view[$app] = new callback_struct();
+			$this->callbacks_view[$app]->insert($callback);
+		}
+		
+		public function register_method($app, $callback) {
+			if (!array_key_exists($app, $this->callbacks_method)) $this->callbacks_method[$app] = new callback_struct();
+			$this->callbacks_method[$app]->insert($callback);
 		}
 		
 	}
+	
 	class callback_struct {
 		private $_data = array();
 		public function insert($value) {
@@ -138,7 +160,10 @@
 	class Presenter {
 		public static $controller;
 		public static function view($app, $callback_struct) {
-			self::$controller->register_callback($app, $callback_struct);
+			self::$controller->register_view($app, $callback_struct);
+		}
+		public static function method($app, $callback_struct) {
+			self::$controller->register_method($app, $callback_struct);	
 		}
 	}
 

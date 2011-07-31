@@ -10,5 +10,8 @@
 			$this->get_translate($lang);
 			$this->write('index.tpl', $page);
 		}
+		public function error404() {
+			$this->write('404.tpl');
+		}
 	}
 ?>
