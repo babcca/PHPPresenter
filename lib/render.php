@@ -119,13 +119,14 @@
 	// call aplication from smarty, parcial derivation of index
 	function smarty_function_call_app($param, $template) {
 		$params = array();
-		if (!$param['param'] == '') {
-			$queryParts = explode(',', $param['param']); 
-	    	foreach ($queryParts as $p) { 
-	        	$item = explode('=', $p); 
-	        	$params[$item[0]] = $item[1]; 
-	    	} 
-		}
+
+		$queryParts = explode(',', $param['param']); 
+    	foreach ($queryParts as $p) { 
+    		if ($p == '') continue;
+        	$item = explode('=', $p); 
+        	$params[$item[0]] = $item[1]; 
+    	} 
+
 		return Presenter::$controller->call($param['app'], $param['method'], $params);
 	}
 	
