@@ -1,14 +1,8 @@
 /*CSS - Booking*/
-#wrapper {
-	margin: auto;
-	position: relative;
-	width: 650px;
-}
 .booking_info {
 	background-color: #7f7f6c;
 	padding: 10px;
 	margin-bottom: 10px;
-	color: #FFF;
 	height: 40px;
 }
 .booking_info img {
@@ -24,7 +18,7 @@
 	position: relative;
 	margin: 20px auto;
 }
-#booking_form label {
+.book_label {
 	display: inline;
 	float: left;
 	width: 170px;
