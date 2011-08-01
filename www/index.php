@@ -19,8 +19,8 @@
 	}
 	dibi::connect(array(
 		'driver'=>'mysql',
-		'username'=> '',
-		'password'=>'',
+		'username'=> 'w6811_barbora',
+		'password'=>'Kverty246',
 		'host'=>($_SERVER['SERVER_NAME'] != 'apartments-barbora.com' ? 'localhost' : 'wm8.wedos.net'),
 		'database'=>'d6811_barbora',
 		'charset'=>'utf8'

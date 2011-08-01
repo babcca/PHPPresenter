@@ -16,9 +16,9 @@
 		<input type="hidden" name="method" value="booking_email"> 
 		
 		<label>Check-in date:</label> 
-			<input readonly="readonly" class="text-input" type="text" id="date_from" name="date_from" size="15" /><br />
+			<input readonly="readonly" class="text-input" type="text" id="date_from2" name="date_from" size="15" /><br />
 		<label>Check-out date:</label> 
-			<input readonly="readonly" class="text-input" type="text" id="date_to" name="date_to" size="15" /><br />
+			<input readonly="readonly" class="text-input" type="text" id="date_to2" name="date_to" size="15" /><br />
 		<label>Guests:</label>
 			<select><option>1</option><option>2</option></select><br />
 		<label>Rooms:</label>
