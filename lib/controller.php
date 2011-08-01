@@ -28,6 +28,7 @@
 	}
 	
 	class Controller {
+		private $running_application = array();
 		private $callbacks_view = array();
 		private $callbacks_method = array();
 		public $post_refresh = true;
@@ -104,8 +105,17 @@
 		
 		private function call_method($data, $url, $use_default = false) {
 			$parameters = $this->parse_extended($data['params'], $url, $use_default);
-			$obj = new $data['class'];
-			return call_user_func_array(array($obj, $data['method']), $parameters);
+			if(!isset($this->running_application["{$data['class']}"])) {
+				//$app_info = ApplicationManager::instance()->get_application($url['app']);
+				$this->running_application["{$data['class']}"] = array(
+					//'app_data' => $app_info,
+					'app_object' => new $data['class']
+				);
+				/*if ($app_info->is_get_data_enable())*/ 
+			} 	
+			return call_user_func_array(array(
+				$this->running_application["{$data['class']}"]["app_object"],
+				$data['method']), $parameters);
 		}
 	
 		private function check_param($param, $pattern) {

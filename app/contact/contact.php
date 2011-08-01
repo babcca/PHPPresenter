@@ -13,13 +13,20 @@
 		public function contact_us($text_id, $lang) {
 			$contact = dibi::query("select * from [contact_contacts] cc inner join [page_content] pc on [pc.id] = %i where [cc.id]=1", $text_id)->fetch();
 			$this->get_translate($lang);
+			var_dump($this->get_data(__class__));
+			var_dump($_SESSION);
 			//$this->get_form_data();
 			return $this->parse("contact.tpl", $contact);
 		}
 	}
 	
-	class contact_model {
+	class contact_model extends AObject {
+		public function __construct() {
+			parent::__construct('contact');
+		}
+		
 		public function contact_email($name, $email, $message, $phone) {
+			$this->send_data_to_app(__CLASS__, "contact", "$name, $email, $message, $phone");
 			$to = "kolesar.martin@gmail.com";
 			$subject = "NO-REPLY | Apartments Barbora - Quick Contact Message";
 			$body = '<html>
@@ -35,7 +42,6 @@
 					</html>';
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			
 			//if (mail("$to", "$subject", "$body", "$headers")) {
 			//	echo("<p>Message successfully sent!</p>");
 			//} else {

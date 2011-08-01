@@ -9,10 +9,15 @@
 		 * @param String $app_name
 		 * @param Array $depends
 		 */
-		public function __construct($app_name, $depends = array()) {
+		public function __construct($app_name, $depends = array(), $get_data = true) {
 			$this->data["app"] = $app_name;
 			$this->data["depends"] = $depends;
+			if ($get_data) { $this->enable_get_data(); }
+			else { $this->disable_get_data(); }
 		}
+		public function is_get_data_enable() { return isset($_SESSION[$this->data["app"]]); }
+		public function enable_get_data() { $_SESSION[$this->data["app"]] = array(); }
+		public function disable_get_data() { unset($_SESSION[$this->data["app"]]); }
 		public function app() { return $this->data["app"]; }
 		public function depends() { return $this->data["depends"]; }
 	}
@@ -69,6 +74,10 @@
 			} else {
 				throw new Exception("Application $application_name not registred", 0); // TODO: Error code
 			}
+		}
+		
+		public function get_application($application_name) {
+			return $this->application_list[$application_name];
 		}
 	}
 ?>

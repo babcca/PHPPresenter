@@ -11,6 +11,18 @@
 		public function __construct($app) {
 			parent::__construct($app);
 		}
+		public function send_data_to_app($source, $dest, $data) {
+			if (isset($_SESSION[$dest])) {
+				$_SESSION[$dest][] = array($source, $data);
+			} else {
+				throw new Exception("SECURITY: Sending data to $dest is disable", 1);
+			}
+		}
+		public function get_data($w) {
+				return $_SESSION[$w];
+			
+		}
+
 		public function set_title($title) {}
 	}
 
