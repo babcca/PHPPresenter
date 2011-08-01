@@ -14,6 +14,9 @@
 	
 	class book_model {		
 		public function book_email($date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message) {
+			if ($parking == '0') { $parking = 'no'; };
+			if ($transfer == '0') { $transfer = 'no'; };
+			
 			echo "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message";
 			
 			$to = "kolesar.martin@gmail.com";
