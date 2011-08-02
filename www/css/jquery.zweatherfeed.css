@@ -1,0 +1,21 @@
+﻿@charset "UTF-8";
+/*
+ * Example of zWeatherFeed Styling
+ *
+ * Version: 1.0.2
+ * (c) Copyright 2011, Zazar Ltd
+ *
+ */
+
+ .weatherFeed {
+	width: 220px;
+}
+.weatherFeed div {
+	display: inline;
+}
+.weatherItem {
+	text-align: left;
+}
+.weatherDesc, .weatherCity { 
+	text-transform: uppercase;
+}

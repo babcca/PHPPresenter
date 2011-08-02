@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/contact.css" />
 	<link rel="stylesheet" type="text/css" href="/css/book.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.zweatherfeed.css" media="screen" />
     
 	<script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
@@ -17,6 +18,7 @@
 	<script src="/js/font.js" type="text/javascript"></script>
 	<script src="/js/init.js" type="text/javascript"></script>
 	<script src="/js/slider.js" type="text/javascript"></script>
+	<script src="/js/jquery.zweatherfeed.js" type="text/javascript"></script>
 	
 	<title>Pension Barbora | {$title}</title>
 </head>
@@ -91,8 +93,8 @@
 			<td class="right-box">
 				{call_app app='contact' method='quick_contact' param="lang=$lang"}
 				<div class="box">
-					<h1>WEATHER INFO</h1><br/>
-					<b>Local weather:</b> 24 &deg;C | Sunny<br/>
+					<h1>WEATHER INFO</h1>
+					<div id="weather" class="weatherFeed"></div>
 				</div>
 			</td>
 		</tr>
