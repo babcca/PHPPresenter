@@ -3,8 +3,8 @@ html {
 	background: #d9d7ce url(../img/background.png) repeat-x;
 }
 body {
-	padding: 0;
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 table {
@@ -71,17 +71,16 @@ table {
 .menu a, a:visited { color: #363636; text-decoration: none; }
 .menu a:hover {color: #FFF; }
 .menu ol {
-	padding: 0;
-	padding-left: 5px;
-	margin: 0;
+	padding: 0px;
+	padding-left: 10px;
+	margin: 0px;
 	height: 40px;
 	line-height: 40px;
 	width: auto;
 }
 .menu li {
 	display: inline-block;
-	padding: 0;
-	margin-left: 5px;
+	padding: 0px;
 	margin-right: 10px;
 	height: 40px;
 	line-height: 40px;
@@ -90,8 +89,8 @@ table {
 
 .page-content {
 	border: none;
-	padding: 0;
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
 	width: 930px;
 }
 
@@ -126,12 +125,12 @@ table {
 	margin-bottom: 15px;
 }
 .box p {
-	margin :0;
-	padding: 0;
+	margin :0px;
+	padding: 0px;
 }
 .box h1 {
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	font-size: 12pt;
 }
 

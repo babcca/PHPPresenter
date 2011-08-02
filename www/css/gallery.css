@@ -1,14 +1,19 @@
-.gallery {	
-	width: 650px;
+.gallery {
+	width: 660px;
+	position: relative;
+	margin: auto;
 }
 .gallery a {
+	float: left;
 	text-decoration: none;
-	padding-right: 6px;
+	border: 0px none;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .gallery img {
 	border: 5px solid #cecece;
-	width: 200px;
-	height: 130px;
+	width: 145px;
+	height: 100px;
 }
 .gallery img:hover {
 	border-color: #757575;
