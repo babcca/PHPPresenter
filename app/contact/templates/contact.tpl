@@ -7,9 +7,9 @@
 			<div><b>Penzion Barbora</b></div>
 			<div><i>Adresa nekde 1023/34, 140 11 Praha 11</i></div>
 			<br />
-			<img src="/img/mobile_phone.png" title="{$trans.mobile_phone}" alt="{$trans.mobile_phone}"/> {$mobile_phone}<br/>
-			<img src="/img/phone.png" title="{$trans.phone}" alt="{$trans.phone}" /> {$telephone}<br/>
-			<img src="/img/mail.png" title="{$trans.email}" alt="{$trans.email}" /> {mailto address=$email encode="hex"}<br/>
+			<img src="/img/mobile_phone_i.png" title="{$trans.mobile_phone}" alt="{$trans.mobile_phone}"/> {$mobile_phone}<br/>
+			<img src="/img/phone_i.png" title="{$trans.phone}" alt="{$trans.phone}" /> {$telephone}<br/>
+			<img src="/img/mail_i.png" title="{$trans.email}" alt="{$trans.email}" /> {mailto address=$email encode="hex"}<br/>
 		</td>
 		<td id="contact_form">
 		<form action="" method="post" enctype="multiple/form-data" id="ContactForm">
