@@ -87,7 +87,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="content">
+			<td class="content vtop">
 				{call_app app=$app method=$method param="$param,lang=$lang"}
 			</td>
 			<td class="right-box">
