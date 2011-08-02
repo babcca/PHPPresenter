@@ -2,15 +2,12 @@
 	// Deutsch page layout
 	$ttable = array(
 		// contact translate table
+		'more_information' => 'MEHR INFORMATION',
+		'weather_info' => 'WETTER-INFOS',
 		'phone' => 'Telefon',
 		'mobile_phone' => 'Handy',
 		'email'=>'Email',
-		'more_information' => 'MEHR INFORMATION',
-		'home' => array('home', 'Home'),
-		'location' => array('lage', 'Lage'),
-		'apartments' => array('zimmer', 'Zimmer'),
-		'booking' => array('reservierung', 'Reservierung'),
-		'gallery' => array('gallery', 'Gallery'),
-		'contact-us' => array('Kontakt', 'Kontakt')
+		'name'=>'Name',
+		'your_message'=>'Ihre nachricht'
 	);
 ?>

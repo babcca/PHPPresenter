@@ -9,7 +9,7 @@
 	Presenter::view("contact", array(
 								"class"=>"contact",
 								"method"=>"contact_us",
-								"params"=>array("text_id"=>"%(.*)", "lang"=>"%(.*)")));
+								"params"=>array("text_id"=>"%num", "lang"=>"%(.*)")));
 	Presenter::view("contact", array(
 								"class"=>"contact_model",
 								"method"=>"contact_email",

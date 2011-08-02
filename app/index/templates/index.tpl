@@ -93,7 +93,7 @@
 			<td class="right-box">
 				{call_app app='contact' method='quick_contact' param="lang=$lang"}
 				<div class="box">
-					<h1>WEATHER INFO</h1>
+					<h1>{$trans.weather_info}</h1>
 					<div id="weather" class="weatherFeed"></div>
 				</div>
 			</td>
