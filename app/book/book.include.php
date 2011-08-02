@@ -5,8 +5,14 @@
 	Presenter::view("book", array(
 								"class"=>"book",
 								"method"=>"book_form",
-								"params"=>array()
+								"params"=>array('lang'=>'%([a-z]{2})')
 								));
+	Presenter::view("book", array(
+								"class"=>"book",
+								"method"=>"quick_book_form",
+								"params"=>array('lang'=>'%([a-z]{2})')
+								));
+								
 	Presenter::view("book", array(
 								"class"=>"book_model",
 								"method"=>"book_email",

@@ -5,10 +5,13 @@
 			parent::__construct(__CLASS__);
 		}
 		
-		public function book_form() {
-			//$contact = dibi::query("select * from [contact_contacts] cc inner join [page_content] pc on [pc.id] = %i where [cc.id]=1", $text_id)->fetch();
-			//$this->get_translate($lang);
+		public function book_form($lang) {
+			$this->get_translate($lang);
 			return $this->parse("book.tpl");
+		}
+		public function quick_book_form($lang) {
+			$this->get_translate($lang);
+			return $this->parse("quick_book.tpl");
 		}
 	}
 	
