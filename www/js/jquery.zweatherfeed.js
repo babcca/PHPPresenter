@@ -27,7 +27,8 @@
 			highlow: false,
 			wind: false,
 			link: false,
-			showerror: false
+			showerror: false,
+			cufon: false
 		};  
 		var options = $.extend(defaults, options); 
 		
@@ -132,7 +133,7 @@
 		// Autor: Petr Babicka (babcca [at] gmail [dot] com)
 		// Add Cufon refresing 
 		// Because i can not binding event when all content is loaded
-		Cufon.refresh('#'+e.id);
+		if (options.cufon) Cufon.refresh('#'+e.id);
 	};
 
 	// Get time string as date
