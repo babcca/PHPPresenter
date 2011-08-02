@@ -128,6 +128,11 @@
 		if (row == 'odd') { row = 'even'; } else { row = 'odd';	}
 		
 		$e.append(html);
+		
+		// Autor: Petr Babicka (babcca [at] gmail [dot] com)
+		// Add Cufon refresing 
+		// Because i can not binding event when all content is loaded
+		Cufon.refresh('#'+e.id);
 	};
 
 	// Get time string as date

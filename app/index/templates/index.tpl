@@ -14,11 +14,11 @@
 	<script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/js/jquery.lightbox-0.5.js"></script>
+	<script src="/js/jquery.zweatherfeed.js" type="text/javascript"></script>
 	<script src="/js/cufon.js" type="text/javascript"></script>
 	<script src="/js/font.js" type="text/javascript"></script>
 	<script src="/js/init.js" type="text/javascript"></script>
 	<script src="/js/slider.js" type="text/javascript"></script>
-	<script src="/js/jquery.zweatherfeed.js" type="text/javascript"></script>
 	
 	<title>Pension Barbora | {$title}</title>
 </head>
