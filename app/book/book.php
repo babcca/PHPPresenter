@@ -14,8 +14,7 @@
 	
 	class book_model extends AObject {		
 		public function book_email($date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message) {
-			$this->send_message('book', "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message", __class__);
-			
+			$this->send_message('book', "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message", __class__);		
 			$to = "kolesar.martin@gmail.com";
 			$subject = "NO-REPLY | Apartments Barbora - Reservation request";
 			$body = '<html>
