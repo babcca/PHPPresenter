@@ -29,7 +29,8 @@
 			return array_pop(self::$queue);
 		}
 		
-		public static function dump() {
+		public static function dump($charset) {
+			header("Content-type: text/html; charset=$charset"); 
 			foreach (self::$queue as $data) { echo $data; }
 		}
 	};
@@ -41,7 +42,8 @@
 	 *
 	 */
 	class BRender extends Smarty {
-		static protected $head;
+		protected static $head;
+		public static $debug_data = array();
 		private $queue;
 		
 		public function __construct($app) {
@@ -54,7 +56,13 @@
 			/** TODO: Inicializace smarty */ 
 			$this->template_dir = dirname(__file__).'/../app/'.$app.'/templates';
 		}
-		
+		public function debug($data) {
+			switch (DEBUG_MODE) {
+				case 1:
+					self::$debug_data[] = $data;
+					break;
+			}
+		}
 		public function header($head) {
 		
 		}
@@ -83,7 +91,11 @@
 			BQueue::dump();
 		}
 	};
-	
+	function smarty_function_debug_info() {
+		foreach (BRender::$debug_data as $debug_msg) {
+			var_dump($debug_msg);
+		}
+	}
 	function smarty_block_admin_edit($params, $content, $template, &$repeat) {
 		if (!$repeat) {
 			if(isset($content)) {
