@@ -100,5 +100,8 @@
 </div>
 <div class="footer">Footer</div>
 <script type="text/javascript"> Cufon.now(); </script>
+<div class="debug_panel">
+{debug_info}
+</div>
 </body>
 </html>
