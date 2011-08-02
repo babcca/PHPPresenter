@@ -11,10 +11,10 @@
 	margin-bottom: 10px;
 }
 .gallery img {
-	border: 5px solid #cecece;
+	border: 5px solid #d2c9a4;
 	width: 145px;
 	height: 100px;
 }
 .gallery img:hover {
-	border-color: #757575;
+	border-color: #b2a984;
 }

@@ -29,41 +29,35 @@ table {
 	width: 930px;
 	height: 100%;
 }
-
 .head {
 	width: auto;
 	height: 90px;
 }
-
 .footer {
-	background-color: #7f7f6c; 
+	background-color: #8b815f; 
 	text-align: center; 
 	color: #FFF; 
 	height: 40px;
 }
-
 .logo {
 	margin-left: 10px;
 	width: 200px;
 	height: 90px;
 }
-
 .language-bar {
 	height: 80px;
 	width: 100px;
 	position: relative;
 	top: -80px;
-	left: 780px;
+	left: 860px;
 }
 .language-bar a, a:visited {
 	display: block;
 	text-decoration: none;
 }
-
 .language-bar img {
 	border: 0px;
 }
-
 .menu {
 	width: auto;
 	height: 40px;
@@ -86,24 +80,21 @@ table {
 	line-height: 40px;
 	list-style: none;
 }
-
 .page-content {
 	border: none;
 	padding: 0px;
 	margin: 0px;
 	width: 930px;
 }
-
 .right-box {
-	background-color: #cdcdba;
+	background-color: #d2c9a4;
 	vertical-align: top;
 	width: auto;
 	padding-left: 10px;
 	padding-right: 10px;
 }
-
 .slideshow {
-	background-color: #cdcdba;
+	background-color: #d2c9a4;
 	width: 670px;
 	height: auto;
 }
@@ -111,7 +102,6 @@ table {
 	padding-left: 10px;
 	padding-bottom: 10px;
 	padding-right: 0px;
-	
 }
 .content {
 	width: 670px;
@@ -133,7 +123,6 @@ table {
 	padding: 0px;
 	font-size: 12pt;
 }
-
 .book-form .text-input {
 	color: #b5b5b5;
 	border: none;

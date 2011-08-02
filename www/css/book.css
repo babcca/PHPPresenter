@@ -1,8 +1,9 @@
 /*CSS - Booking*/
 .booking_info {
-	background-color: #7f7f6c;
+	background-color: #8b815f;
 	padding: 10px;
 	margin-bottom: 10px;
+	color: #FFF;
 }
 .booking_info img {
 	float: left;
