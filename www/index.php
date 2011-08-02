@@ -1,9 +1,10 @@
 <?php 
+	
 	require_once dirname(__file__).'/../lib/controller.php';
 	require_once dirname(__file__).'/../lib/application_manager.php';
 	require_once dirname(__file__).'/../lib/render.php';
 	require_once dirname(__file__).'/../lib/dibi/dibi.php';
-
+	define("DEBUG_MODE", 1);
 	require_once dirname(__file__).'/../lib/aobject.php';
 	class Timer extends AObject {
 		private $b;
@@ -14,7 +15,7 @@
 			$this->b = microtime(null);
 		}
 		public function stop() {
-			$this->write(microtime() - $this->b);
+			$this->debug(microtime() - $this->b);
 		}
 	}
 	dibi::connect(array(
@@ -93,11 +94,13 @@
 		preg_match("#^%\((.*)\)#", $pattern, $regexp);
 		var_dump($fn);var_dump($enum);var_dump($regexp);var_dump($default);
 	}
+	session_start();
+//	session_destroy();
 	$app_manager = ApplicationManager::instance();
 	$app_manager->register(new Application("index", array(new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
 
 	$controller = new Controller();
 	Presenter::$controller = $controller;
 	$controller->run();
-	BQueue::dump();
+	BQueue::dump('utf-8');
 ?>
