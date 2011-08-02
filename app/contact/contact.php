@@ -13,14 +13,19 @@
 		public function contact_us($text_id, $lang) {
 			$contact = dibi::query("select * from [contact_contacts] cc inner join [page_content] pc on [pc.id] = %i where [cc.id]=1", $text_id)->fetch();
 			$this->get_translate($lang);
+			$msgs = $this->get_message('contact'); // get global message (only once)!!
+			$this->debug($msgs["contact_model"]); // shit :(
 			return $this->parse("contact.tpl", $contact);
 		}
 	}
 	
-	class contact_model {
+	class contact_model extends AObject {
+		public function __construct() {
+			parent::__construct('contact');
+		}
+		
 		public function contact_email($name, $email, $message, $phone) {
-			echo "$name, $email, $message, $phone";
-			
+			$this->send_message('contact', "$name, $email, $message, $phone", __class__);
 			$to = "kolesar.martin@gmail.com";
 			$subject = "NO-REPLY | Apartments Barbora - Quick Contact Message";
 			$body = '<html>
