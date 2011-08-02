@@ -5,14 +5,20 @@
 	 */
 	class Application {
 		public $data = array();
+		private $message_manager = true;
 		/**
 		 * @param String $app_name
 		 * @param Array $depends
 		 */
-		public function __construct($app_name, $depends = array()) {
+		public function __construct($app_name, $depends = array(), $messages = true) {
 			$this->data["app"] = $app_name;
 			$this->data["depends"] = $depends;
+			if ($messages) $this->enable_messages();
+			else $this->disable_messages();
 		}
+		public function is_messages_enable() { return isset($_SESSION[$this->data["app"]]); }
+		public function enable_messages() { $this->message_manger = true; }
+		public function disable_messages() { unset($_SESSION[$this->data["app"]]); }
 		public function app() { return $this->data["app"]; }
 		public function depends() { return $this->data["depends"]; }
 	}

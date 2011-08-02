@@ -9,7 +9,22 @@
 	class AObject extends BRender {
 		protected $db;
 		public function __construct($app) {
+			
 			parent::__construct($app);
+		}
+		public function send_message($dest, $data, $source) {
+			//if (isset($_SESSION[$dest])) {
+				$_SESSION[$dest][$source] = array($source, $data);
+			//} else {
+			//	throw new Exception("SECURITY: Sending data to $dest is disable", 1);
+			//}
+		}
+		public function get_message($id) {
+				if (!isset($_SESSION[$id])) return NULL;
+				$data = $_SESSION[$id];
+				unset($_SESSION[$id]);
+				return $data;
+				
 		}
 		public function set_title($title) {}
 	}
