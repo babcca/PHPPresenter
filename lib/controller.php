@@ -1,11 +1,9 @@
 <?php 
+	require_once dirname(__file__).'/language_loader.php';
+	
 	class URLParser {
-		// 0 - get|post 1 - /app/view/param1/.../?opt1=val&...
 		private $url_type = 0;
-		/**
-		 * @return array(param=>value, ...)
-		 * Enter description here ...
-		 */
+		
 		public static function parse($keyword) {
 			switch ($_SERVER['REQUEST_METHOD']) {
 				case 'POST':
@@ -27,25 +25,15 @@
 			return $url;	
 		}
 	}
-	
-	class LanguageLoader {
-		private static $translate_table = array();
-		public static function load_language($lang, &$table) {
-			if (array_key_exists($lang, self::$translate_table)) $table = self::$translate_table[$lang];
-			else {
-				$lang_file = dirname(__file__).'/../app/index/translate/'.$lang.'.php';
-				if (!is_file($lang_file)) return false;
-				require_once $lang_file;
-				self::$translate_table[$lang] = $ttable;
-				$table = self::$translate_table[$lang];
-			}
-			return true;
-		}
-	}
+
 	class Controller {
 		private $callbacks = array();
 		public $post_refresh = true;
 		public $use_default = false;
+		private $alowed_shortcut = array(
+				'%num'=>'[0-9]+',
+				'%string' => '[a-zA-Z ]+'
+		);
 		public function __construct() {
 		}
 		
@@ -92,9 +80,26 @@
 			$obj = new $data['class'];
 			return call_user_func_array(array($obj, $data['method']), $parameters);
 		}
-	
+		
+		/**
+		 * Return true when $param is validate by $pattern
+		 *  
+		 * @param string $param Checked string
+		 * @param pattern_type $pattern 
+		 * Awayble $pattaren:
+		 * 		%(regexp) => check by regexpresion
+		 * 		%<function> => check by function
+		 * 		%{enum,value} => check if $param is in enumeration
+		 * Shorcuts of $pattern:
+		 * 		%all => match with every input
+		 * 		%num => match with positove numbers
+		 * @return true when match is found otherwise false
+		 */
 		private function check_param($param, $pattern) {
-			if (preg_match("&^%\{((\w+)((, ?\w+)*))\}&", $pattern, $enum)) {
+			if (strstr($pattern, '%all')) return true;
+			else if (array_key_exists($pattern, $this->alowed_shortcut)) {
+				return preg_match("&^{$this->alowed_shortcut[$pattern]}$&", $param) == true;
+			} else if (preg_match("&^%\{((\w+)((, ?\w+)*))\}&", $pattern, $enum)) {
 				return array_search($param, explode(",", $enum[1])) !== false;
 			} else if (preg_match("&^%<(.*)>&", $pattern, $fn)) {
 				return $fn[1]($param) == true;
