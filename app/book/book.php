@@ -29,7 +29,7 @@
 			$uri = dibi::fetchSingle('select uri from [presenter] where [lang] = %s and [method] = %s', $lang, 'book_form');
 			$this->send_message('book/book_form',  $args, __class__);
 			// add url maker
-			header("Location: /?app=index&method=clanek&id=$uri&lang=$lang#book_form");
+			header("Location: ?app=index&method=clanek&id=$uri&lang=$lang#book_form");
 			exit(1);	
 		}
 		

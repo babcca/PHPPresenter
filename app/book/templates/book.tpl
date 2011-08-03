@@ -1,7 +1,7 @@
 <a name="book_form"></a>
 <div class="book-page">
 <div class="booking_info">
-	<img src="img/warning_icon.png" alt="warning icon" />
+	<img src="/img/warning_icon.png" alt="warning icon" />
 	Pre-Booking Info...	<br />
 	New Line...
 </div>
