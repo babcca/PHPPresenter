@@ -117,7 +117,9 @@
 		
 		// Add item data
 		html += '<div class="weatherCity">'+ feed.location.city +': </div>';
-		html += '<div class="weatherTemp">'+ feed.item.condition.temp +'&deg; | </div>';
+		// added options.unit after degree
+		// added | and :
+		html += '<div class="weatherTemp">'+ feed.item.condition.temp +'&deg;' + options.unit.toUpperCase() + ' | </div>';
 		html += '<div class="weatherDesc">'+ feed.item.condition.text +'</div>';
 		if (options.highlow) html += '<div class="weatherRange">High: '+ wf.high +'&deg; Low: '+ wf.low +'&deg;</div>';
 		if (options.wind) html += '<div class="weatherWind">Wind: '+ wd +' '+ feed.wind.speed + feed.units.speed +'</div>';

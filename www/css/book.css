@@ -26,3 +26,13 @@
 #submit_button {
 	float: right;
 }
+
+.quick-book-form {
+	margin: 0;
+	padding: 0;
+}
+.quick-book-form .text-input {
+	color: #b5b5b5;
+	border: none;
+	font-style: italic;
+}

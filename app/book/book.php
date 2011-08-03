@@ -6,16 +6,33 @@
 		}
 		
 		public function book_form($lang) {
+			if (($data = $this->get_message('book/book_form')) != null) {
+				$this->debug($data);
+				$this->assign('data', $data[1]);
+			}
 			$this->get_translate($lang);
 			return $this->parse("book.tpl");
 		}
 		public function quick_book_form($lang) {
 			$this->get_translate($lang);
-			return $this->parse("quick_book.tpl");
+			return $this->parse("quick_book.tpl", array('lang'=>$lang));
 		}
 	}
 	
-	class book_model extends AObject {		
+	class book_model extends AObject {	
+		public function __construct() {
+			parent::__construct('book');
+		}	
+		
+		public function redirect($lang, $from, $to, $rooms, $guests) {
+			$args = func_get_args();
+			$uri = dibi::fetchSingle('select uri from [presenter] where [lang] = %s and [method] = %s', $lang, 'book_form');
+			$this->send_message('book/book_form',  $args, __class__);
+			// add url maker
+			header("Location: /?app=index&method=clanek&id=$uri&lang=$lang#book_form");
+			exit(1);	
+		}
+		
 		public function book_email($date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message) {
 			$this->send_message('book', "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message", __class__);		
 			$to = "kolesar.martin@gmail.com";

@@ -6,8 +6,8 @@ Cufon.replace('#weather');
 
 // jquery initialization
 $(document).ready(function() {
+	calendar_button_init(['date_from_quick', 'date_to_quick'], 0, 'dd-mm-yy');
 	calendar_button_init(['date_from', 'date_to'], 0, 'dd-mm-yy');
-	calendar_button_init(['date_from2', 'date_to2'], 0, 'dd-mm-yy');
 	$('#gallery a').lightBox();
 	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	//$('#slider').slider();

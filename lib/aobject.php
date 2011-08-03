@@ -14,7 +14,7 @@
 		}
 		public function send_message($dest, $data, $source) {
 			//if (isset($_SESSION[$dest])) {
-				$_SESSION[$dest][$source] = array($source, $data);
+				$_SESSION[$dest]= array($source, $data);
 			//} else {
 			//	throw new Exception("SECURITY: Sending data to $dest is disable", 1);
 			//}

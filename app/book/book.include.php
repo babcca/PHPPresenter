@@ -12,7 +12,16 @@
 								"method"=>"quick_book_form",
 								"params"=>array('lang'=>'%([a-z]{2})')
 								));
-								
+
+	Presenter::view('book', array(
+								"class"=>"book_model",
+								"method"=>"redirect",
+								"params" => array("lang"=>'%([a-z]{2})',
+												  "date_from_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})",
+												  "date_to_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})",
+												  "guests_quick"=>"%num",
+												  "rooms_quick"=>"%num")
+								));
 	Presenter::view("book", array(
 								"class"=>"book_model",
 								"method"=>"book_email",

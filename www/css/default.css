@@ -125,8 +125,13 @@ table {
 	padding: 0px;
 	font-size: 12pt;
 }
-.book-form .text-input {
-	color: #b5b5b5;
-	border: none;
-	font-style: italic;
+
+.submit-button {
+       border: none;
+       background: transparent url(../img/submit.png) no-repeat;
+       width: 45px;
+       height: 25px;
+}
+.submit-button:hover {
+       background: transparent url(../img/submit_h.png) no-repeat;
 }

@@ -64,13 +64,13 @@
 			foreach ($what as $param=>$pattern) {
 				if (!array_key_exists($param, $where)) {
 					if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
-						else { throw new Exception("Expected parameter $param", 0); } 
-					} else if (!$this->check_param($where[$param], $pattern)) {
-						if ($use_default === true) {
-							if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
-							else throw new Exception("Bad parameter $param format", 0);
-						} else { throw new Exception("Bad parameter $param format", 0); }
-					} else { $parameters[$param] = $where[$param]; }
+					else { throw new Exception("Expected parameter $param", 0); } 
+				} else if (!$this->check_param($where[$param], $pattern)) {
+					if ($use_default === true) {
+						if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
+						else throw new Exception("Bad parameter $param format", 0);
+					} else { throw new Exception("Bad parameter $param format", 0); }
+				} else { $parameters[$param] = $where[$param]; }
 			}
 			return $parameters;
 		}
