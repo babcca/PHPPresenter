@@ -113,7 +113,7 @@
 			}
 			$.ajax({
 				  type: 'POST',
-				  url: '/ajax.php',
+				  url: 'ajax.php',
 				  data: data,
 				  async: false, // need synchronou waiting :(, but i hope that be quick
 				  success: function(result) { 
