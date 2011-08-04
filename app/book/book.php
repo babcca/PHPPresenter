@@ -10,7 +10,7 @@
 		public function book_form($lang) {
 			if (($data = $this->get_message('book/book_form')) != null) {
 				$data[1][4] = $data[1][3] == 0 ? 3 : 1; // pocet pokoju
-				$this->assign('default', $data[1]);
+				$this->assign('default', $data[3]);
 			} else {
 				// LANG, OD, DO, HOSTU, POKOJU
 				$this->assign('default', array("$lang", '', '', '1', 1));

@@ -27,14 +27,28 @@
 			<label class="book_label">Arrival time:</label>
 			{html_select_time display_seconds=false use_24_hours=false minute_interval=15}
 			
-			<label class="book_label">Rooms count:</label>
-			<select id="rooms" name="rooms">
-			{html_options values=[1,2,3] output=[1,2,3] selected=$default.4}
+			<!--<label class="book_label">Rooms count:</label>-->
+			<select id="rooms" name="rooms" style="display: none;">
+			{html_options values=[3] output=[3] selected=$default.4}
 			</select><br />
-			<div id="guests_r0">			
-				<h2>First room properties</h2>
-				{include file='room_properties.tpl' index=0}
-			</div>			
+			<div class="accordion">
+				<h3><a href="#">First room properties</a></h3>
+				<div id="guests_r0">			
+					{include file='room_properties.tpl' index=0}
+				</div>
+			</div>
+			<div class="accordion">
+				<h3><a href="#">Second room properties</a></h3>
+				<div id="guests_r1">
+					{include file='room_properties.tpl' index=1}
+				</div>
+			</div>
+			<div class="accordion">
+				<h3><a href="#">Third room properties</a></h3>
+				<div id="guests_r2">
+					{include file='room_properties.tpl' index=2}
+				</div>	
+			</div>
 		</td>
 		<td class="vtop">
 			<label class="book_label">{$trans.name}:</label>
@@ -49,25 +63,11 @@
 			<label>{$trans.your_message}</label><br />
 			<textarea class="message" name="message" cols="35" rows="4" style="height:200px"></textarea><br />
 		</td>
-	</tr>
-	<tr>
-		<td>
-			<div id="guests_r1" style="{if $default.4 < 2}display: none{/if}">
-				<h2>Second room properties</h2>
-				{include file='room_properties.tpl' index=1}
-			</div>
-		</td>
-		<td>	
-			<div id="guests_r2" style="{if $default.4 < 3}display: none{/if}">
-				<h2>Third room properties</h2>
-				{include file='room_properties.tpl' index=2}
-			</div>			
-		</td>
-	</tr>
 	<tr>
 		<td colspan="2" class="right">
 				<input onclick="show_price('.calculator')" type="button" value="claculate" />
 		</td>
+	</tr>
 	</tr>
 </table>
 <div id="debugger"></div>

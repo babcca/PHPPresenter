@@ -19,7 +19,7 @@
 }
 
 .book_label {
-	width: 150px;
+	width: 140px;
 	display: inline-block;
 }
 
@@ -34,4 +34,13 @@
 	color: #b5b5b5;
 	border: none;
 	font-style: italic;
+}
+.accordion {
+	margin-top: 10px;
+}
+.accordion div {
+	font-size: 12px;
+}
+.accordion h3 {
+	font-size: 15px;
 }
