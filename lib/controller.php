@@ -69,6 +69,7 @@
 					} else { throw new Exception("Bad parameter $param format", 0); }
 				} else { $parameters[$param] = $where[$param]; }
 			}
+			
 			return $parameters;
 		}
 		
@@ -98,7 +99,7 @@
 		private function check_param($param, $pattern) {
 			if (strstr($pattern, '%all')) return true;
 			else if (array_key_exists($pattern, $this->alowed_shortcut)) {
-				return preg_match("&^{$this->alowed_shortcut[$pattern]}$&", $param) == true;
+				return preg_match("&^{$this->alowed_shortcut[$pattern]}&", $param) == true;
 			} else if (preg_match("&^%\{((\w+)((, ?\w+)*))\}&", $pattern, $enum)) {
 				return array_search($param, explode(",", $enum[1])) !== false;
 			} else if (preg_match("&^%<(.*)>&", $pattern, $fn)) {
