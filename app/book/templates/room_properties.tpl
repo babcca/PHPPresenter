@@ -12,7 +12,7 @@
 	</tr>
 	<tr>
 		<td class="book_label">Single beds count:</td>
-		<td></td>
+		<td><input name="beds_s_{$index}" type="radio" value="0" /></td>
 		<td><input name="beds_s_{$index}" type="radio" value="1" checked="checked"/></td>
 		<td><input name="beds_s_{$index}" type="radio" value="2" /></td>
 		<td><input name="beds_s_{$index}" type="radio" value="3" /></td>
@@ -24,7 +24,7 @@
 		<td><input name="beds_d_{$index}" type="radio" value="0" checked="checked"/></td>
 		<td><input name="beds_d_{$index}" type="radio" value="1"/></td>
 		<td><input name="beds_d_{$index}" type="radio" value="2"/></td>
-		<td><input name="beds_d_{$index}" type="radio" value="3"/></td>
+		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
