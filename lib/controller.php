@@ -47,15 +47,12 @@
 		
 		
 		public function run() {
-			$t = new Timer();
-			$t->start();
 			$url = URLParser::parse(NULL);
 			ApplicationManager::instance()->import($url["app"]);
 			$data = $this->callbacks[$url['app']]->$url['method'];
 			if ($data == null) { throw new Exception("Address not found", 0); }
 			//check_permision($data);
 			$this->call_method($data, $url, $this->use_default);
-			$t->stop();
 			if (($_SERVER['REQUEST_METHOD'] == 'POST') && $this->post_refresh) header('location: '. $_SERVER['REQUEST_URI']);
 		}
 		
@@ -77,6 +74,9 @@
 		
 		private function call_method($data, $url, $use_default = false) {
 			$parameters = $this->parse_extended($data['params'], $url, $use_default);
+			if (isset($data['params_array']) && $data['params_array'] = true) {
+				$parameters = array($parameters);
+			}
 			$obj = new $data['class'];
 			return call_user_func_array(array($obj, $data['method']), $parameters);
 		}

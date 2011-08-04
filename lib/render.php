@@ -74,7 +74,9 @@
 		public function write($template, $args_array = array()) {
 			BQueue::push($this->parse($template, $args_array));
 		}
-		
+		public function push($str) {
+			BQueue::push($str);
+		}
 		public function parse($template, $args_array = array()) {
 			foreach ($args_array as $k=>$v) {
 				$this->assign($k, $v);
