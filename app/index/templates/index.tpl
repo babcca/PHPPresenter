@@ -4,16 +4,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="/css/slider.css" />
-	<link rel="stylesheet" href="/css/humanity/jquery-ui-1.8.14.custom.css" />
+	<link rel="stylesheet" type="text/css" href="/css/humanity/jquery-ui-1.8.14.custom.css" />
 	<link rel="stylesheet" type="text/css" href="/css/gallery.css" />
 	<link rel="stylesheet" type="text/css" href="/css/contact.css" />
 	<link rel="stylesheet" type="text/css" href="/css/book.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.zweatherfeed.css" media="screen" />
     
-	<script src="http://code.jquery.com/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script src="/js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/js/jquery.lightbox-0.5.js"></script>
+	<script src="/js/jquery.lightbox-0.5.js" type="text/javascript"></script>
 	<script src="/js/jquery.zweatherfeed.js" type="text/javascript"></script>
 	<script src="/js/cufon.js" type="text/javascript"></script>
 	<script src="/js/font.js" type="text/javascript"></script>
