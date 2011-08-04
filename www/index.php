@@ -1,5 +1,5 @@
 <?php 
-	
+
 	require_once dirname(__file__).'/../lib/controller.php';
 	require_once dirname(__file__).'/../lib/application_manager.php';
 	require_once dirname(__file__).'/../lib/render.php';

@@ -15,6 +15,7 @@
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
 	<script src="/js/jquery.lightbox-0.5.js" type="text/javascript"></script>
 	<script src="/js/jquery.zweatherfeed.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/tiny_mce/jquery.tinymce.js"></script>	
 	<script src="/js/cufon.js" type="text/javascript"></script>
 	<script src="/js/font.js" type="text/javascript"></script>
 	<script src="/js/init.js" type="text/javascript"></script>

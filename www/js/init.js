@@ -9,11 +9,9 @@ $(document).ready(function() {
 	calendar_button_init(['date_from_quick', 'date_to_quick'], 0, 'dd-mm-yy');
 	calendar_button_init(['date_from', 'date_to'], 0, 'dd-mm-yy');
 	$('#gallery a').lightBox();
-	//$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
-	//$('#slider').slider();
-	$('#main_book_form').change(function(event) {
-		calculator(".calculator");
-	});
+	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
+	$('#slider').slider();
+	init_tinymce();
 });
 
 function calendar_button_init(element, min, dateF) {
@@ -48,18 +46,27 @@ function calculator(dest) {
 			transfer : $('#transfer').attr("checked")
 	}
 	if (!((data.date_from == '') || (data.date_to) == '')) {
-		$.post('/ajax.php', data, function(result) { $(dest).html(result); });
+		//$.post('/ajax.php', data, function(result) { $(dest).html(result); });
 	}
 }
 
+function init_tinymce() {
+   $('textarea.message').tinymce({
+      // Location of TinyMCE script
+      script_url : '/js/tiny_mce/tiny_mce.js',
 
+      // General options
+      theme : "advanced",
+      plugins : "lists,pagebreak,emotions,paste",
 
-
-function price_loader(dest_element) {
-	var data = $('#main_book_form').serializeArray();
-	data[1].value = 'calculate_price';
-	$.post('index.php', data, function(result) {
-		alert(result);
-		//alert($('#main_book_form').serialize());
-	})
+      // Theme options
+      theme_advanced_buttons1 : "bold,italic,underline,|,|,bullist,numlist,|,cut,copy,paste,pastetext,pasteword",
+      theme_advanced_buttons2 : "",
+      theme_advanced_buttons3 : "",
+      theme_advanced_toolbar_location : "top",
+      theme_advanced_toolbar_align : "left",
+      content_css : "/css/tinymce.css",
+      theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+      font_size_style_values : "10px,12px,13px,14px,16px,18px,20px"
+   });
 }
