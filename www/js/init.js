@@ -9,10 +9,12 @@ $(document).ready(function() {
 	calendar_button_init(['date_from_quick', 'date_to_quick'], 0, 'dd-mm-yy');
 	calendar_button_init(['date_from', 'date_to'], 0, 'dd-mm-yy');
 	$('#gallery a').lightBox();
-	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
+	//$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	//$('#slider').slider();
+	$('#main_book_form').change(function(event) {
+		calculator(".calculator");
+	});
 });
-//
 
 function calendar_button_init(element, min, dateF) {
 	var dates = $("#"+element[0]+", #"+element[1]).datepicker( {
@@ -32,4 +34,32 @@ function calendar_button_init(element, min, dateF) {
 			
 		}
 	});	
+}
+
+function calculator(dest) {
+	var data = {
+			app: 'book',
+			method: 'calculate_price',
+			date_from : $('#date_from').val(),
+			date_to : $('#date_to').val(),
+			guests : $('#guests').val(),
+			rooms : $('#rooms').val(),
+			parking : $('#parking').attr("checked"),
+			transfer : $('#transfer').attr("checked")
+	}
+	if (!((data.date_from == '') || (data.date_to) == '')) {
+		$.post('/ajax.php', data, function(result) { $(dest).html(result); });
+	}
+}
+
+
+
+
+function price_loader(dest_element) {
+	var data = $('#main_book_form').serializeArray();
+	data[1].value = 'calculate_price';
+	$.post('index.php', data, function(result) {
+		alert(result);
+		//alert($('#main_book_form').serialize());
+	})
 }

@@ -22,6 +22,17 @@
 												  "guests_quick"=>"%num",
 												  "rooms_quick"=>"%num")
 								));
+	Presenter::view('book', array(
+								"class"=>"book_model",
+								"method"=>"calculate_price",
+								"params_array"=>true,
+								"params" => array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
+												  "date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
+												  "guests"=>"%num",
+												  "rooms"=>"%num",
+												  "parking"=>"%all[false]",
+												  "transfer"=>"%all[false]")
+								));
 	Presenter::view("book", array(
 								"class"=>"book_model",
 								"method"=>"book_email",

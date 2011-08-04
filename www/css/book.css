@@ -13,18 +13,18 @@
 	font-size: 15pt;
 	font-weight: bold;
 }
-#booking_form {
-	width: 330px;
-	position: relative;
-	margin: 20px auto;
+
+.book_table {
+	text-align: left;
 }
+
 .book_label {
-	display: inline;
-	float: left;
-	width: 170px;
+	width: 150px;
+	display: inline-block;
 }
-#submit_button {
-	float: right;
+
+.book_panel {
+	width: 320px;
 }
 
 .quick-book-form {

@@ -1,6 +1,8 @@
 <?php
 	require_once dirname(__file__).'/../../lib/aobject.php';
 	class book extends AObject {
+		private $rooms = array (1,2,3);
+		private $max_guests = 5;
 		public function __construct() {
 			parent::__construct(__CLASS__);
 		}
@@ -33,6 +35,29 @@
 			exit(1);	
 		}
 		
+		public function calculate_price($form_data) {
+			//var_dump($form_data);
+			// price person per night
+			$day_tax = array(
+									/*  1p    2p   3p  >=4p */
+				/*   1 day => */ array(1450, 725, 700, 700),
+				/* >=2 day => */ array(1450, 725, 625, 550));
+			
+			// days count
+			$days = strtotime($form_data["date_to"]) - strtotime($form_data["date_from"]);
+			$days = $days / 86400; //24*60*60
+	
+			// get right table index
+			$day_index = min($days, 2) - 1;
+			$guest_index = min($form_data["guests"], 4) - 1;
+			// person_per_day * person_count * spending_nights
+			$price = $day_tax[$day_index][$guest_index]*$form_data["guests"]*$days;
+			// > 7 days => 10% down
+			if ($days > 7) $price = 0.9 * $price;
+			if ($form_data['parking'] != 'false') $price += 1000; // price for parking
+			if ($form_data['transfer'] != 'false') $price += 1000; // price for transport
+			$this->push("$price");
+		}
 		public function book_email($date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message) {
 			$this->send_message('book', "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message", __class__);		
 			$to = "kolesar.martin@gmail.com";
@@ -67,6 +92,15 @@
 			//} else {
 			//	echo("<p>Message delivery failed...</p>");
 			//}
+		}
+	}
+	
+	class commissions {
+		public static function commission($days, $person) {
+			$table = array(array(1, 0.5, 0.48, 0.48), array(1, 0.5, 0.43, 0.38));
+			$days = min($days, count($table));
+			$person = min($person, count($table[0]));
+			return $this->table[$days][$person];
 		}
 	}
 ?>
