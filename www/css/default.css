@@ -12,7 +12,7 @@ table {
 	border-collapse: collapse;
 	table-layout: fixed;
 }
-
+.right { text-align: right; }
 .vtop { vertical-align: top; }
 .bar1 {
 	width: 100%;
