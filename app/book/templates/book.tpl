@@ -13,38 +13,38 @@
 	<input type="hidden" name="method" value="book_email"> 
 	<table class="book_table">
 	<tr>
-		<th class="book_panel">Booking detail</th><th class="book_panel">Personal information</th>
+		<th class="book_panel">{$trans.booking_detail}</th><th class="book_panel">Personal information</th>
 	</tr>
 	<tr>
 		<td>
-			<label class="book_label">Check-in date:</label> 
+			<label class="book_label">{$trans.check_in_date}:</label> 
 			<input readonly="readonly" class="text-input" type="text" id="date_from" name="date_from" size="15" value="{$default.1}" /><br />
 	
-			<label class="book_label">Check-out date:</label> 
+			<label class="book_label">{$trans.check_out_date}:</label> 
 			<input readonly="readonly" class="text-input" type="text" id="date_to" name="date_to" size="15"  value="{$default.2}" /><br />
-			<label class="book_label">Transfer from airport:</label>
+			<label class="book_label">{$trans.transfer_from_airport}:</label>
 			<input type="checkbox" name="transfer" id="transfer" value="transfer" /><br />
-			<label class="book_label">Arrival time:</label>
+			<label class="book_label">{$trans.arrival_time}:</label>
 			{html_select_time display_seconds=false use_24_hours=false minute_interval=15}
 			
-			<!--<label class="book_label">Rooms count:</label>-->
+			<!--<label class="book_label">{$trans.rooms_count}:</label>-->
 			<select id="rooms" name="rooms" style="display: none;">
 			{html_options values=[3] output=[3] selected=$default.4}
 			</select><br />
 			<div class="accordion">
-				<h3><a href="#">First room properties</a></h3>
+				<h3><a href="#">{$trans.first_room_properties}:</a></h3>
 				<div id="guests_r0">			
 					{include file='room_properties.tpl' index=0}
 				</div>
 			</div>
 			<div class="accordion">
-				<h3><a href="#">Second room properties</a></h3>
+				<h3><a href="#">{$trans.second_room_properties}:</a></h3>
 				<div id="guests_r1">
 					{include file='room_properties.tpl' index=1}
 				</div>
 			</div>
 			<div class="accordion">
-				<h3><a href="#">Third room properties</a></h3>
+				<h3><a href="#">{$trans.third_room_properties}:</a></h3>
 				<div id="guests_r2">
 					{include file='room_properties.tpl' index=2}
 				</div>	
@@ -52,7 +52,7 @@
 		</td>
 		<td class="vtop">
 			<label class="book_label">{$trans.name}:</label>
-			<input type="text" name="name" size="20" /><br />
+			<span id="tooltip" original-title="ToolTip text :)"><input type="text" name="name" size="20" /></span><br />
 	
 			<label class="book_label">{$trans.email}:</label>
 			<input type="text" name="email" size="20" /><br />

@@ -10,7 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="/css/book.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.zweatherfeed.css" media="screen" />
-    
+	<link rel="stylesheet" type="text/css" href="/css/tipsy.css" media="screen" />
+	
 	<script src="/js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script src="/js/jquery-ui.js" type="text/javascript"></script>
 	<script src="/js/jquery.lightbox-0.5.js" type="text/javascript"></script>
@@ -20,6 +21,7 @@
 	<script src="/js/font.js" type="text/javascript"></script>
 	<script src="/js/init.js" type="text/javascript"></script>
 	<script src="/js/slider.js" type="text/javascript"></script>
+	<script src="/js/jquery.tipsy.js" type="text/javascript"></script>
 	
 	<title>Pension Barbora | {$title}</title>
 </head>
@@ -59,8 +61,8 @@
 			</td>
 			<td class="right-box">
 				<div class="box">
-					<h1>SPECIAL OFFER</h1>
-					<p>Rooms from 18 euro per night</p>
+					<h1>{$trans.special_offers}</h1>
+					<img src="/img/banner.png" alt="special offer banner" />
 				</div>
 				<div class="box">
 					{call_app app='book' method='quick_book_form' param="lang=$lang"}	

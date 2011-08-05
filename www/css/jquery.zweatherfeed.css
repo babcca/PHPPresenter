@@ -16,6 +16,6 @@
 .weatherItem {
 	text-align: left;
 }
-.weatherDesc, .weatherCity { 
+.weatherCity { 
 	text-transform: uppercase;
 }

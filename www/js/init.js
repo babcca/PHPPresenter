@@ -12,10 +12,14 @@ $(document).ready(function() {
 	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	$('#slider').slider();
 	init_tinymce();
-	$( ".accordion" ).accordion({
+	$('.accordion').accordion({
 			collapsible: true,
 			active: false
-		});;
+	});;
+});
+
+$(function() {
+		$('#tooltip').tipsy();
 });
 
 function calendar_button_init(element, min, dateF) {
