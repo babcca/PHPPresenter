@@ -12,7 +12,7 @@
 		<td><input name="guests_{$index}" type="radio" value="5" /></td>
 	</tr>
 	<tr>
-		<td class="book_label">{$trnas.single_beds_count}:</td>
+		<td class="book_label">{$trans.single_beds_count}:</td>
 		<td><input name="beds_s_{$index}" type="radio" value="0" checked="checked"/></td>
 		<td><input name="beds_s_{$index}" type="radio" value="1" /></td>
 		<td><input name="beds_s_{$index}" type="radio" value="2" /></td>
@@ -21,7 +21,7 @@
 		<td><input name="beds_s_{$index}" type="radio" value="5" /></td>
 	</tr>
 	<tr>
-		<td class="book_label">{$trnas.double_beds_count}:</td>
+		<td class="book_label">{$trans.double_beds_count}:</td>
 		<td><input name="beds_d_{$index}" type="radio" value="0" checked="checked"/></td>
 		<td><input name="beds_d_{$index}" type="radio" value="1"/></td>
 		<td><input name="beds_d_{$index}" type="radio" value="2"/></td>
