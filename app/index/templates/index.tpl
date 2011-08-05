@@ -55,7 +55,6 @@
 					         <img src="/img/logo.png" alt="xxx"/>
 					      </li>
 					   </ol>
-					   <div class="clear sliderImage"></div>
 					</div>  
 				</div>
 			</td>

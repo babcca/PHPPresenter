@@ -2,7 +2,7 @@
     $.fn.slider = function() {       
         
         var element     = this;
-        var time     	= 4000;
+        var time     	= 1000;
 		var fadeTime 	= 1000;
         var current     = null;
         var items       = $("#" + element[0].id + "Content ." + element[0].id + "Image");
@@ -15,8 +15,8 @@
 		
         var makeSlider = function() {
 			current = (current != null) ? current : items[0];
-            var currNo = jQuery.inArray(current, items) + 1
-            currNo = (currNo == items.length) ? 0 : (currNo - 1);
+            var currNo = jQuery.inArray(current, items) + 1;
+            currNo = (currNo == items.length + 1) ? 0 : (currNo - 1);
 
 			$(items[currNo]).fadeIn(fadeTime, function() {
 				setTimeout(function() {
