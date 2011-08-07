@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="/img/favicon.ico" />
+
 	<link rel="stylesheet" type="text/css" href="/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="/css/slider.css" />
 	<link rel="stylesheet" type="text/css" href="/css/humanity/jquery-ui-1.8.14.custom.css" />
