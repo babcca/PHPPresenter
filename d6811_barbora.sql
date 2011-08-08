@@ -43,22 +43,20 @@ CREATE TABLE `gallery` (
   `big` varchar(100) COLLATE utf8_bin NOT NULL,
   `desc` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `gallery` (`id`, `small`, `big`, `desc`) VALUES
-(3,	'/gallery_images/1.jpg',	'/gallery_images/1.jpg',	'popis obrazku'),
-(5,	'/gallery_images/2.jpg',	'/gallery_images/2.jpg',	'popis obrazku'),
-(6,	'/gallery_images/3.jpg',	'/gallery_images/3.jpg',	'popis obrazku'),
-(7,	'/gallery_images/4.jpg',	'/gallery_images/4.jpg',	'popis obrazku'),
-(8,	'/gallery_images/5.jpg',	'/gallery_images/5.jpg',	'popis obrazku'),
-(9,	'/gallery_images/6.jpg',	'/gallery_images/6.jpg',	'popis obrazku'),
-(10,'/gallery_images/7.jpg',	'/gallery_images/7.jpg',	'popis obrazku'),
-(11,'/gallery_images/8.jpg',	'/gallery_images/8.jpg',	'popis obrazku'),
-(12,'/gallery_images/9.jpg',	'/gallery_images/9.jpg',	'popis obrazku'),
-(13,'/gallery_images/10.jpg',	'/gallery_images/10.jpg',	'popis obrazku'),
-(14,'/gallery_images/11.jpg',	'/gallery_images/11.jpg',	'popis obrazku'),
-(15,'/gallery_images/12.jpg',	'/gallery_images/12.jpg',	'popis obrazku'),
-(16,'/gallery_images/13.jpg',	'/gallery_images/13.jpg',	'popis obrazku');
+(26,	'gallery_images//0db31d632f84b5cc330487dae134192b.jpg',	'gallery_images//0db31d632f84b5cc330487dae134192b.jpg',	'popis 7'),
+(25,	'gallery_images//adc8091c1ccde17da076c53142c14501.jpg',	'gallery_images//adc8091c1ccde17da076c53142c14501.jpg',	'Popis 5'),
+(22,	'gallery_images//e5b2072caf6f08aa9d026bb224a1d2f8.jpg',	'gallery_images//e5b2072caf6f08aa9d026bb224a1d2f8.jpg',	'Popis 2'),
+(23,	'gallery_images//74b1dd58af8d8908c791aa4cf3d808db.jpg',	'gallery_images//74b1dd58af8d8908c791aa4cf3d808db.jpg',	'Popis 3'),
+(24,	'gallery_images//9e8bafd522d3de5fef857a0be6971c23.jpg',	'gallery_images//9e8bafd522d3de5fef857a0be6971c23.jpg',	'Popis 4'),
+(21,	'gallery_images//f3b5a8d9bd09dd1ec693ddddfd1f21b5.jpg',	'gallery_images//f3b5a8d9bd09dd1ec693ddddfd1f21b5.jpg',	'Popis 1'),
+(27,	'gallery_images//759e2caf6fc3bf58d906a3d8538c69fe.jpg',	'gallery_images//759e2caf6fc3bf58d906a3d8538c69fe.jpg',	'Popis 8'),
+(28,	'gallery_images//9d28cb20ed4ae0e31ab7411ecdd53c36.jpg',	'gallery_images//9d28cb20ed4ae0e31ab7411ecdd53c36.jpg',	'popis 9'),
+(29,	'gallery_images//4b9c89babbbf164e99528c2019cefe47.jpg',	'gallery_images//4b9c89babbbf164e99528c2019cefe47.jpg',	'popis 10'),
+(30,	'gallery_images//61d952211151f92070cbbcc546b6000b.jpg',	'gallery_images//61d952211151f92070cbbcc546b6000b.jpg',	'popis 12'),
+(31,	'gallery_images//6b9d6b441a0e1b7e9de0044433d66c65.jpg',	'gallery_images//6b9d6b441a0e1b7e9de0044433d66c65.jpg',	'popis 13');
 
 DROP TABLE IF EXISTS `page_content`;
 CREATE TABLE `page_content` (
@@ -66,15 +64,21 @@ CREATE TABLE `page_content` (
   `title` char(100) CHARACTER SET utf8 COLLATE utf8_czech_ci NOT NULL,
   `text` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `page_content` (`id`, `title`, `text`) VALUES
-(1,	'About us',	'<p> \nLorem ipsum dolor sit amet, consectetur adipiscing elit. In a ipsum augue. Vivamus cursus vulputate mi. Nulla pharetra lectus id libero vehicula vel venenatis magna dictum. Aenean feugiat ligula magna, sit amet suscipit enim. Duis vestibulum nunc vitae lorem egestas feugiat vel at felis. Suspendisse blandit, est id imperdiet venenatis, turpis metus interdum purus, consequat vehicula orci sapien in neque. Praesent vulputate aliquet velit consequat tempor. Praesent feugiat interdum dui, sit amet ornare dui rutrum quis. Mauris hendrerit cursus risus, quis adipiscing ante tristique sit amet. Duis diam felis, consequat eu ornare nec, rhoncus non massa. Duis dui ligula, ornare a faucibus ac, pulvinar sed sapien. Vivamus rhoncus lacinia eros, in accumsan sapien iaculis in. Maecenas sit amet lorem at ipsum tincidunt fringilla.\n</p> \n<p> \nAenean euismod diam ut tortor scelerisque dapibus. Duis porta porta ligula, eu aliquet erat commodo ac. Donec et tortor tortor, eu tincidunt urna. Sed malesuada rutrum venenatis. Fusce erat erat, posuere in vulputate fermentum, cursus ut tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse malesuada nunc in massa tincidunt interdum. Pellentesque a ligula dui. Etiam nec enim orci, vitae pulvinar dui. Pellentesque laoreet ullamcorper libero nec tincidunt. Proin hendrerit consectetur elit a vestibulum. Proin aliquet, orci eget consectetur adipiscing, sem quam facilisis eros, et pellentesque massa nulla quis urna. Maecenas tempus suscipit leo mollis dapibus. Nulla ut odio vel nunc euismod pharetra sit amet et tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n</p>'),
-(2,	'O nas',	'<p> \nLorem ipsum dolor sit amet, consectetur adipiscing elit. In a ipsum augue. Vivamus cursus vulputate mi. Nulla pharetra lectus id libero vehicula vel venenatis magna dictum. Aenean feugiat ligula magna, sit amet suscipit enim. Duis vestibulum nunc vitae lorem egestas feugiat vel at felis. Suspendisse blandit, est id imperdiet venenatis, turpis metus interdum purus, consequat vehicula orci sapien in neque. Praesent vulputate aliquet velit consequat tempor. Praesent feugiat interdum dui, sit amet ornare dui rutrum quis. Mauris hendrerit cursus risus, quis adipiscing ante tristique sit amet. Duis diam felis, consequat eu ornare nec, rhoncus non massa. Duis dui ligula, ornare a faucibus ac, pulvinar sed sapien. Vivamus rhoncus lacinia eros, in accumsan sapien iaculis in. Maecenas sit amet lorem at ipsum tincidunt fringilla.\n</p> \n<p> \nAenean euismod diam ut tortor scelerisque dapibus. Duis porta porta ligula, eu aliquet erat commodo ac. Donec et tortor tortor, eu tincidunt urna. Sed malesuada rutrum venenatis. Fusce erat erat, posuere in vulputate fermentum, cursus ut tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse malesuada nunc in massa tincidunt interdum. Pellentesque a ligula dui. Etiam nec enim orci, vitae pulvinar dui. Pellentesque laoreet ullamcorper libero nec tincidunt. Proin hendrerit consectetur elit a vestibulum. Proin aliquet, orci eget consectetur adipiscing, sem quam facilisis eros, et pellentesque massa nulla quis urna. Maecenas tempus suscipit leo mollis dapibus. Nulla ut odio vel nunc euismod pharetra sit amet et tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\n</p>'),
+(1,	'About us',	'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a ipsum augue. Vivamus cursus vulputate mi. Nulla pharetra lectus id libero vehicula vel venenatis magna dictum. Aenean feugiat ligula magna, sit amet suscipit enim. Duis vestibulum nunc vitae lorem egestas feugiat vel at felis. Suspendisse blandit, est id imperdiet venenatis, turpis metus interdum purus, consequat vehicula orci sapien in neque. Praesent vulputate aliquet velit consequat tempor. Praesent feugiat interdum dui, sit amet ornare dui rutrum quis. Mauris hendrerit cursus risus, quis adipiscing ante tristique sit amet. Duis diam felis, consequat eu ornare nec, rhoncus non massa. Duis dui ligula, ornare a faucibus ac, pulvinar sed sapien. Vivamus rhoncus lacinia eros, in accumsan sapien iaculis in. Maecenas sit amet lorem at ipsum tincidunt fringilla.</p>'),
+(2,	'O nas',	'<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a ipsum augue. Vivamus cursus vulputate mi. Nulla pharetra lectus id libero vehicula vel venenatis magna dictum. Aenean feugiat ligula magna, sit amet suscipit enim. Duis vestibulum nunc vitae lorem egestas feugiat vel at felis. Suspendisse blandit, est id imperdiet venenatis, turpis metus interdum purus, consequat vehicula orci sapien in neque. Praesent vulputate aliquet velit consequat tempor. Praesent feugiat interdum dui, sit amet ornare dui rutrum quis. Mauris hendrerit cursus risus, quis adipiscing ante tristique sit amet. Duis diam felis, consequat eu ornare nec, rhoncus non massa. Duis dui ligula, ornare a faucibus ac, pulvinar sed sapien. Vivamus rhoncus lacinia eros, in accumsan sapien iaculis in. Maecenas sit amet lorem at ipsum tincidunt fringilla.</p>\r\n<p>Aenean euismod diam ut tortor scelerisque dapibus. Duis porta porta ligula, eu aliquet erat commodo ac. Donec et tortor tortor, eu tincidunt urna. Sed malesuada rutrum venenatis. Fusce erat erat, posuere in vulputate fermentum, cursus ut tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse malesuada nunc in massa tincidunt interdum. Pellentesque a ligula dui. Etiam nec enim orci, vitae pulvinar dui. Pellentesque laoreet ullamcorper libero nec tincidunt. Proin hendrerit consectetur elit a vestibulum. Proin aliquet, orci eget consectetur adipiscing, sem quam facilisis eros, et pellentesque massa nulla quis urna. Maecenas tempus suscipit leo mollis dapibus. Nulla ut odio vel nunc euismod pharetra sit amet et tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>'),
 (3,	'Home',	'home page'),
 (5,	'Gallerie obrazku',	'Uvodni text k galerii obrazku'),
 (6,	'Kontakni informace - Misto pro Vas dotaz',	'Pokud máte jakýkoli dotaz ohledně ubytování ve vile Barbora v Praze, prosím neváhejte nám napsat nebo zatelefonovat. Děkujeme a těšíme se na osobní setkání s vámi.'),
-(7,	'Galerie obrazku',	'Vitejte v galerii obrazku');
+(7,	'Galerie obrazku',	'Vitejte v galerii obrazku'),
+(8,	'Home',	'home page'),
+(9,	'title',	'<p>content2222</p>'),
+(10,	'title',	'<p>content</p>'),
+(11,	'title',	'content'),
+(12,	'title',	'content2'),
+(4,	'Our Apartments',	'<p>apartments description and more more</p>');
 
 DROP TABLE IF EXISTS `presenter`;
 CREATE TABLE `presenter` (
@@ -90,17 +94,17 @@ CREATE TABLE `presenter` (
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `presenter` (`id`, `uri`, `position`, `title`, `lang`, `app`, `method`, `param`) VALUES
-(6,	'gallery',	5,	'Gallery',	'en',	'gallery',	'generate',	'text_id=7'),
-(2,	'home',	1,	'Homepage',	'en',	'page',	'show',	'text_id=1'),
-(3,	'location',	2,	'Pension location',	'en',	'page',	'show',	'text_id=2'),
-(4,	'apartments',	3,	'Apartments',	'en',	'page',	'show',	'text_id=3'),
-(5,	'booking',	4,	'Booking apartment',	'en',	'book',	'book_form',	''),
+(6,	'gallery',	5,	'Gallery',	'en',	'gallery',	'generate',	'text_id=1'),
+(2,	'home',	1,	'Homepage',	'en',	'page',	'show',	'text_id=2'),
+(3,	'location',	2,	'Pension location',	'en',	'page',	'show',	'text_id=3'),
+(4,	'apartments',	3,	'Apartments',	'en',	'page',	'show',	'text_id=4'),
+(5,	'booking',	4,	'Booking apartment',	'en',	'book',	'book_form',	'text_id=5'),
 (7,	'contact-us',	6,	'Contact us',	'en',	'contact',	'contact_us',	'text_id=6'),
 (9,	'gallery',	5,	'Galerie',	'de',	'gallery',	'generate',	'text_id=7'),
-(10,	'homen',	1,	'Homepage',	'de',	'page',	'show',	'text_id=1'),
-(11,	'lage',	2,	'Pension Lage',	'de',	'page',	'show',	'text_id=2'),
-(12,	'zimmer',	3,	'Zimmer',	'de',	'page',	'show',	'text_id=3'),
-(13,	'buchung',	4,	'Buchung Wohnung',	'de',	'book',	'book_form',	''),
-(14,	'kontaktieren-uns',	6,	'Kontaktieren Sie uns',	'de',	'contact',	'contact_us',	'text_id=6');
+(10,	'homen',	1,	'Homepage',	'de',	'page',	'show',	'text_id=8'),
+(11,	'lage',	2,	'Pension Lage',	'de',	'page',	'show',	'text_id=9'),
+(12,	'zimmer',	3,	'Zimmer',	'de',	'page',	'show',	'text_id=10'),
+(13,	'buchung',	4,	'Buchung Wohnung',	'de',	'book',	'book_form',	'text_id=11'),
+(14,	'kontaktieren-uns',	6,	'Kontaktieren Sie uns',	'de',	'contact',	'contact_us',	'text_id=12');
 
--- 2011-07-29 05:17:25
+-- 2011-08-08 04:07:59
