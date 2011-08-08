@@ -95,7 +95,6 @@
 		var_dump($fn);var_dump($enum);var_dump($regexp);var_dump($default);
 	}
 	session_start();
-//	session_destroy();
 	$app_manager = ApplicationManager::instance();
 	$app_manager->register(new Application("index", array(new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
 
@@ -103,4 +102,6 @@
 	Presenter::$controller = $controller;
 	$controller->run();
 	BQueue::dump('utf-8');
+	// save one level old url :)
+	$_SESSION["__bab"]["previous_uri"] = $_SERVER['REQUEST_URI'];
 ?>
