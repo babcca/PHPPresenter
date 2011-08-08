@@ -50,7 +50,15 @@ INSERT INTO `gallery` (`id`, `small`, `big`, `desc`) VALUES
 (5,	'/gallery_images/2.jpg',	'/gallery_images/2.jpg',	'popis obrazku'),
 (6,	'/gallery_images/3.jpg',	'/gallery_images/3.jpg',	'popis obrazku'),
 (7,	'/gallery_images/4.jpg',	'/gallery_images/4.jpg',	'popis obrazku'),
-(8,	'/gallery_images/5.jpg',	'/gallery_images/5.jpg',	'popis obrazku');
+(8,	'/gallery_images/5.jpg',	'/gallery_images/5.jpg',	'popis obrazku'),
+(9,	'/gallery_images/6.jpg',	'/gallery_images/6.jpg',	'popis obrazku'),
+(10,'/gallery_images/7.jpg',	'/gallery_images/7.jpg',	'popis obrazku'),
+(11,'/gallery_images/8.jpg',	'/gallery_images/8.jpg',	'popis obrazku'),
+(12,'/gallery_images/9.jpg',	'/gallery_images/9.jpg',	'popis obrazku'),
+(13,'/gallery_images/10.jpg',	'/gallery_images/10.jpg',	'popis obrazku'),
+(14,'/gallery_images/11.jpg',	'/gallery_images/11.jpg',	'popis obrazku'),
+(15,'/gallery_images/12.jpg',	'/gallery_images/12.jpg',	'popis obrazku'),
+(16,'/gallery_images/13.jpg',	'/gallery_images/13.jpg',	'popis obrazku');
 
 DROP TABLE IF EXISTS `page_content`;
 CREATE TABLE `page_content` (
