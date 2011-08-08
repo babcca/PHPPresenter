@@ -10,5 +10,9 @@
 			$this->get_translate($lang);
 			$this->write('index.tpl', $page);
 		}
+		
+		public function admin($apps) {
+			$this->write('admin.tpl', $apps);
+		}
 	}
 ?>
