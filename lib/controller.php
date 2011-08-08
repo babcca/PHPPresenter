@@ -28,6 +28,7 @@
 
 	class Controller {
 		private $callbacks = array();
+		private $process_list = array();
 		public $post_refresh = true;
 		public $use_default = false;
 		private $alowed_shortcut = array(
@@ -52,8 +53,10 @@
 			$data = $this->callbacks[$url['app']]->$url['method'];
 			if ($data == null) { throw new Exception("Address not found", 0); }
 			//check_permision($data);
-			$this->call_method($data, $url, $this->use_default);
-			if (($_SERVER['REQUEST_METHOD'] == 'POST') && $this->post_refresh) header('location: '. $_SERVER['REQUEST_URI']);
+			BQueue::push($this->call_method($data, $url, $this->use_default));
+			if (($_SERVER['REQUEST_METHOD'] == 'POST') && $this->post_refresh) {
+				header('location: '. $_SERVER['REQUEST_URI']); // vyresit nefunguje 100% :(
+			}
 		}
 		
 		public function parse_extended($what, $where, $use_default) {
@@ -78,8 +81,10 @@
 			if (isset($data['params_array']) && $data['params_array'] = true) {
 				$parameters = array($parameters);
 			}
-			$obj = new $data['class'];
-			return call_user_func_array(array($obj, $data['method']), $parameters);
+			if (!isset($this->process_list[$data['class']])) {
+				$this->process_list[$data['class']] = new $data['class'];
+			}
+			return call_user_func_array(array($this->process_list[$data['class']], $data['method']), $parameters);
 		}
 		
 		/**

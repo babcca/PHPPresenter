@@ -98,14 +98,6 @@
 			var_dump($debug_msg);
 		}
 	}
-	function smarty_block_admin_edit($params, $content, $template, &$repeat) {
-		if (!$repeat) {
-			if(isset($content)) {
-				return '<b>'.$content.'</b>';
-			}
-		}
-	}
-	
 	
 	/*
 	 * post processing na url (prepnuti na jinou stranku)
@@ -133,14 +125,14 @@
 	// call aplication from smarty, parcial derivation of index
 	function smarty_function_call_app($param, $template) {
 		$params = array();
-
-		$queryParts = explode(',', $param['param']); 
-    	foreach ($queryParts as $p) { 
-    		if ($p == '') continue;
-        	$item = explode('=', $p); 
-        	$params[$item[0]] = $item[1]; 
-    	} 
-
+		if (isset($param['param'])) { 
+			$queryParts = explode(',', $param['param']); 
+	    	foreach ($queryParts as $p) { 
+	    		if ($p == '') continue;
+	        	$item = explode('=', $p); 
+	        	$params[$item[0]] = $item[1]; 
+	    	} 
+		}
 		return Presenter::$controller->call($param['app'], $param['method'], $params);
 	}
 	
