@@ -1,19 +1,16 @@
 <?php
 	require_once dirname(__file__).'/../../lib/aobject.php';
 	class book extends AObject {
-		private $rooms = array (1,2,3);
-		private $max_guests = 5;
 		public function __construct() {
 			parent::__construct(__CLASS__);
 		}
 		
 		public function book_form($lang) {
+			// datat struct = array(LANG, OD, DO, HOSTU)
 			if (($data = $this->get_message('book/book_form')) != null) {
-				$data[1][4] = $data[1][3] == 0 ? 3 : 1; // pocet pokoju
-				$this->assign('default', $data[3]);
+				$this->assign('default', $data[1]);
 			} else {
-				// LANG, OD, DO, HOSTU, POKOJU
-				$this->assign('default', array("$lang", '', '', '1', 1));
+				$this->assign('default', array("$lang", '', '', '1'));
 			}
 			$this->get_translate($lang);
 			return $this->parse("book.tpl");

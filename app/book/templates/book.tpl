@@ -26,11 +26,6 @@
 			<input type="checkbox" name="transfer" id="transfer" value="transfer" /><br />
 			<label class="book_label">{$trans.arrival_time}:</label>
 			{html_select_time display_seconds=false use_24_hours=false minute_interval=15}
-			
-			<!--<label class="book_label">{$trans.rooms_count}:</label>-->
-			<select id="rooms" name="rooms" style="display: none;">
-			{html_options values=[3] output=[3] selected=$default.4}
-			</select><br />
 			<div class="accordion">
 				<h3><a href="#">{$trans.first_room_properties}:</a></h3>
 				<div id="guests_r0">			
