@@ -16,7 +16,7 @@
 	Presenter::view("gallery", array(
 								"class"=>"gallery_model",
 								"method"=>"upload_image",
-								"params"=>array("new_image_desc"=>"%([^<>]+)")
+								"params"=>array("new_image_desc"=>"%([^<>]*)")
 								));
 	Presenter::view("gallery", array(
 								"class"=>"gallery_model",

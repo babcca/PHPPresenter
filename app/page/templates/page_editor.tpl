@@ -1,5 +1,6 @@
 <div class="page_editor">
 	<h1>Nastaveni obsahu stranek</h1>
+	{get_message id='page_editor'}
 	Vyberte stranku k editaci:
 	<select name="page_selector">
 		{html_options options=$pages}

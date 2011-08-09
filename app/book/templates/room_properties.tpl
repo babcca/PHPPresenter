@@ -1,6 +1,6 @@
 <table>
 	<tr style="text-align: center">
-		<td class="book_label"></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		<td class="book_label"></td><td>-</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
 	</tr>
 	<tr>
 		<td class="book_label">{$trans.room_guests}:</td>
@@ -31,4 +31,6 @@
 	</tr>
 </table>	
 <label class="book_label">{$trans.parking}:</label>
-<input type="checkbox" name="parking_{$index}" value="parking" />
+<span class="tooltip" original-title="One car per night. 10 &euro;"><input type="checkbox" name="parking_{$index}" value="parking" /></span>
+
+

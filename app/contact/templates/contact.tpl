@@ -1,22 +1,24 @@
 <div class="contact-page">
-<h1>{$title}</h1>
-<p>{$text}</p>
+<h1>{$text.title}</h1>
+<p>{$text.text}</p>
 <table>
 	<tr>
 		<td id="contact_info" class="vtop">
-			<div><b>Penzion Barbora</b></div>
-			<div><i>Adresa nekde 1023/34, 140 11 Praha 11</i></div>
+			<div><b>{$contact.address.name}</b></div>
+			<div><i>{$contact.address.address}</i></div>
 			<br />
-			<img src="/img/mobile_phone_i.png" title="{$trans.mobile_phone}" alt="{$trans.mobile_phone}"/> {$mobile_phone}<br/>
-			<img src="/img/phone_i.png" title="{$trans.phone}" alt="{$trans.phone}" /> {$telephone}<br/>
-			<img src="/img/mail_i.png" title="{$trans.email}" alt="{$trans.email}" /> {mailto address=$email encode="hex"}<br/>
+			{foreach from=$contact.contact item=val key=key}
+				<img src="/img/{$key}_i.png" title="{$trans.$key}" alt="{$trans.$key}"/> 
+				{if $key == 'mail'}{mailto address=$val encode="hex"}{else}{$val}{/if}<br/>
+			{/foreach}
 		</td>
 		<td id="contact_form">
+		{get_message id='contact'}
 		<form action="" method="post" enctype="multiple/form-data" id="ContactForm">
 			<input type="hidden" name="app" value="contact">
 			<input type="hidden" name="method" value="contact_email">
 			<label class="contact_label">{$trans.name}:</label> <input type="text" name="name" id="Name" size="31" /><br />
-			<label class="contact_label">{$trans.email}:</label> <input type="text" name="email" id="Email" size="31" /><br />
+			<label class="contact_label">{$trans.mail}:</label> <input type="text" name="email" id="Email" size="31" /><br />
 			<label class="contact_label">{$trans.phone}:</label> <input type="text" name="phone" id="Phone" size="31" /><br />
 			<label>{$trans.your_message}:</label><br />
 			<textarea name="message" id="Message" cols="34" rows="5"></textarea> <br />

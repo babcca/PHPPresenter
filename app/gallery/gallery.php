@@ -21,13 +21,14 @@
 		}
 		
 		public function upload_image($desc) {
-			$uploader = new Uploader('gallery_images/', array('jpg', 'bmp', 'jpeg', 'png'));
+			$uploader = new Uploader('gallery_images', array('jpg', 'bmp', 'jpeg', 'png'));
 			$new_name = $uploader->upload('new_image', 'b_none');
 			if ($new_name === false) {
-				$this->set_message($uploader->error_message);
+				$this->set_message($uploader->error_message, 'gallery_editor');
 			} else {
 				// vytvorit thumbnail :)
 				dibi::query('insert into [gallery] ([small], [big], [desc]) VALUES (%s, %s, %s)', $new_name, $new_name, $desc);
+				$this->set_message("Image uploaded", 'gallery_editor');
 			}
 			
 		}

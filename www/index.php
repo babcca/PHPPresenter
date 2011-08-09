@@ -1,10 +1,14 @@
 <?php 
-
+	
 	require_once dirname(__file__).'/../lib/controller.php';
 	require_once dirname(__file__).'/../lib/application_manager.php';
 	require_once dirname(__file__).'/../lib/render.php';
 	require_once dirname(__file__).'/../lib/dibi/dibi.php';
 	define("DEBUG_MODE", 1);
+	//var_dump($_SERVER['REQUEST_URI']);
+	//var_dump($_SERVER['REQUEST_URI']);
+	//VAR_DUMP($_GET);
+	//VAR_DUMP($_POST);
 	require_once dirname(__file__).'/../lib/aobject.php';
 	class Timer extends AObject {
 		private $b;
@@ -102,6 +106,4 @@
 	Presenter::$controller = $controller;
 	$controller->run();
 	BQueue::dump('utf-8');
-	// save one level old url :)
-	$_SESSION["__bab"]["previous_uri"] = $_SERVER['REQUEST_URI'];
 ?>

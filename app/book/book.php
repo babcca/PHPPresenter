@@ -5,15 +5,16 @@
 			parent::__construct(__CLASS__);
 		}
 		
-		public function book_form($lang) {
+		public function book_form($lang, $text_id) {
 			// datat struct = array(LANG, OD, DO, HOSTU)
 			if (($data = $this->get_message('book/book_form')) != null) {
 				$this->assign('default', $data[1]);
 			} else {
 				$this->assign('default', array("$lang", '', '', '1'));
 			}
+			$text = dibi::query('select * from [page_content] where [id] = %i', $text_id)->fetch();
 			$this->get_translate($lang);
-			return $this->parse("book.tpl");
+			return $this->parse("book.tpl", $text);
 		}
 		public function quick_book_form($lang) {
 			$this->get_translate($lang);
@@ -36,17 +37,20 @@
 		}
 		
 		public function calculate_price($form_data) {
-			$return_data = array('sale'=>false);
-			//euro price
+			$return_data = array('sale'=>false, 'price'=>0, 'days'=>0);
+			if ((5 - $form_data["guests"]) >= 5) {
+				$this->push(json_encode($return_data));
+				return;
+			}
 			include "price_list.php";
-			
+			$price = 0;
 			// days count
 			$days = strtotime($form_data["date_to"]) - strtotime($form_data["date_from"]);
 			$days = $days / 86400; //24*60*60
 	
 			// get right table index
 			$day_index = min($days, 2) - 1;
-			$guest_index = min($form_data["guests"], 4) - 1;
+			$guest_index = abs(min($form_data["guests"], 4) - 1); // >= 4 stejan cena
 			// person_per_day * person_count * spending_nights
 			$price = $day_tax[$day_index][$guest_index]*$form_data["guests"]*$days;
 			// > 7 days => 10% down
@@ -54,8 +58,9 @@
 				$price = 0.9 * $price;
 				$return_data['sale'] = true;
 			}
-			if ($form_data['parking'] != 'false') $price += 1000; // price for parking
-			if ($form_data['transfer'] != 'false') $price += 1000; // price for transport
+			if ($form_data['parking'] != 'false') $price += $parking*$days; // price for parking
+			if (($form_data['breakfast'] != 'false') &&  ((int) $form_data["breakfast_c"] >= 4)) $price += $form_data["breakfast_c"]*$breakfast*$days; // price for breakfast
+			if ($form_data['transfer'] != 'false') $price += ceil($form_data["transfer_c"] / 4) * 1000; // price for transport czk
 			
 			$return_data['days'] = $days;
 			$return_data['guests'] = $form_data['guests'];

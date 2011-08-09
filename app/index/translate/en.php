@@ -6,12 +6,13 @@
 		'weather_info' => 'WEATHER INFO',
 		'phone' => 'Phone',
 		'mobile_phone' => 'Mobile phone',
-		'email'=>'Email',
+		'mail'=>'Email',
 		'name'=>'Name',
 		'your_message'=>'Your message',
 		'rooms' => 'Rooms',
 		'guests' => 'Guests',
 		'parking' => 'Parking',
+		'breakfast'=>'Breakfast',
 		'room_guests' => 'Room guests',
 		'single_beds_count' => 'Single beds count',
 		'double_beds_count' => 'Double beds count',
@@ -23,6 +24,7 @@
 		'arrival_time' => 'Arrival time',
 		'first_room_properties' => 'First room properties',
 		'second_room_properties' => 'Second room properties',
-		'third_room_properties' => 'Third room properties'
+		'third_room_properties' => 'Third room properties',
+		'preliminary_price' => 'Preliminary computed price is <span class="calculator"> 0 &euro; </span>'
 	);
 ?>

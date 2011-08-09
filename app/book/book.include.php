@@ -5,7 +5,7 @@
 	Presenter::view("book", array(
 								"class"=>"book",
 								"method"=>"book_form",
-								"params"=>array('lang'=>'%([a-z]{2})')
+								"params"=>array('lang'=>'%([a-z]{2})', 'text_id'=>'%([0-9]+)')
 								));
 	Presenter::view("book", array(
 								"class"=>"book",
@@ -29,13 +29,17 @@
 												  "date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
 												  "guests"=>"%num",
 												  "parking"=>"%all[false]",
-												  "transfer"=>"%all[false]")
+												  "breakfast"=>"%all[false]",
+												  "transfer"=>"%all[false]",
+												  "breakfast_c"=>"%([0-9]+)[0]",
+												  "transfer_c"=>"%([0-9]+)[0]")
 								));
 	Presenter::view("book", array(
 								"class"=>"book_model",
 								"method"=>"book_email",
 								"params"=>array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
 												"date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
+												"breakfast"=>"%all[false]",
 												"guests"=>"%num",
 												"rooms"=>"%num",
 												"beds_s"=>"%num",

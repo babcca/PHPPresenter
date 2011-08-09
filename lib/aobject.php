@@ -19,8 +19,8 @@
 			//	throw new Exception("SECURITY: Sending data to $dest is disable", 1);
 			//}
 		}
-		public function set_message($message) {
-			$_SESSION['__bab_messages'][] = $message;
+		public function set_message($message, $id = '') {
+			$_SESSION['__bab_messages'][$id] = $message;
 		}
 		
 		public function get_message($id) {

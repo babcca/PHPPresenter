@@ -154,6 +154,15 @@
 			
 			return $uri;
 		}
-		
+	}
+	function smarty_function_get_message($p, $t) {
+		log::l($_SESSION);
+		if (isset($_SESSION['__bab_messages'][$p['id']])) {
+			$ret = '<div id="info_message"><img src="/img/warning_icon.png" height="20" width="20" style="float: left; padding-right: 10px;" />
+			<p><b>'.$_SESSION['__bab_messages'][$p['id']].'</b></p></div>
+			<script>$("#info_message").show("fast").delay(5000).hide("slow");</script>';
+			unset($_SESSION['__bab_messages'][$p['id']]);
+			return $ret;
+		}
 	}
 ?>

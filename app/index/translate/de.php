@@ -6,12 +6,13 @@
 		'weather_info' => 'WETTER-INFOS',
 		'phone' => 'Telefon',
 		'mobile_phone' => 'Handy',
-		'email'=>'Email',
+		'mail'=>'Email',
 		'name'=>'Name',
 		'your_message'=>'Ihre nachricht',
 		'rooms'=> 'Zimmer',
 		'guests'=> 'Gäste',
 		'parking' => 'Parken',
+		'breakfast'=>'Frühstück',
 		'room_guests' => 'Zimmer Gäste',
 		'single_beds_count' => 'Einzelbetten zählen',
 		'double_beds_count' => 'Doppelbetten zählen',
@@ -23,6 +24,7 @@
 		'arrival_time' => 'Ankunftszeit',
 		'first_room_properties' => 'erste Zimmer Eigenschaften',
 		'second_room_properties' => 'zweite Zimmer Eigenschaften',
-		'third_room_properties' => 'dritte Zimmer Eigenschaften'
+		'third_room_properties' => 'dritte Zimmer Eigenschaften',
+		'preliminary_price' => 'Predbezne vypocitana cena je <span class="calculator"> 0 &euro; </span>'
 	);
 ?>

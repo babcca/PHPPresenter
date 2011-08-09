@@ -20,6 +20,10 @@
 		width: 100%;
 		height: auto;
 	}
+	#info_message {
+		background-color: #babcca;
+		height: 30px;
+	}
 </style>
 </head>
 <body>
@@ -36,20 +40,22 @@ $(document).ready(function () {
 	$('textarea.page_content').tinymce({
 	    // Location of TinyMCE script
 	    script_url : '/js/tiny_mce/tiny_mce.js',
+	    language: 'cs',
 
 	    // General options
 	    theme : "advanced",
-	    plugins : "save,lists,pagebreak,emotions,paste",
+	    plugins : "autolink,lists,style,layer,save,advhr,advimage,advlink,inlinepopups,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking",
 	    
 	    // Theme options
-	    theme_advanced_buttons1 : "save,|,bold,italic,underline,|,|,bullist,numlist,|,cut,copy,paste,pastetext,pasteword",
-	    theme_advanced_buttons2 : "",
+	    theme_advanced_buttons1 : "save,|,bold,italic,underline,|,|,bullist,numlist,|,paste,pastetext,pasteword,|,styleselect,formatselect,fontselect,fontsizeselect",
+	    theme_advanced_buttons2 : "link,unlink,|,image,preview,|,search,replace,|,forecolor,backcolor,|,fullscreen,code",
 	    theme_advanced_buttons3 : "",
 	    theme_advanced_toolbar_location : "top",
 	    theme_advanced_toolbar_align : "left",
 	    content_css : "/css/tinymce.css",
 	    theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
-	    font_size_style_values : "10px,12px,13px,14px,16px,18px,20px"
+	    font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
+	    theme_advanced_blockformats : "p,div,h1,h2,h3"
 	 });
 } );
 </script>
@@ -57,21 +63,13 @@ $(document).ready(function () {
 	<ol>
 		<li><a href="?app=index&method=admin">Obsah stranek</a></li>
 		<li><a href="?app=index&method=admin&p1=gallery&p2=gallery_editor">Galerie</a></li>
-		<li>Kontaktni informace</li>
+		<li><a href="?app=index&method=admin&p1=contact&p2=contact_editor">Kontaktni informace</a></li>
 		<li>Rezervacni system</li>
 	</ol>
 </div>
 <div class="right content">
 	<div id="info-message"></div>
 	{call_app app=$p1 method=$p2}
-	<!-- 
-	<div class="contact_info">
-		<label>Nastaveni kontaktnich informaci</label><br />
-		<textarea></textarea>	
-	</div>
-	
-		
-	</div> -->
 </div>
 </body>
 </html>

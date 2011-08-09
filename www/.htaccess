@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+#RewriteLog a.txt
+#RewriteLogLevel 4
+#RewriteRule index\.php - [L]
+#RewriteRule (.*)$ index.php?a=%{THE_REQUEST}&c=%{REQUEST_FILENAME}&b=$1&d=%{REQUEST_URI} [L]
+
+RewriteRule ^ajax\.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ([a-z]+)/([a-z-]+)/$ index.php?app=index&method=clanek&id=$2&lang=$1 [QSA,L]

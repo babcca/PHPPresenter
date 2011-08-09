@@ -23,6 +23,8 @@
 }
 </style>
 <div class="gallery_info">
+	<h1>Editace fotek v galerii</h1>
+	{get_message id='gallery_editor'}
 	<form  enctype="multipart/form-data" action="" method="post" >
 		<input type="hidden" name="app" value="gallery" />
 		<input type="hidden" name="method" value="upload_image" />
@@ -39,7 +41,7 @@
 			<a href="{$photo.big}" title="{$photo.desc}">
 			<img src="{$photo.small}" alt="{$photo.desc}" />
 			</a>
-			<form action="" method="post">
+			<form action="" method="post" name="delete_image_form">
 				<input type="hidden" name="app" value="gallery" />
 				<input type="hidden" name="method" value="delete_image" />
 				<input type="hidden" name="image_id" value="{$photo.id}" />
@@ -51,6 +53,10 @@
 	</div>	
 </div>
 <script>
+	$("[name=delete_image_form]").submit(function(h) {
+		return confirm('Opravdu smazat?');
+	} );
+	
 	$(".desc_input").change(function() {
 		var data = "app=gallery&method=update_desc&image_id="+$(this).attr("photo_id")+"&desc="+$(this).val();
 		send_data_get_message(data);

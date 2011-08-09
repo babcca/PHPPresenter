@@ -27,7 +27,7 @@ class Uploader {
 	
 	public function file_test($file) {
 		if ($file['error'] != UPLOAD_ERR_OK) {
-			$this->error_message = 'File not uploaded to server';
+			$this->error_message = 'File not uploaded to server - errno. '.$file['error'];
 			return false;
 		}
 		
@@ -49,7 +49,8 @@ class Uploader {
 	
 	public function file_save($file) {	
 		if (!file_exists($this->dest_dir)) {
-			mkdir($this->dest_dir, 0666);
+			$this->error_message = $this->dest_dir.' not found';
+			return false;
 		}
 		$fileName = $this->dest_dir."/".$this->generate_name($file["name"]);
 		move_uploaded_file($file["tmp_name"], $fileName);

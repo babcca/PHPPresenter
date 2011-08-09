@@ -11,11 +11,6 @@
 								"method"=>"contact_us",
 								"params"=>array("text_id"=>"%num", "lang"=>"%(.*)")));
 	Presenter::view("contact", array(
-								"class"=>"contact",
-								"method"=>"contact_editor",
-								"params"=>array()));
-	
-	Presenter::view("contact", array(
 								"class"=>"contact_model",
 								"method"=>"contact_email",
 								"params"=>array("name"=>"%([^<>]+)",
@@ -23,9 +18,4 @@
 												"message"=>"%all",
 												"phone"=>"%(^\+?[0-9 ]*)[]")
 								));
-									
-	Presenter::view("contact", array(
-								"class"=>"contact_model",
-								"method"=>"contact_update",
-								"params"=>array("contact_table"=>"%all")));
 ?>

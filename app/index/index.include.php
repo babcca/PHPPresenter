@@ -5,8 +5,8 @@
 	Presenter::view("index", array(
 								"class"=>"index",
 								"method"=>"clanek",
-								"params"=>array("id"=>"%([a-z-.]+)[home]", "lang"=>"%{en,de}[en]"), // post parameters bhodne pro znovuvyplneni
-								"url" => "index/clanek/id=%([a-z-.]+)[home]/?order=%{asc,desc}[asc]"));
+								"params"=>array("id"=>"%([a-z-.]+)[home]", "lang"=>"%{en,de}[en]") 
+							));
 	Presenter::view("index", array(
 								"class"=>"index",
 								"method"=>"admin",

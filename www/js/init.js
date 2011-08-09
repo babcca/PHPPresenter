@@ -11,15 +11,25 @@ $(document).ready(function() {
 	$('#gallery a').lightBox();
 	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	$('#slider').slider();
+	$('.tooltip').tipsy();
 	init_tinymce();
-	$('.accordion').accordion({
+	
+	/* make it litle bit different*/
+	/*$("#room_1").accordion({
 			collapsible: true,
-			active: false
-	});;
-});
-
-$(function() {
-		$('#tooltip').tipsy();
+			active: true
+	});*/
+	$(".page_accordion").accordion();
+	
+	
+	$("#room_2").accordion({
+		collapsible: true,
+		active: false
+	});
+	$("#room_3").accordion({
+		collapsible: true,
+		active: false
+	});
 });
 
 function calendar_button_init(element, min, dateF) {
@@ -40,22 +50,6 @@ function calendar_button_init(element, min, dateF) {
 			
 		}
 	});	
-}
-
-function calculator(dest) {
-	var data = {
-			app: 'book',
-			method: 'calculate_price',
-			date_from : $('#date_from').val(),
-			date_to : $('#date_to').val(),
-			guests : $('#guests').val(),
-			rooms : $('#rooms').val(),
-			parking : $('#parking').attr("checked"),
-			transfer : $('#transfer').attr("checked")
-	}
-	if (!((data.date_from == '') || (data.date_to) == '')) {
-		//$.post('/ajax.php', data, function(result) { $(dest).html(result); });
-	}
 }
 
 function init_tinymce() {

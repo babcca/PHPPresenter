@@ -1,5 +1,6 @@
 <?php 
 	require_once dirname(__file__).'/language_loader.php';
+	require_once dirname(__file__).'/logger.php';
 	
 	class URLParser {
 		private $url_type = 0;
@@ -49,8 +50,10 @@
 		
 		public function run() {
 			$url = URLParser::parse(NULL);
-			ApplicationManager::instance()->import($url["app"]);
-			$data = $this->callbacks[$url['app']]->$url['method'];
+			$app = isset($url["app"]) ? $url["app"] : 'index';
+			$method = isset($url['method']) ? $url['method'] : 'clanek';
+			ApplicationManager::instance()->import($app);
+			$data = $this->callbacks[$app]->$method;
 			if ($data == null) { throw new Exception("Address not found", 0); }
 			//check_permision($data);
 			BQueue::push($this->call_method($data, $url, $this->use_default));
