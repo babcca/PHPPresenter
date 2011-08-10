@@ -6,7 +6,9 @@ class log {
 				self::$file = fopen("logs.html", "a");
 			}
 			ob_start();
+			echo "Log ".date('U');
   			var_dump($data);
+  			echo "-----------------";
   			$dump = ob_get_clean();
 			fwrite(self::$file, $dump.'<br/>');
 		}

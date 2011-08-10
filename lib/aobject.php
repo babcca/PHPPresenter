@@ -20,7 +20,7 @@
 			//}
 		}
 		public function set_message($message, $id = '') {
-			$_SESSION['__bab_messages'][$id] = $message;
+				$_SESSION['__bab_messages'][$id][] = $message;
 		}
 		
 		public function get_message($id) {
