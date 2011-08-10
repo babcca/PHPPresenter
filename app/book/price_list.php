@@ -5,6 +5,8 @@ $euro = 25;
 $parking = 10 * $euro;
 //cena snidani za cloveka za den (v eurech)
 $breakfast = 5 * $euro;
+// cena za prepravu za jedno auto
+$transport = 40 * $euro;
 // Cena jednoho cloveka za
 // p = clovek
 // >= vetsi nebo rovno

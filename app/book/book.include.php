@@ -21,9 +21,20 @@
 												  "date_to_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})",
 												  "guests_quick"=>"%num")
 								));
+
 	Presenter::view('book', array(
 								"class"=>"book_model",
 								"method"=>"calculate_price",
+								"params_array"=>true,
+								"params" => array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
+												  "date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
+												  "breakfast"=>"%{false,true}[false]",
+												  "transfer"=>"%{true,false}[false]",
+												  'rooms'=>"%all") // jak kontrolovat pole?
+								));
+	Presenter::view('book', array(
+								"class"=>"book_model",
+								"method"=>"calculate_price2",
 								"params_array"=>true,
 								"params" => array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
 												  "date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",

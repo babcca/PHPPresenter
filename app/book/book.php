@@ -37,30 +37,59 @@
 		}
 		
 		public function calculate_price($form_data) {
+			include "price_list.php";
+			$guests_count = 0; 
+			$services_price = 0; // celkova cena za sluzby (parkovani, snidane, ...)
+			$accomm_price = 0; // celkova cena jenom za ubytovani, bez priplatkovych sluzeb
+			$days = strtotime($form_data["date_to"]) - strtotime($form_data["date_from"]);
+			$days = $days / 86400; //24*60*60
+			foreach ($form_data['rooms'] as $room) {
+				if ($room['guests'] == 0) continue;
+				$guests_count += $room['guests'];
+				// get right table index
+				$day_index = min($days, 2) - 1;
+				$guest_index = min($room["guests"], 4) - 1; // >= 4 stejan cena
+				// person_per_day * person_count * spending_nights
+				$accomm_price += $day_tax[$day_index][$guest_index]*$room["guests"]*$days;
+				if ($room['parking'] != 'false') $services_price += $parking*$days; // price for parking
+			}
+			if ($form_data['breakfast'] != 'false') {
+				if ($guests_count >= 4) { $services_price += $guests_count*$breakfast*$days; } // price for breakfast
+				else { $this->set_message('Breakfast not calculated, less then 4 persons', 'book_price_calculator'); }
+			}
+			
+			if ($form_data['transfer'] != 'false') {
+				if ($guests_count >= 4) { $services_price+= ceil($guests_count / 4) * $transport; }// price for transport 
+				else { $this->set_message('Transfer not calculated, less then 4 persons', 'book_price_calculator'); }
+			}
+			
+			$return['messages'] = $this->parse('book_price_calculator.tpl');
+			$return['accomm_price'] = ceil($accomm_price / $euro);
+			$return['services_price'] = ceil($services_price/ $euro);
+			$return['result_price'] = ceil(($services_price + $accomm_price) / $euro);
+			$this->push(json_encode($return));
+		}
+		
+		
+		
+		public function calculate2_price($form_data) {
 			$return_data = array('sale'=>false, 'price'=>0, 'days'=>0);
 			if ((5 - $form_data["guests"]) >= 5) {
 				$this->push(json_encode($return_data));
 				return;
 			}
-			include "price_list.php";
+			
 			$price = 0;
 			// days count
-			$days = strtotime($form_data["date_to"]) - strtotime($form_data["date_from"]);
-			$days = $days / 86400; //24*60*60
+			
 	
-			// get right table index
-			$day_index = min($days, 2) - 1;
-			$guest_index = abs(min($form_data["guests"], 4) - 1); // >= 4 stejan cena
-			// person_per_day * person_count * spending_nights
-			$price = $day_tax[$day_index][$guest_index]*$form_data["guests"]*$days;
+			
 			// > 7 days => 10% down
 			if ($days > 7) {
 				$price = 0.9 * $price;
 				$return_data['sale'] = true;
 			}
-			if ($form_data['parking'] != 'false') $price += $parking*$days; // price for parking
-			if (($form_data['breakfast'] != 'false') &&  ((int) $form_data["breakfast_c"] >= 4)) $price += $form_data["breakfast_c"]*$breakfast*$days; // price for breakfast
-			if ($form_data['transfer'] != 'false') $price += ceil($form_data["transfer_c"] / 4) * 1000; // price for transport czk
+			
 			
 			$return_data['days'] = $days;
 			$return_data['guests'] = $form_data['guests'];
