@@ -46,15 +46,25 @@
 <div class="page-body">
 	<table class="page-content" border="0">
 		<tr>
+			<!-- EXACT dimensions of the image -> W:660px, H:296px. -->
 			<td class="slideshow">
 				<div class="slideshow-images">
 					<div id="slider">
 					   <ol id="sliderContent">
 					      <li class="sliderImage">
-					         <img src="/img/room_home.jpg" alt="xxx"/>
+					         <img src="/img/slider/01.jpg" alt="xxx"/>
 					      </li>
 					      <li class="sliderImage">
-					         <img src="/img/logo.png" alt="xxx"/>
+					         <img src="/img/slider/02.jpg" alt="xxx"/>
+					      </li>
+						  <li class="sliderImage">
+					         <img src="/img/slider/03.jpg" alt="xxx"/>
+					      </li>
+						  <li class="sliderImage">
+					         <img src="/img/slider/04.jpg" alt="xxx"/>
+					      </li>
+						  <li class="sliderImage">
+					         <img src="/img/slider/05.jpg" alt="xxx"/>
 					      </li>
 					   </ol>
 					</div>  

@@ -8,7 +8,7 @@
 <div id="message_container">
 {get_message id="book_order"}
 </div>
-<div class="booking_info">{$trans.preliminary_price}</div>
+<div class="booking_info">{$trans.approx_price}</div>
 {*<form action="" method="post" id="main_book_form" enctype="multiple/form-data">*}
 	<input type="hidden" name="app" value="book"> 
 	<input type="hidden" name="method" value="book_email"> 
