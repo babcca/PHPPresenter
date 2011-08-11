@@ -5,9 +5,11 @@
 	<img src="/img/warning_icon.png" alt="warning icon" />
 	{$text}
 </div>
-<div id="message_container"></div>
+<div id="message_container">
+{get_message id="book_order"}
+</div>
 <div class="booking_info">{$trans.preliminary_price}</div>
-<form action="" method="post" id="main_book_form" enctype="multiple/form-data">
+{*<form action="" method="post" id="main_book_form" enctype="multiple/form-data">*}
 	<input type="hidden" name="app" value="book"> 
 	<input type="hidden" name="method" value="book_email"> 
 	<table class="book_table">
@@ -67,12 +69,12 @@
 	</tr>
 	<tr>
 		<td colspan="2" class="right">
-			<input onclick="show_price('.calculator')" type="button" value="Calculate" />
-			<input onclick="return false" type="button" value="Book" />
+			<input name="show_price" type="button" value="Calculate" />
+			<input name="send_book_order" type="button" value="Book" />
 		</td>
 	</tr>
 </table>
-</form>
+{*</form>*}
 <script>
 	function get_checkbox(id) {
 		return ($(id).attr("checked") == undefined) ? 'false' : 'true';
@@ -82,17 +84,50 @@
 		for (var i = 0; i < 3; ++i) { data['rooms'][i] = { guests:$('[name=guests_'+i+']:checked').val(),beds_s : $('[name=beds_s_'+i+']:checked').val(),beds_d : $('[name=beds_d_'+i+']:checked').val(),parking : get_checkbox('[name=parking_'+i+']') }; }
 		return data;
 	}
-		
-
-	function show_price(dest) {
-		var data = get_data();
-		$.post('/ajax.php', data, function (result) {
-			//price = result.price + ' &euro;';
-			console.log(result);
-			$("#message_container").html(result.messages);
-			$(dest).html(result.result_price + '&euro;');
-		}, 'json' );		
+	function get_order_data(names) {
+		var data = get_data(); for (e in names) { data[names[e]] = $('[name='+names[e]+']').val(); } return data;
 	}
-
+		
+	$("[name=send_book_order]").click(function () {
+		var btn = $(this);
+		btn.attr("disabled", "true");
+		var data = get_order_data(['name', 'email', 'phone', 'message']);
+		data.method = 'book_order';
+		if (not_empty(data, [['name', 'name not be empty'], ['email', 'email not be empty'], ['phone', 'phone not be empty']])) {
+			$.post('/ajax.php', data, function (result) {
+				javascript:location.reload(true);
+			} );
+		} else {
+			btn.removeAttr('disabled');
+		}
+		
+	} );
+	$("[name=show_price]").click(function() {
+		var btn = $(this);
+		btn.attr("disabled", "true");
+		var data = get_data();
+		if ((data.date_from == '') || (data.date_to == '')) {
+			btn.removeAttr('disabled');
+		};	
+		$.post('/ajax.php', data, function (result) {
+			$("#message_container").html(result.messages);
+			$(".calculator").html(result.result_price + ' &euro;');
+			btn.removeAttr('disabled');
+		}, 'json' );	
+	});
+	
+	function trim(stringToTrim) {
+		return stringToTrim.replace(/^\s+|\s+$/g,"");
+	}
+	function not_empty(data, keys) {
+		var ret = true;
+		for (k in keys) {
+			if (trim(data[keys[k][0]]) == '') {
+				alert(keys[k][1]);
+				ret = false;
+			}
+		}
+		return ret;
+	}
 </script>
 </div>

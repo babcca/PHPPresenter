@@ -32,35 +32,20 @@
 												  "transfer"=>"%{true,false}[false]",
 												  'rooms'=>"%all") // jak kontrolovat pole?
 								));
-	Presenter::view('book', array(
-								"class"=>"book_model",
-								"method"=>"calculate_price2",
-								"params_array"=>true,
-								"params" => array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
-												  "date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
-												  "guests"=>"%num",
-												  "parking"=>"%all[false]",
-												  "breakfast"=>"%all[false]",
-												  "transfer"=>"%all[false]",
-												  "breakfast_c"=>"%([0-9]+)[0]",
-												  "transfer_c"=>"%([0-9]+)[0]")
-								));
+
 	Presenter::view("book", array(
 								"class"=>"book_model",
-								"method"=>"book_email",
+								"method"=>"book_order",
+								"params_array"=>true,
 								"params"=>array("date_from"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
 												"date_to"=>"%(^[0-9]{2}-[0-9]{2}-[0-9]{4}$)",
-												"breakfast"=>"%all[false]",
-												"guests"=>"%num",
-												"rooms"=>"%num",
-												"beds_s"=>"%num",
-												"beds_d"=>"%num",
-												"parking"=>"%all[false]",
-												"transfer"=>"%all[false]",
-												"time"=>"%(^[0-9]{1,2}:[0-9]{2}$)",
+												"arrival_time"=>"%([0-9]+)[0]",
+												"breakfast"=>"%{false,true}[false]",
+												"transfer"=>"%{true,false}[false]",
+												"message"=>"%(.*)[]",	
+												'rooms'=>"%all",
 												"name"=>"%string",
 												"email"=>"%(^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$)",
-												"phone"=>"%(^\+?[0-9 ]*)[]",
-												"message"=>"%(.*)")
-								));
+												"phone"=>"%(^\+?[0-9 ]+)[]"	
+								)));
 ?>

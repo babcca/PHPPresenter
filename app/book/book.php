@@ -7,7 +7,7 @@
 		
 		public function book_form($lang, $text_id) {
 			// datat struct = array(LANG, OD, DO, HOSTU)
-			if (($data = $this->get_message('book/book_form')) != null) {
+			if (($data = $this->get_data('book/book_form')) != null) {
 				$this->assign('default', $data[1]);
 			} else {
 				$this->assign('default', array("$lang", '', '', '1'));
@@ -30,13 +30,16 @@
 		public function redirect($lang, $from, $to, $guests) {
 			$args = func_get_args();
 			$uri = dibi::fetchSingle('select uri from [presenter] where [lang] = %s and [method] = %s', $lang, 'book_form');
-			$this->send_message('book/book_form',  $args, __class__);
+			$this->send_data('book/book_form',  $args, __class__);
 			// add url maker
-			header("Location: ?app=index&method=clanek&id=$uri&lang=$lang#book_form");
+			header("Location: /$lang/$uri/#book_form");
 			exit(1);	
 		}
-		
 		public function calculate_price($form_data) {
+			$this->push(json_encode($this->_calculate_price($form_data)));
+		}
+		
+		public function _calculate_price($form_data) {
 			include "price_list.php";
 			$guests_count = 0; 
 			$services_price = 0; // celkova cena za sluzby (parkovani, snidane, ...)
@@ -67,71 +70,47 @@
 			$return['accomm_price'] = ceil($accomm_price / $euro);
 			$return['services_price'] = ceil($services_price/ $euro);
 			$return['result_price'] = ceil(($services_price + $accomm_price) / $euro);
-			$this->push(json_encode($return));
+			return $return;
 		}
-		
-		
-		
-		public function calculate2_price($form_data) {
-			$return_data = array('sale'=>false, 'price'=>0, 'days'=>0);
-			if ((5 - $form_data["guests"]) >= 5) {
-				$this->push(json_encode($return_data));
-				return;
-			}
-			
-			$price = 0;
-			// days count
-			
-	
-			
-			// > 7 days => 10% down
-			if ($days > 7) {
-				$price = 0.9 * $price;
-				$return_data['sale'] = true;
-			}
-			
-			
-			$return_data['days'] = $days;
-			$return_data['guests'] = $form_data['guests'];
-			$return_data["price"] = ceil($price / $euro);
-			$this->push(json_encode($return_data));
+
+		public function get_order($order_id) {
+			return dibi::query('select * from [book_customer] bc 
+			 inner join [book_order] bo on bc.customer_id = bo.customer_id AND bo.order_id = %i 
+			 inner join [book_rooms] br on br.order_id = bo.order_id', $order_id)->fetchAll();
 		}
-		
-		// prepsat hlavicku
-		public function book_email($date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message) {
-			$this->send_message('book', "$date_from, $date_to, $guests, $rooms, $beds_s, $beds_d, $parking, $transfer, $time, $name, $email, $phone, $message", __class__);		
-			$to = "kolesar.martin@gmail.com";
-			$subject = "NO-REPLY | Apartments Barbora - Reservation request";
-			$body = '<html>
-						<head> </head>
-						<body>
-							This email was sent via booking form from website www.apartments-barbora.com. <br />
-							<p>Original message:</p>
-							<p>Guest informations:</p>
-							<p>Name: <b>' . "$name" . '</b><br />
-							Email: <b>' . "$email" . '</b><br />
-							Phone: <b>' . "$phone" . '</b>
-							<p>Reservation informations:</p>
-							<p>Check-in date: <b>' . "$date_from" . '</b><br/ >
-							Check-out date: <b>' . "$date_to" . '</b><br/ >
-							Guests: <b>' . "$guests" . '</b><br/ >
-							Rooms: <b>' . "$rooms" . '</b><br/ >
-							Single beds: <b>' . "$beds_s" . '</b><br/ >
-							Double beds: <b>' . "$beds_d" . '</b><br/ >
-							Parking: <b>' . "$parking" . '</b><br/ >
-							Transfer from airport: <b>' . "$transfer" . '</b><br/ >
-							Check-in time: <b>' . "$time" . '</b><br/ >
-							Notes: <b>' . htmlspecialchars($message) . '</b></p>
-						</body>
-					</html>';
+		public function book_order($form_data) {
+			$subject = "Apartments Barbora - Reservation request";
+			$to = "babcca@gmail.com";
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			
-			//if (mail("$to", "$subject", "$body", "$headers")) {
-			//	echo("<p>Message successfully sent!</p>");
-			//} else {
-			//	echo("<p>Message delivery failed...</p>");
-			//}
+			$customer = array_slice($form_data, 7, 9, true);
+			dibi::query('insert into [book_customer] ', $customer);
+			
+			$order = array_slice($form_data, 0, 6, true);
+			$order['customer_id'] = dibi::insertId();
+			dibi::query('insert into [book_order] ', $order);	
+			$order_id = dibi::insertId();
+			
+			$rooms = array_slice($form_data, 6, 7, true);
+			foreach ($rooms['rooms'] as $room) {				
+				if ($room['guests'] == 0) continue;
+				$room['order_id'] = $order_id;
+				$room['customer_id'] = $order['customer_id'];
+				dibi::query('insert into [book_rooms] ', $room);
+			}
+			log::l($this->get_order($order_id));
+			$this->assign('order_id', $order_id	);
+			$this->assign('calculated_price', $this->_calculate_price($form_data));
+			if (mail($to, $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {
+				if (mail($form_data['email'], $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {
+					$this->set_message("Prebooking complete, please check your email", "book_order");
+				} else {
+					$this->set_message("Prebook error, we can't send you email", "book_order");
+				}
+			} else {
+				$this->set_message("Internal system error", "book_order");
+			}
 		}
 	}
 ?>
