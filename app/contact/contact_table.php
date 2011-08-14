@@ -16,7 +16,7 @@ $contact_table = array(
 	 */
 	"contact" => array(
 				"mobile_phone" => "+420 605 27 86 85",
-				"mail" => "ubytovani@omikron.cz"
+				"mail" => "info@apartments-barbora.com"
 	)	
 );
 ?>
