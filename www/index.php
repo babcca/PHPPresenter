@@ -26,7 +26,7 @@
 		'driver'=>'mysql',
 		'username'=> 'w6811_barbora',
 		'password'=>'Kverty246',
-		'host'=>($_SERVER['SERVER_NAME'] != 'localhost' ? 'wm8.wedos.net' : 'localhost'),
+		'host'=>(preg_match('/(www.)?apartments-barbora.com/', $_SERVER['SERVER_NAME']) == true ? 'wm8.wedos.net' : 'localhost'),
 		'database'=>'d6811_barbora',
 		'charset'=>'utf8'
 	));
