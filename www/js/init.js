@@ -9,10 +9,10 @@ Cufon.replace('#weather');
 $(document).ready(function() {
 	calendar_button_init(['date_from_quick', 'date_to_quick'], 0, 'dd-mm-yy');
 	calendar_button_init(['date_from', 'date_to'], 0, 'dd-mm-yy');
-	$('#gallery a').lightBox();
-	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	$('#slider').slider();
+	$('#gallery a').lightBox();
 	$('.tooltip').tipsy();
+	$('#weather').weatherfeed(['EZXX0012'], {cufon: true});
 	init_tinymce();
 	
 	/* make it litle bit different*/
@@ -31,6 +31,20 @@ $(document).ready(function() {
 		collapsible: true,
 		active: false
 	});
+	
+	/* Exchange rates */
+	function XmlOnLoad(xmlData, strStatus){
+		var jData = $(xmlData);
+		var jRate = jData.find("Cube [currency='CZK']");
+
+		var jList = $("#exchangeRates");
+		jList.append("1 EUR = ");
+		jList.append(jRate.attr("rate"));
+		jList.append(" CZK");
+	}
+	$(function(){
+		$.get('/getxml.php', {}, XmlOnLoad);
+	});
 });
 
 function calendar_button_init(element, min, dateF) {
@@ -48,7 +62,6 @@ function calendar_button_init(element, min, dateF) {
 			num = this.id == element[0] ? +1 : -1;
 			new_date.setDate(new_date.getDate() + num);
 			dates.not(this).datepicker("option", option, $.datepicker.formatDate(dateF, new_date));
-			
 		}
 	});	
 }

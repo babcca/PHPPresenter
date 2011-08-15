@@ -25,6 +25,7 @@
 		'first_room_properties' => 'erste Zimmer Eigenschaften',
 		'second_room_properties' => 'zweite Zimmer Eigenschaften',
 		'third_room_properties' => 'dritte Zimmer Eigenschaften',
-		'approx_price' => 'Ihre ungefähre Preis<span class="calculator"> 0 &euro; </span>'
+		'approx_price' => 'Ihre ungefähre Preis<span class="calculator"> 0 &euro; </span>',
+		'exchange_rates' => 'WECHSELKURSE'
 	);
 ?>
