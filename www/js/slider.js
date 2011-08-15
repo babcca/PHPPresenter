@@ -2,7 +2,7 @@
     $.fn.slider = function() {       
         
         var element     = this;
-        var time     	= 1000;
+        var time     	= 7000;
 		var fadeTime 	= 1000;
         var current     = null;
         var items       = $("#" + element[0].id + "Content ." + element[0].id + "Image");

@@ -1,6 +1,7 @@
 // cufon element selector
 Cufon.replace('#cufon-menu', { hover: { color: 'white' } });
 Cufon.replace('.box');
+Cufon.replace('.box a', { fontSize: '13px', color: 'white' });
 Cufon.replace('#weather');
 //
 

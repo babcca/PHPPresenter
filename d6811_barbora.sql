@@ -119,13 +119,13 @@ INSERT INTO `presenter` (`id`, `uri`, `position`, `title`, `lang`, `app`, `metho
 (2,	'home',	1,	'Homepage',	'en',	'page',	'show',	'text_id=2'),
 (3,	'location',	2,	'Pension location',	'en',	'page',	'show',	'text_id=3'),
 (4,	'apartments',	3,	'Apartments',	'en',	'page',	'show',	'text_id=4'),
-(5,	'booking',	4,	'Booking apartment',	'en',	'book',	'book_form',	'text_id=5'),
+(5,	'booking',	4,	'Booking and Prices',	'en',	'book',	'book_form',	'text_id=5'),
 (7,	'contact-us',	6,	'Contact us',	'en',	'contact',	'contact_us',	'text_id=6'),
 (9,	'gallery',	5,	'Galerie',	'de',	'gallery',	'generate',	'text_id=7'),
 (10,	'homen',	1,	'Homepage',	'de',	'page',	'show',	'text_id=8'),
 (11,	'lage',	2,	'Pension Lage',	'de',	'page',	'show',	'text_id=9'),
 (12,	'zimmer',	3,	'Zimmer',	'de',	'page',	'show',	'text_id=10'),
-(13,	'buchung',	4,	'Buchung Wohnung',	'de',	'book',	'book_form',	'text_id=11'),
+(13,	'buchung',	4,	'Buchung und Preise',	'de',	'book',	'book_form',	'text_id=11'),
 (14,	'kontaktieren-uns',	6,	'Kontaktieren Sie uns',	'de',	'contact',	'contact_us',	'text_id=12');
 
 -- 2011-08-11 07:46:48
