@@ -1,9 +1,30 @@
+<?php /* Smarty version Smarty-3.0.7, created on 2011-08-16 00:47:59
+         compiled from "H:\Mago\WebPages\Pension_Barbora\web\lib/../app/index/templates\index.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:235074e49a21f754980-16106567%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '8719659d2f813bc0411f4131f7ee7af297c36b55' => 
+    array (
+      0 => 'H:\\Mago\\WebPages\\Pension_Barbora\\web\\lib/../app/index/templates\\index.tpl',
+      1 => 1313448475,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '235074e49a21f754980-16106567',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+)); /*/%%SmartyHeaderCode%%*/?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Content-Language" content="{$lang}">
-	<meta name="description" content="{$description}" />
+	<meta http-equiv="Content-Language" content="<?php echo $_smarty_tpl->getVariable('lang')->value;?>
+">
+	<meta name="description" content="<?php echo $_smarty_tpl->getVariable('description')->value;?>
+" />
 	<meta name="author" content="Petr Babicka,Martin Kolesar" />
 	<link rel="shortcut icon" href="/img/favicon.ico" />
 
@@ -28,22 +49,26 @@
 	<script src="/js/slider.js" type="text/javascript"></script>
 	<script src="/js/jquery.tipsy.js" type="text/javascript"></script>
 	
-	<title>Pension Barbora | {$page_title}</title>
+	<title>Pension Barbora | <?php echo $_smarty_tpl->getVariable('title')->value;?>
+</title>
 </head>
 <body>
 <div class="bar1">
 	<div class="page-body">
 		<div class="head">
 			<div class="logo">
-				<img src="/img/logo.png" alt="Pension Barbora | {$page_title}" title="Pension Barbora | {$page_title}" />
+				<img src="/img/logo.png" alt="Pension Barbora | <?php echo $_smarty_tpl->getVariable('title')->value;?>
+" />
 			</div>
-			{call_app app='menu' method='generate_language_menu' param="lang=$lang,id=$select_id"}
+			<?php echo smarty_function_call_app(array('app'=>'menu','method'=>'generate_language_menu','param'=>"lang=".($_smarty_tpl->getVariable('lang')->value).",id=".($_smarty_tpl->getVariable('select_id')->value)),$_smarty_tpl);?>
+
 		</div>
 	</div>
 </div>
 <div class="bar2">
 	<div class="page-body">
-		{call_app app='menu' method='generate_menu' param="lang=$lang,id=$select_id"}
+		<?php echo smarty_function_call_app(array('app'=>'menu','method'=>'generate_menu','param'=>"lang=".($_smarty_tpl->getVariable('lang')->value).",id=".($_smarty_tpl->getVariable('select_id')->value)),$_smarty_tpl);?>
+
 	</div>
 </div>
 <div class="page-body">
@@ -75,26 +100,32 @@
 			</td>
 			<td class="right-box">
 				<div class="box">
-					<h1>{$trans.special_offers}</h1>
+					<h1><?php echo $_smarty_tpl->getVariable('trans')->value['special_offers'];?>
+</h1>
 					<img src="/img/banner.png" alt="special offer banner" />
 				</div>
 				<div class="box">
-					{call_app app='book' method='quick_book_form' param="lang=$lang"}	
+					<?php echo smarty_function_call_app(array('app'=>'book','method'=>'quick_book_form','param'=>"lang=".($_smarty_tpl->getVariable('lang')->value)),$_smarty_tpl);?>
+	
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td class="content vtop">
-				{call_app app=$app method=$method param="$param,lang=$lang"}
+				<?php echo smarty_function_call_app(array('app'=>$_smarty_tpl->getVariable('app')->value,'method'=>$_smarty_tpl->getVariable('method')->value,'param'=>($_smarty_tpl->getVariable('param')->value).",lang=".($_smarty_tpl->getVariable('lang')->value)),$_smarty_tpl);?>
+
 			</td>
 			<td class="right-box">
-				{call_app app='contact' method='quick_contact' param="lang=$lang"}
+				<?php echo smarty_function_call_app(array('app'=>'contact','method'=>'quick_contact','param'=>"lang=".($_smarty_tpl->getVariable('lang')->value)),$_smarty_tpl);?>
+
 				<div class="box">
-					<h1>{$trans.weather_info}</h1>
+					<h1><?php echo $_smarty_tpl->getVariable('trans')->value['weather_info'];?>
+</h1>
 					<div id="weather" class="weatherFeed"></div>
 				</div>
 				<div class="box">
-					<h1>{$trans.exchange_rates}</h1>
+					<h1><?php echo $_smarty_tpl->getVariable('trans')->value['exchange_rates'];?>
+</h1>
 					<div id="exchangeRates"></div>
 				</div>
 			</td>
@@ -120,7 +151,8 @@
   })();
 </script>
 <div class="debug_panel">
-{debug_info}
+<?php echo smarty_function_debug_info(array(),$_smarty_tpl);?>
+
 </div>
 </body>
 </html>
