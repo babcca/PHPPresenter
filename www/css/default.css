@@ -130,7 +130,7 @@ table {
 .submit-button {
        border: none;
        background: transparent url(../img/submit.png) no-repeat;
-       width: 45px;
+       width: 70px;
        height: 25px;
 }
 .submit-button:hover {
