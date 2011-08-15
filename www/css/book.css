@@ -47,6 +47,20 @@
 	background-color: transparent;
 	cursor: pointer;
 }
+.book-button:hover {
+	background-image: url('/img/book_h.png');
+}
+.calculate-button {
+	background-image: url('/img/calculate.png');
+	height: 20px;
+	width: 104px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.calculate-button:hover {
+	background-image: url('/img/calculate_h.png');
+}
 .accordion {
 	margin-top: 10px;
 	height: auto;

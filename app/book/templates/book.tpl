@@ -69,7 +69,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" class="right">
-			<input name="show_price" type="button" value="Calculate" />
+			<input name="show_price" type="button" class="calculate-button" value="" />
 			<input name="send_book_order" type="button" class="book-button" value="" />
 		</td>
 	</tr>
