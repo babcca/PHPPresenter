@@ -39,6 +39,14 @@
 	border: none;
 	font-style: italic;
 }
+.book-button {
+	background-image: url('/img/book.png');
+	height: 20px;
+	width: 70px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
 .accordion {
 	margin-top: 10px;
 	height: auto;

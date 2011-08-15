@@ -64,7 +64,7 @@ $(document).ready(function () {
 		<li><a href="?app=index&method=admin">Obsah stranek</a></li>
 		<li><a href="?app=index&method=admin&p1=gallery&p2=gallery_editor">Galerie</a></li>
 		<li><a href="?app=index&method=admin&p1=contact&p2=contact_editor">Kontaktni informace</a></li>
-		<li>Rezervacni system</li>
+		<li><a href="?app=index&method=admin&p1=book&p2=book_editor">Rezervacni system</a></li>
 	</ol>
 </div>
 <div class="right content">

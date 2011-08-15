@@ -1,6 +1,6 @@
 <div>
 	<h1>Nastaveni kontaktnich informaci</h1>
-	{get_message id='contact_editor'}
+	{get_message id='contact_editor' timeout=5000}
 	<form action="" method="post">
 		<input type="hidden" name="app" value="contact" />
 		<input type="hidden" name="method" value="contact_update" />
