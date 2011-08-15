@@ -14,5 +14,25 @@
 		public function admin($apps) {	
 			$this->write('admin.tpl', $apps);
 		}
+		
+		public function index_editor() {	
+			$this->assign('pages', dibi::query('select id,concat(menu_title, " | ", lang) from [presenter] order by [position]')->fetchPairs());
+			return $this->parse('index_editor.tpl');
+		}
+	}
+	
+	class index_model extends AObject {
+		public function __construct() {
+			parent::__construct('index');
+		}
+		public function get_data($id) {
+			$data = dibi::query('select id, page_title, uri, description from [presenter] where id = %i', $id)->fetch();
+			return json_encode($data);
+		}
+		public function index_update_data($data) {
+			$db_data = array_slice($data, 1);
+			dibi::query('update [presenter] set', $db_data, 'where [id]=%i limit 1', $data['id']);
+			$this->set_message("Data byla aktualizovana", 'index_editor');
+		}
 	}
 ?>

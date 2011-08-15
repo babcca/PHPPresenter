@@ -28,14 +28,14 @@
 	<script src="/js/slider.js" type="text/javascript"></script>
 	<script src="/js/jquery.tipsy.js" type="text/javascript"></script>
 	
-	<title>Pension Barbora | {$title}</title>
+	<title>Pension Barbora | {$page_title}</title>
 </head>
 <body>
 <div class="bar1">
 	<div class="page-body">
 		<div class="head">
 			<div class="logo">
-				<img src="/img/logo.png" alt="Pension Barbora | {$title}" />
+				<img src="/img/logo.png" alt="Pension Barbora | {$page_title}" title="Pension Barbora | {$page_title}" />
 			</div>
 			{call_app app='menu' method='generate_language_menu' param="lang=$lang,id=$select_id"}
 		</div>

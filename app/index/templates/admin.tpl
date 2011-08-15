@@ -55,16 +55,24 @@ $(document).ready(function () {
 	    content_css : "/css/tinymce.css",
 	    theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
 	    font_size_style_values : "10px,12px,13px,14px,16px,18px,20px",
-	    theme_advanced_blockformats : "p,div,h1,h2,h3"
+	    theme_advanced_blockformats : "p,div,h1,h2,h3",
+	    convert_urls : false
 	 });
 } );
 </script>
 <div class="left menu">
+	<form action="" method="post">
+		<input type="hidden" name="app" value="auth" />
+		<input type="hidden" name="app" value="logout" />
+		<input type="submit" value="logout" />
+	</form> 
+	<h1>Menu</h1>
 	<ol>
 		<li><a href="?app=index&method=admin">Obsah stranek</a></li>
 		<li><a href="?app=index&method=admin&p1=gallery&p2=gallery_editor">Galerie</a></li>
 		<li><a href="?app=index&method=admin&p1=contact&p2=contact_editor">Kontaktni informace</a></li>
 		<li><a href="?app=index&method=admin&p1=book&p2=book_editor">Rezervacni system</a></li>
+		<li><a href="?app=index&method=admin&p1=index&p2=index_editor">SEO optimalizace</a></li>
 	</ol>
 </div>
 <div class="right content">

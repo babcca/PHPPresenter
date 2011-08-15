@@ -20,7 +20,7 @@
 		</div>
 	</form>
 </div>
-<script>
+<script type="text/javascript">
 load_content();
 $("[name=page_selector]").change(function () {
 	load_content();

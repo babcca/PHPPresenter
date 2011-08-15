@@ -14,7 +14,7 @@
 		}
 		
 		public function page_editor() {
-			$data["pages"] = dibi::query("select param, concat(title, ' | ', lang) from [presenter] order by position")->fetchPairs();
+			$data["pages"] = dibi::query("select param, concat(menu_title, ' | ', lang) from [presenter] order by [position]")->fetchPairs();
 			return $this->parse('page_editor.tpl', $data);
 		}
 		
