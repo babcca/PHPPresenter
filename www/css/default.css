@@ -37,9 +37,22 @@ table {
 }
 .footer {
 	background-color: #8b815f; 
-	text-align: center; 
+	text-align: left;
+	font-size: 12px;
 	color: #FFF; 
-	height: 40px;
+	height: 50px;
+	margin-bottom: 20px;
+}
+.footer p {
+	padding-top: 10px;
+	margin: auto;
+}
+.footer a, a:visited {
+	text-decoration: none;
+	color: #FFF;
+}
+.footer a:hover {
+	color: #363636;
 }
 .logo {
 	margin-left: 10px;
