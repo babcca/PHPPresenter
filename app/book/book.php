@@ -10,7 +10,7 @@
 			if (($data = $this->get_data('book/book_form')) != null) {
 				$this->assign('default', $data[1]);
 			} else {
-				$this->assign('default', array("$lang", '', '', '1'));
+				$this->assign('default', array("$lang", '', '', '0'));
 			}
 			$text = dibi::query('select * from [page_content] where [id] = %i', $text_id)->fetch();
 			$this->get_translate($lang);
@@ -19,6 +19,10 @@
 		public function quick_book_form($lang) {
 			$this->get_translate($lang);
 			return $this->parse("quick_book.tpl", array('lang'=>$lang));
+		}
+		public function book_editor() {
+			include "price_list.php";
+			return $this->parse("book_editor.tpl", $price_list);
 		}
 	}
 	
@@ -39,6 +43,11 @@
 			$this->push(json_encode($this->_calculate_price($form_data)));
 		}
 		
+		public function price_update($data) {
+			file_put_contents(dirname(__file__).'/price_list.php', $this->parse('price_list_template.tpl', $data));
+			$this->set_message('Data byla aktualizovana', 'book_editor');
+		}
+		
 		public function _calculate_price($form_data) {
 			include "price_list.php";
 			$guests_count = 0; 
@@ -53,23 +62,20 @@
 				$day_index = min($days, 2) - 1;
 				$guest_index = min($room["guests"], 4) - 1; // >= 4 stejan cena
 				// person_per_day * person_count * spending_nights
-				$accomm_price += $day_tax[$day_index][$guest_index]*$room["guests"]*$days;
-				if ($room['parking'] != 'false') $services_price += $parking*$days; // price for parking
+				$accomm_price += $price_list["day_tax"][$day_index][$guest_index]*$room["guests"]*$days;
+				if ($room['parking'] != 'false') $services_price += $price_list["parking"]*$days; // price for parking
 			}
 			if ($form_data['breakfast'] != 'false') {
-				if ($guests_count >= 4) { $services_price += $guests_count*$breakfast*$days; } // price for breakfast
+				if ($guests_count >= 4) { $services_price += $guests_count*$price_list["breakfast"]*$days; } // price for breakfast
 				else { $this->set_message('Breakfast not calculated, less then 4 persons', 'book_price_calculator'); }
 			}
 			
-			if ($form_data['transfer'] != 'false') {
-				if ($guests_count >= 4) { $services_price+= ceil($guests_count / 4) * $transport; }// price for transport 
-				else { $this->set_message('Transfer not calculated, less then 4 persons', 'book_price_calculator'); }
-			}
+			if ($form_data['transfer'] != 'false') {$services_price += ceil($guests_count / 4) * $price_list["transport"]; }// price for transport 
 			
 			$return['messages'] = $this->parse('book_price_calculator.tpl');
-			$return['accomm_price'] = ceil($accomm_price / $euro);
-			$return['services_price'] = ceil($services_price/ $euro);
-			$return['result_price'] = ceil(($services_price + $accomm_price) / $euro);
+			$return['accomm_price'] = ceil($accomm_price / $price_list["euro"]);
+			$return['services_price'] = ceil($services_price/ $price_list["euro"]);
+			$return['result_price'] = ceil(($services_price + $accomm_price) / $price_list["euro"]);
 			return $return;
 		}
 
@@ -99,7 +105,6 @@
 				$room['customer_id'] = $order['customer_id'];
 				dibi::query('insert into [book_rooms] ', $room);
 			}
-			log::l($this->get_order($order_id));
 			$this->assign('order_id', $order_id	);
 			$this->assign('calculated_price', $this->_calculate_price($form_data));
 			if (mail($to, $subject, $this->parse('book_order_email.tpl',$form_data), $headers)) {

@@ -10,8 +10,8 @@
 </div>
 <div class="booking_info">{$trans.approx_price}</div>
 {*<form action="" method="post" id="main_book_form" enctype="multiple/form-data">*}
-	<input type="hidden" name="app" value="book"> 
-	<input type="hidden" name="method" value="book_email"> 
+	<input type="hidden" name="app" value="book" /> 
+	<input type="hidden" name="method" value="book_email" /> 
 	<table class="book_table">
 	<tr>
 		<th class="book_panel">{$trans.booking_detail}</th><th>Personal information</th>
@@ -37,19 +37,19 @@
 			<div class="accordion" id="room_1">
 				<h3>{$trans.first_room_properties}:</h3>
 				<div id="guests_r0">			
-					{include file='room_properties.tpl' index=0}
+					{include file='room_properties.tpl' index=0 checked=$default.3}
 				</div>
 			</div>
 			<div class="accordion" id="room_2">
 				<h3><a href="#">{$trans.second_room_properties}:</a></h3>
 				<div id="guests_r1">
-					{include file='room_properties.tpl' index=1}
+					{include file='room_properties.tpl' index=1 checked=0}
 				</div>
 			</div>
 			<div class="accordion" id="room_3">
 				<h3><a href="#">{$trans.third_room_properties}:</a></h3>
 				<div id="guests_r2">
-					{include file='room_properties.tpl' index=2}
+					{include file='room_properties.tpl' index=2 checked=0}
 				</div>	
 			</div>
 		</td>
@@ -70,12 +70,12 @@
 	<tr>
 		<td colspan="2" class="right">
 			<input name="show_price" type="button" value="Calculate" />
-			<input name="send_book_order" type="button" value="Book" />
+			<input name="send_book_order" type="button" class="book-button" value="" />
 		</td>
 	</tr>
 </table>
 {*</form>*}
-<script>
+<script type="text/javascript">
 	function get_checkbox(id) {
 		return ($(id).attr("checked") == undefined) ? 'false' : 'true';
 	};
@@ -120,14 +120,13 @@
 		return stringToTrim.replace(/^\s+|\s+$/g,"");
 	}
 	function not_empty(data, keys) {
-		var ret = true;
 		for (k in keys) {
 			if (trim(data[keys[k][0]]) == '') {
-				alert(keys[k][1]);
-				ret = false;
+				$("#message_container").html('<b>'+keys[k][1]+'</b>');
+				return false;
 			}
 		}
-		return ret;
+		return true;
 	}
 </script>
 </div>

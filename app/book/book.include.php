@@ -12,16 +12,33 @@
 								"method"=>"quick_book_form",
 								"params"=>array('lang'=>'%([a-z]{2})')
 								));
+	Presenter::view("book", array(
+								"class"=>"book",
+								"method"=>"book_editor",
+								"params"=>array()
+								));
 
+								
+	// methods
 	Presenter::view('book', array(
 								"class"=>"book_model",
 								"method"=>"redirect",
 								"params" => array("lang"=>'%([a-z]{2})',
-												  "date_from_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})",
-												  "date_to_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})",
+												  "date_from_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})[]",
+												  "date_to_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})[]",
 												  "guests_quick"=>"%num")
 								));
-
+	Presenter::view('book', array(
+								"class"=>"book_model",
+								"method"=>"price_update",
+								"params_array"=>true,
+								"params" => array("euro"=>"%([0-9]+)",
+												  "parking"=>"%([0-9]+)",
+												  "breakfast"=>"%([0-9]+)",
+												  "transport"=>"%([0-9]+)",
+												  "day_tax"=>"%all") // jak kontrolovat pole?
+								));
+						
 	Presenter::view('book', array(
 								"class"=>"book_model",
 								"method"=>"calculate_price",
@@ -32,6 +49,8 @@
 												  "transfer"=>"%{true,false}[false]",
 												  'rooms'=>"%all") // jak kontrolovat pole?
 								));
+	
+								
 
 	Presenter::view("book", array(
 								"class"=>"book_model",

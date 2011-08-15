@@ -14,7 +14,7 @@
 			{html_options values=[1,2,3,4,5,0] output=[1,2,3,4,5, 'more'] name='guests_quick'}
 		</td>
 		<td>
-			<input class="button-input" type="submit" value="book"/>
+			<input type="submit" class="book-button" value=""/>
 		</td>
 	</tr>
 	</table>

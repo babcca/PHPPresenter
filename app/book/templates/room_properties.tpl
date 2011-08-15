@@ -4,12 +4,9 @@
 	</tr>
 	<tr>
 		<td class="book_label">{$trans.room_guests}:</td>
-		<td><input name="guests_{$index}" type="radio" value="0" checked="checked"/></td>
-		<td><input name="guests_{$index}" type="radio" value="1" /></td>
-		<td><input name="guests_{$index}" type="radio" value="2" /></td>
-		<td><input name="guests_{$index}" type="radio" value="3" /></td>
-		<td><input name="guests_{$index}" type="radio" value="4" /></td>
-		<td><input name="guests_{$index}" type="radio" value="5" /></td>
+		{for $i=0 to 5}
+		<td><input name="guests_{$index}" type="radio" value="{$i}" {if $i == $checked}checked="checked"{/if}/></td>
+		{/for}
 	</tr>
 	<tr>
 		<td class="book_label">{$trans.single_beds_count}:</td>
