@@ -19,8 +19,8 @@
 		<form action="" method="post" enctype="multiple/form-data" id="ContactForm">
 			<input type="hidden" name="app" value="contact" />
 			<input type="hidden" name="method" value="contact_email" />
-			<label class="contact_label">{$trans.name}:</label> <input type="text" name="name" id="Name" size="31" /><br />
-			<label class="contact_label">{$trans.mail}:</label> <input type="text" name="email" id="Email" size="31" /><br />
+			<label class="contact_label">{$trans.name}:<span style="color: red">*</span></label> <input type="text" name="name" id="Name" size="31" /><br />
+			<label class="contact_label">{$trans.mail}:<span style="color: red">*</span></label> <input type="text" name="email" id="Email" size="31" /><br />
 			<label class="contact_label">{$trans.phone}:</label> <input type="text" name="phone" id="Phone" size="31" /><br />
 			<label>{$trans.your_message}:</label><br />
 			<textarea name="message" id="Message" cols="34" rows="5"></textarea> <br />

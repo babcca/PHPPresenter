@@ -54,13 +54,13 @@
 			</div>
 		</td>
 		<td class="vtop">
-			<label class="book_label">{$trans.name}:</label>
+			<label class="book_label">{$trans.name}:<span style="color: red">*</span></label>
 			<input class="input" type="text" name="name" size="20" /><br />
 	
-			<label class="book_label">{$trans.mail}:</label>
+			<label class="book_label">{$trans.mail}:<span style="color: red">*</span></label>
 			<input class="input" type="text" name="email" size="20" /><br />
 	
-			<label class="book_label">{$trans.phone}:</label>
+			<label class="book_label">{$trans.phone}:<span style="color: red">*</span></label>
 			<input class="input" type="text" name="phone" size="20" /><br />
 	
 			<label>{$trans.your_message}</label><br />
