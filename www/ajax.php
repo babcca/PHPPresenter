@@ -9,7 +9,7 @@
 		'driver'=>'mysql',
 		'username'=> 'w6811_barbora',
 		'password'=>'Kverty246',
-		'host'=>($_SERVER['SERVER_NAME'] != 'apartments-barbora.com' ? 'localhost' : 'wm8.wedos.net'),
+		'host'=>($_SERVER['SERVER_NAME'] != 'localhost' ? 'wm8.wedos.net' : 'localhost'),
 		'database'=>'d6811_barbora',
 		'charset'=>'utf8'
 	));
@@ -17,6 +17,7 @@
 	$app_manager->register(new Application("book"));
 	$app_manager->register(new Application("page"));
 	$app_manager->register(new Application("gallery"));
+	$app_manager->register(new Application("index"));
 
 	$controller = new Controller();
 	$controller->post_refresh = false;
