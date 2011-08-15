@@ -90,6 +90,10 @@
 					<h1>{$trans.weather_info}</h1>
 					<div id="weather" class="weatherFeed"></div>
 				</div>
+				<div class="box">
+					<h1>{$trans.exchange_rates}</h1>
+					<div id="exchangeRates"></div>
+				</div>
 			</td>
 		</tr>
 	</table>

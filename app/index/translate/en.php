@@ -25,6 +25,7 @@
 		'first_room_properties' => 'First room properties',
 		'second_room_properties' => 'Second room properties',
 		'third_room_properties' => 'Third room properties',
-		'approx_price' => 'Your approximate price<span class="calculator"> 0 &euro; </span>'
+		'approx_price' => 'Your approximate price<span class="calculator"> 0 &euro; </span>',
+		'exchange_rates' => 'EXCHANGE RATES'
 	);
 ?>
