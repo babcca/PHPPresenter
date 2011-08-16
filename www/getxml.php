@@ -1,5 +1,5 @@
 <?php
-header('<?xml version="1.0" encoding="UTF-8"?>');
+
 $xmlurl = 'http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
 $handle = fopen($xmlurl, "r");
 
