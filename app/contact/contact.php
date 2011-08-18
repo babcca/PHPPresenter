@@ -38,7 +38,7 @@
 		}
 		
 		public function contact_email($name, $email, $message, $phone) {
-			$to = "babcca@gmail.com";
+			$to = "info@apartments-barbora.com";
 			$subject = "NO-REPLY | Apartments Barbora - Quick Contact Message";
 			$body = '<html>
 						<head> </head>

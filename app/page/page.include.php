@@ -9,15 +9,19 @@
 	Presenter::view("page", array(
 								"class"=>"page",
 								"method"=>"page_editor",
-								"params"=>array()));
-	Presenter::view("page", array(
+								"login"=>true));
+	
+	//model
+	Presenter::method("page", array(
 								"class"=>"page",
 								"method"=>"page_content",
+								"login"=>true,
 								"params"=>array('text_id'=>'%([0-9]+)')));
 	
-	Presenter::view("page", array(
+	Presenter::method("page", array(
 								"class"=>"page_model",
 								"method"=>"update_content",
+								"login"=>true,
 								"params_array"=>true,
 								"params"=>array(
 									"text_id"=>'%([0-9]+)',

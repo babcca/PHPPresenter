@@ -61,9 +61,10 @@ $(document).ready(function () {
 } );
 </script>
 <div class="left menu">
+	{get_message id='auth_info' timeout=5000}
 	<form action="" method="post">
 		<input type="hidden" name="app" value="auth" />
-		<input type="hidden" name="app" value="logout" />
+		<input type="hidden" name="method" value="logout" />
 		<input type="submit" value="logout" />
 	</form> 
 	<h1>Menu</h1>

@@ -15,12 +15,12 @@
 	Presenter::view("book", array(
 								"class"=>"book",
 								"method"=>"book_editor",
-								"params"=>array()
+								"login"=>true
 								));
 
 								
 	// methods
-	Presenter::view('book', array(
+	Presenter::method('book', array(
 								"class"=>"book_model",
 								"method"=>"redirect",
 								"params" => array("lang"=>'%([a-z]{2})',
@@ -28,9 +28,10 @@
 												  "date_to_quick"=>"%([0-9]{2}-[0-9]{2}-[0-9]{4})[]",
 												  "guests_quick"=>"%num")
 								));
-	Presenter::view('book', array(
+	Presenter::method('book', array(
 								"class"=>"book_model",
 								"method"=>"price_update",
+								"login"=>true,
 								"params_array"=>true,
 								"params" => array("euro"=>"%([0-9]+)",
 												  "parking"=>"%([0-9]+)",
@@ -39,7 +40,7 @@
 												  "day_tax"=>"%all") // jak kontrolovat pole?
 								));
 						
-	Presenter::view('book', array(
+	Presenter::method('book', array(
 								"class"=>"book_model",
 								"method"=>"calculate_price",
 								"params_array"=>true,
@@ -52,7 +53,7 @@
 	
 								
 
-	Presenter::view("book", array(
+	Presenter::method("book", array(
 								"class"=>"book_model",
 								"method"=>"book_order",
 								"params_array"=>true,

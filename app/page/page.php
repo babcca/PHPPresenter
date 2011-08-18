@@ -34,7 +34,6 @@
 			}
 			return $this->cache["content"];
 		}
-		
 		public function update_content($content) {
 			dibi::query('UPDATE [page_content] SET [title] = %s, [text] = %s WHERE [id] = %i LIMIT 1', $content["content_title"], $content["page_content"], $content["text_id"]);
 			$this->set_message('Obsah "'.$content["content_title"].'" byl aktualizovan', 'page_editor');

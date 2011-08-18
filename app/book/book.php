@@ -86,7 +86,7 @@
 		}
 		public function book_order($form_data) {
 			$subject = "Apartments Barbora - Reservation request";
-			$to = "babcca@gmail.com";
+			$to = "info@apartments-barbora.com";
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			

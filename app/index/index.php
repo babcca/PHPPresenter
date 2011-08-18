@@ -6,6 +6,11 @@
 		}
 		public function clanek($id, $lang) {
 			$page = dibi::query('select * from [presenter] WHERE [uri] = %s and [lang] = %s', $id, $lang)->fetch();
+			if ($page === false) {
+				header("HTTP/1.0 404 Not Found");
+				$this->write('404.tpl');
+				return;
+			}
 			$page['select_id'] = $id;
 			$this->get_translate($lang);
 			$this->write('index.tpl', $page);

@@ -9,23 +9,26 @@
 	
 	Presenter::view("gallery", array(
 								"class"=>"gallery",
-								"method"=>"gallery_editor",
-								"params"=>array()
+								"login"=>true,
+								"method"=>"gallery_editor"
 								));
 								
-	Presenter::view("gallery", array(
+	Presenter::method("gallery", array(
 								"class"=>"gallery_model",
 								"method"=>"upload_image",
+								"login"=>true,
 								"params"=>array("new_image_desc"=>"%([^<>]*)")
 								));
-	Presenter::view("gallery", array(
+	Presenter::method("gallery", array(
 								"class"=>"gallery_model",
 								"method"=>"update_desc",
+								"login"=>true,
 								"params"=>array("image_id"=>"%([0-9]+)", "desc"=>"%([^<>]+)")
 								));
-	Presenter::view("gallery", array(
+	Presenter::method("gallery", array(
 								"class"=>"gallery_model",
 								"method"=>"delete_image",
+								"login"=>true,
 								"params"=>array("image_id"=>"%([0-9]+)")
 								));
 ?>
