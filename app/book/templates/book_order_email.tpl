@@ -1,44 +1,11 @@
 <div style="width: 650px;">
 <html>
 <head>
-<style>
-body {
-	font-family: Arial, Helvetica, sans-serif;
-}
-#wrapper {
-	background-color: #D2C9A4;
-}
-#wrapper p {
-	padding-left: 10px;
-}
-#header {
-	background-color: #8B815F;
-	padding: 10px;
-	height: 50px;
-	font-size: 20px;
-	color: #FFF;
-	text-align: center;
-}
-#header b {
-	position: relative;
-	top: 15px;
-}	
-#header img {
-	height: 50px;
-	width: 108px;
-	float: left;
-}
-#price {
-	background-color: #8B815F;
-	font-size: 20px;
-	color: #FFF;
-}
-</style>
 </head>
 	<body>
-	<div id="wrapper">
-		<div id="header"><img src="http://apartments-barbora.com/img/logo.png" alt="logo">
-		<b>Pre-booking confirmation</b></div>
+	<div style="background-color: #DFDBC7; font-family: Arial, Helvetica, sans-serif;">
+		<div style="background-color: #8B815F; height: 50px;"><img src="http://apartments-barbora.com/img/logo_b.png" alt="logo" style="padding-left: 10px; height: 50px; width: 108px; float: left;"></div>
+		<div style="padding: 10px;"><b style="font-size:20px;">Pre-booking confirmation</b>
 		<p>This email was sent via booking form from website <b>www.apartments-barbora.com.</b><br />
 		Please wait for us to confirm the reservation, we will contact you on email or phone as soon as possible.</p>
 		
@@ -70,9 +37,9 @@ body {
 	
 			<p>Notes: <br />
 			{$message}
-			</p>
+			</p></div>
 			
-			<div id="price"><p>Total price: <br />
+			<div style="background-color: #8B815F; font-size: 20px;"><p style="padding-left: 10px;">Total price: <br />
 			<b>{$price}</b>
 			</p></div>
 		</p>
