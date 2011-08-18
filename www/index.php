@@ -5,10 +5,7 @@
 	require_once dirname(__file__).'/../lib/render.php';
 	require_once dirname(__file__).'/../lib/dibi/dibi.php';
 	define("DEBUG_MODE", 1);
-	//var_dump($_SERVER['REQUEST_URI']);
-	//var_dump($_SERVER['REQUEST_URI']);
-	//VAR_DUMP($_GET);
-	//VAR_DUMP($_POST);
+
 	require_once dirname(__file__).'/../lib/aobject.php';
 	class Timer extends AObject {
 		private $b;
@@ -100,7 +97,7 @@
 	}
 	session_start();
 	$app_manager = ApplicationManager::instance();
-	$app_manager->register(new Application("index", array(new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
+	$app_manager->register(new Application("index", array(new Application("auth"), new Application("gallery"), new Application("page"), new Application("contact"), new Application("menu"), new Application("book"))));
 
 	$controller = new Controller();
 	Presenter::$controller = $controller;

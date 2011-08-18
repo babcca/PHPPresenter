@@ -2,33 +2,9 @@
 	require_once dirname(__file__).'/language_loader.php';
 	require_once dirname(__file__).'/logger.php';
 	
-	class URLParser {
-		private $url_type = 0;
-		
-		public static function parse($keyword) {
-			switch ($_SERVER['REQUEST_METHOD']) {
-				case 'POST':
-					return $_POST;
-					break;
-				case 'GET':
-					return $_GET;
-					break;
-				default:
-					//error
-			}
-		}
-		
-		public static function make_url($app, $method, $params, $bootstrap = 'index') {
-			$url = "/$bootstrap.php?app=$app&method=$method";
-			foreach ($params as $key => $val) {
-				$url .= "&$key=$val";
-			}
-			return $url;	
-		}
-	}
-
 	class Controller {
-		private $callbacks = array();
+		private $callbacks_view = array();
+		private $callbacks_method = array();
 		private $process_list = array();
 		public $post_refresh = true;
 		public $use_default = false;
@@ -36,41 +12,76 @@
 				'%num'=>'[0-9]+',
 				'%string' => '[a-zA-Z ]+'
 		);
+		
 		public function __construct() {
 		}
 		
+		public function run() {
+			switch ($_SERVER['REQUEST_METHOD']) {
+				case 'GET':
+					$this->run_view();
+					break;
+				case 'POST':
+					$this->run_method();
+					break;
+				default:
+					break;
+			}
+		}
 		public function call($app, $method, $params = array()) {
 			ApplicationManager::instance()->import($app);
-			$data = $this->callbacks[$app]->$method;
-			if ($data == null) { throw new Exception("Address not found", 0); }
+			$data = $this->callbacks_view[$app]->$method;
+			if ($data == null) { 
+				$data = $this->callbacks_method[$app]->$method;
+				if ($data == null) { throw new Exception("Application $app not found", 0); }
+			}
 			//check_permision($data);
 			return $this->call_method($data, $params);	
+		}	
+		
+		public function process($url, $source, $dapp = 'default', $dmethod = 'default') {
+			$app = isset($url["app"]) ? $url["app"] : $dapp;
+			$method = isset($url['method']) ? $url['method'] : $dmethod;
+			ApplicationManager::instance()->import($app);
+			$src = $this->$source;
+			$data = $src[$app]->$method;
+			if ($data == null) { 
+					header("HTTP/1.0 404 Not Found");
+					exit;
+			}
+			if (!$this->check_permision($data)) {
+				header('Location: /?app=auth&method=login&uri='.urlencode($_SERVER['REQUEST_URI']));
+				exit;
+			}
+			BQueue::push($this->call_method($data, $url, $this->use_default));
 		}
 		
+		public function run_view() {
+			$this->process($_GET, 'callbacks_view', 'index', 'clanek');
+		}
 		
-		public function run() {
-			$url = URLParser::parse(NULL);
-			$app = isset($url["app"]) ? $url["app"] : 'index';
-			$method = isset($url['method']) ? $url['method'] : 'clanek';
-			ApplicationManager::instance()->import($app);
-			$data = $this->callbacks[$app]->$method;
-			if ($data == null) { throw new Exception("Address not found", 0); }
-			//check_permision($data);
-			BQueue::push($this->call_method($data, $url, $this->use_default));
-			if (($_SERVER['REQUEST_METHOD'] == 'POST') && $this->post_refresh) {
-				header('location: '. $_SERVER['REQUEST_URI']); // vyresit nefunguje 100% :(
+		public function run_method() {
+			$this->process($_POST, 'callbacks_method');
+			if ($this->post_refresh) {
+				header('location: '. $_SERVER['REQUEST_URI']);
+				exit;
 			}
+		}
+		
+		private function check_permision($app) {
+			if ($app['login'] === false) return true;
+			return $this->call('auth', 'is_logged');
 		}
 		
 		public function parse_extended($what, $where, $use_default) {
 			$parameters = array();
 			foreach ($what as $param=>$pattern) {
 				if (!array_key_exists($param, $where)) {
-					if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
+					if (preg_match('#\[([\w?=&/]+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
 					else { throw new Exception("Expected parameter $param", 0); } 
 				} else if (!$this->check_param($where[$param], $pattern)) {
 					if ($use_default === true) {
-						if (preg_match('#\[(\w+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
+						if (preg_match('#\[([\w?=&/]+)\]$#', $pattern, $default)) { $parameters[$param] = $default[1]; }
 						else throw new Exception("Bad parameter $param format", 0);
 					} else { throw new Exception("Bad parameter $param format", 0); }
 				} else { $parameters[$param] = $where[$param]; }
@@ -81,7 +92,7 @@
 		
 		private function call_method($data, $url, $use_default = false) {
 			$parameters = $this->parse_extended($data['params'], $url, $use_default);
-			if (isset($data['params_array']) && $data['params_array'] = true) {
+			if ($data['params_array'] === true) {
 				$parameters = array($parameters);
 			}
 			if (!isset($this->process_list[$data['class']])) {
@@ -113,7 +124,7 @@
 			} else if (preg_match("&^%<(.*)>&", $pattern, $fn)) {
 				return $fn[1]($param) == true;
 			} else if (preg_match("&^%\((.*)\)&", $pattern, $regexp)) {
-				return preg_match("&^{$regexp[1]}$&", $param) == true;
+				return preg_match("#^{$regexp[1]}$#", $param) == true;
 			} else return false;
 		}
 		/**
@@ -122,27 +133,64 @@
 		 * 				"class" => <class name>
 		 * 				"method" => <method name>
 		 * 				"url" => array("clanek", "article"),
+		 * 				"array_params" =True| False,
 		 * 				"param"=>array("%<replace>", "%([[:alnum:]])", "%{yes, no}"[no]),
 		 * 				"login" => True | False,
 		 * 				"groups" => array("group1", ...)
 		 */
-		public function register_callback($app, $callback) {
-			if (!array_key_exists($app, $this->callbacks)) $this->callbacks[$app] = new callback_struct();
-			$this->callbacks[$app]->insert($callback);
+		public function register_view($app, $callback) {
+			if (!array_key_exists($app, $this->callbacks_view)) $this->callbacks_view[$app] = new callback_struct($callback);
+			else $this->callbacks_view[$app]->insert($callback);
+		}
+		/**
+		 * @param app = application_name
+		 * @param Array $callback = array(
+		 * 				"class" => <class name>
+		 * 				"method" => <method name>
+		 * 				"url" => array("clanek", "article"),
+		 * 				"array_params" = True| False,
+		 * 				"param"=>array("%<replace>", "%([[:alnum:]])", "%{yes, no}"[no]),
+		 * 				"login" => True | False,
+		 * 				"groups" => array("group1", ...)
+		 */
+		public function register_method($app, $callback) {
+			if (!array_key_exists($app, $this->callbacks_method)) $this->callbacks_method[$app] = new callback_struct($callback);
+			else $this->callbacks_method[$app]->insert($callback);
 		}
 		
 	}
 	class callback_struct {
-		private $_data = array();
+		private $data = array();
+		public function __construct($value) {
+			$this->insert($value);
+		}
+		
+		private function merge($value) {
+			$default = array(
+				"class"=>"",
+				"method"=>"",
+				"params"=>array(),
+				"params_array"=>false,
+				"login" => false,
+				"groups"=>array()
+			);
+			foreach($value as $key => $v) {
+				$default[$key] = $v;
+			}
+			return $default;
+			
+		}
 		public function insert($value) {
-				$url = $value['method'];
-				if (!array_key_exists($url, $this->_data)) {
-					$this->_data[$url] = $value;
+				if (!isset($value['class']) || !isset($value["method"])) {
+					throw new Exception("'class' and 'method' must be set", 0);
+				}
+				if (!array_key_exists($value['method'], $this->data)) { // toto upravit na pretezovani
+					$this->data[$value['method']] = $this->merge($value);;
 				}
 		}
 		public function __get($key) {
-			if (array_key_exists($key, $this->_data)) {
-				return $this->_data[$key];
+			if (array_key_exists($key, $this->data)) {
+				return $this->data[$key];
 			} else {
 				return null;
 			}
@@ -152,7 +200,10 @@
 	class Presenter {
 		public static $controller;
 		public static function view($app, $callback_struct) {
-			self::$controller->register_callback($app, $callback_struct);
+			self::$controller->register_view($app, $callback_struct);
+		}
+		public static function method($app, $callback_struct) {
+			self::$controller->register_method($app, $callback_struct);
 		}
 	}
 

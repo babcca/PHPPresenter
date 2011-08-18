@@ -14,6 +14,7 @@
 		'charset'=>'utf8'
 	));
 	$app_manager = ApplicationManager::instance();
+	$app_manager->register(new Application("auth"));
 	$app_manager->register(new Application("book"));
 	$app_manager->register(new Application("page"));
 	$app_manager->register(new Application("gallery"));

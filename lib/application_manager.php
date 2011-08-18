@@ -5,6 +5,7 @@
 	 */
 	class Application {
 		public $data = array();
+		public $included = false;
 		private $message_manager = true;
 		/**
 		 * @param String $app_name
@@ -13,12 +14,7 @@
 		public function __construct($app_name, $depends = array(), $messages = true) {
 			$this->data["app"] = $app_name;
 			$this->data["depends"] = $depends;
-			if ($messages) $this->enable_messages();
-			else $this->disable_messages();
 		}
-		public function is_messages_enable() { return isset($_SESSION[$this->data["app"]]); }
-		public function enable_messages() { $this->message_manger = true; }
-		public function disable_messages() { unset($_SESSION[$this->data["app"]]); }
 		public function app() { return $this->data["app"]; }
 		public function depends() { return $this->data["depends"]; }
 	}
@@ -58,7 +54,7 @@
 			if (!array_key_exists($application_struct->app(), $this->application_list)) {
 				$this->application_list[$application_struct->app()] = $application_struct;
 			} else {
-				throw new Exception("Application already registred", 0); // TODO: Error code
+				throw new Exception("Application already registred", 0);
 			}
 		}
 		/**
@@ -67,13 +63,14 @@
 		 */
 		public function import($application_name) {
 			if (array_key_exists($application_name, $this->application_list)) {
-				// TODO: Application search dir
+				if ($this->application_list[$application_name]->included) return;
 				foreach ($this->application_list[$application_name]->depends() as $import) {
 					$this->import($import->app());
 				}
+				$this->application_list[$application_name]->included = true;
 				require_once dirname(__file__).'/../app/'.$application_name.'/'.$application_name.'.include.php';
 			} else {
-				throw new Exception("Application $application_name not registred", 0); // TODO: Error code
+				throw new Exception("Application $application_name not registred", 0);
 			}
 		}
 	}
