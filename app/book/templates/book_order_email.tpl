@@ -40,7 +40,7 @@
 			</p></div>
 			
 			<div style="background-color: #8B815F; font-size: 20px;"><p style="padding-left: 10px;">Total price: <br />
-			<b>{$price}</b>
+			<b>{$calculated_price.result_price}</b>
 			</p></div>
 		</p>
 	</div>
