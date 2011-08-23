@@ -1,0 +1,100 @@
+\section{Dokumentace třídy Uploader}
+\label{d4/d3b/class_uploader}\index{Uploader@{Uploader}}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \_\-\_\-construct} (\$dest\_\-dir, \$alow\_\-ext)
+\item 
+{\bf upload} (\$inputName, \$upload\_\-preprocess='b\_\-none')
+\item 
+{\bf generate\_\-name} (\$fileName)
+\end{DoxyCompactItemize}
+\subsection*{Datové položky}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$error\_\-message} = ''
+\end{DoxyCompactItemize}
+\subsection*{Privátní metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf file\_\-test} (\$file)
+\item 
+{\bf file\_\-save} (\$file)
+\end{DoxyCompactItemize}
+\subsection*{Privátní atributy}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$maxSize} = 512000
+\item 
+{\bf \$dest\_\-dir}
+\item 
+{\bf \$alow\_\-ext} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailní popis}
+Jednoduchy uploader souboru s kontrolou koncovky souboru \begin{DoxyAuthor}{Autor}
+Petr Babicka 
+\end{DoxyAuthor}
+
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\index{Uploader@{Uploader}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!Uploader@{Uploader}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em dest\_\-dir}, \/  \$ {\em alow\_\-ext})}\label{d4/d3b/class_uploader_ae1a052bcca50ede168f0322681d07816}
+
+
+\subsection{Dokumentace k metodám}
+\index{Uploader@{Uploader}!file\_\-save@{file\_\-save}}
+\index{file\_\-save@{file\_\-save}!Uploader@{Uploader}}
+\subsubsection[{file\_\-save}]{\setlength{\rightskip}{0pt plus 5cm}file\_\-save (\$ {\em file})\hspace{0.3cm}{\ttfamily  [private]}}\label{d4/d3b/class_uploader_a7c81a26c313a5ac0bb0f92146e4b61fd}
+Try save file under new filename to destination dir. 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$file \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+string filename 
+\end{DoxyReturn}
+\index{Uploader@{Uploader}!file\_\-test@{file\_\-test}}
+\index{file\_\-test@{file\_\-test}!Uploader@{Uploader}}
+\subsubsection[{file\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}file\_\-test (\$ {\em file})\hspace{0.3cm}{\ttfamily  [private]}}\label{d4/d3b/class_uploader_a9a725aa5015620671e1b7e12f41f89cd}
+Test if given file is valid (alowed extension, suceful uploaded). If error set \$error\_\-message. 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$file \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+true if valied otherwise false 
+\end{DoxyReturn}
+\index{Uploader@{Uploader}!generate\_\-name@{generate\_\-name}}
+\index{generate\_\-name@{generate\_\-name}!Uploader@{Uploader}}
+\subsubsection[{generate\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}generate\_\-name (\$ {\em fileName})}\label{d4/d3b/class_uploader_ae190252d35464175e51cdd3cf430e534}
+Generate new filename. 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$fileName puvodni nazev souboru \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+string new filename 
+\end{DoxyReturn}
+\index{Uploader@{Uploader}!upload@{upload}}
+\index{upload@{upload}!Uploader@{Uploader}}
+\subsubsection[{upload}]{\setlength{\rightskip}{0pt plus 5cm}upload (\$ {\em inputName}, \/  \$ {\em upload\_\-preprocess} = {\ttfamily 'b\_\-none'})}\label{d4/d3b/class_uploader_a0362e48fc390880c79c71d81c908ab86}
+Upload file with form inputName and call upload\_\-preprocess before move file to public place (maybe for better velid check). 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$inputName \item[{\em callback}]\$upload\_\-preprocess \end{DoxyParams}
+
+
+\subsection{Dokumentace k položkám}
+\index{Uploader@{Uploader}!\$alow\_\-ext@{\$alow\_\-ext}}
+\index{\$alow\_\-ext@{\$alow\_\-ext}!Uploader@{Uploader}}
+\subsubsection[{\$alow\_\-ext}]{\setlength{\rightskip}{0pt plus 5cm}\$alow\_\-ext = array()\hspace{0.3cm}{\ttfamily  [private]}}\label{d4/d3b/class_uploader_a484692ba852cdd663733c5b6bc17753c}
+\index{Uploader@{Uploader}!\$dest\_\-dir@{\$dest\_\-dir}}
+\index{\$dest\_\-dir@{\$dest\_\-dir}!Uploader@{Uploader}}
+\subsubsection[{\$dest\_\-dir}]{\setlength{\rightskip}{0pt plus 5cm}\$dest\_\-dir\hspace{0.3cm}{\ttfamily  [private]}}\label{d4/d3b/class_uploader_a8d63eb8e7942d2cb2b69ed7aa9ae131b}
+\index{Uploader@{Uploader}!\$error\_\-message@{\$error\_\-message}}
+\index{\$error\_\-message@{\$error\_\-message}!Uploader@{Uploader}}
+\subsubsection[{\$error\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}\$error\_\-message = ''}\label{d4/d3b/class_uploader_ae838cbd355959defbd4d49d0fbe7b273}
+\index{Uploader@{Uploader}!\$maxSize@{\$maxSize}}
+\index{\$maxSize@{\$maxSize}!Uploader@{Uploader}}
+\subsubsection[{\$maxSize}]{\setlength{\rightskip}{0pt plus 5cm}\$maxSize = 512000\hspace{0.3cm}{\ttfamily  [private]}}\label{d4/d3b/class_uploader_a3c08c15291d9d6190bc87540b3e4d11b}
+
+
+Dokumentace pro tuto třídu byla generována z následujícího souboru:\begin{DoxyCompactItemize}
+\item 
+lib/{\bf uploader.php}\end{DoxyCompactItemize}

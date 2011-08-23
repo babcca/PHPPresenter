@@ -1,0 +1,47 @@
+\section{Controller Class Reference}
+\label{class_controller}\index{Controller@{Controller}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf run} ()
+\item 
+{\bf call} (\$app, \$method, \$params=array())
+\item 
+{\bfseries register\_\-view} (\$app, \$callback)\label{class_controller_a3fc2884eb21d9e131b5cf6cf67933b32}
+
+\item 
+{\bfseries register\_\-method} (\$app, \$callback)\label{class_controller_ab8f19c8e0644dfca30439771599db37f}
+
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \$post\_\-refresh} = true\label{class_controller_a8a59b03c764cd53a7ad5bdf4461caebb}
+
+\item 
+{\bfseries \$use\_\-default} = false\label{class_controller_afbd7e0101257bd5afcf70f0ea331e30a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Controller@{Controller}!call@{call}}
+\index{call@{call}!Controller@{Controller}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}call (\$ {\em app}, \/  \$ {\em method}, \/  \$ {\em params} = {\ttfamily array()})}\label{class_controller_aeaf0df229f460bc4171c34710ca7e301}
+Zjednudusene volani pohledu z aplikaci pro smarty plugin, kontroluje se zda ma uzivatel pravo volat dany pohled, pokud ne tak bude presmerovan na prihlasovaci stranku. 
+\begin{DoxyParams}{Parameters}
+\item[{\em string}]\$app Nazev registrovane aplikace \item[{\em string}]\$method Nazev volane metody (pohledu) \item[{\em array}]\$params Paramatery pro dany pohled \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em Exception}]Vyjimka pro nenalezenou aplikaci \end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Vystup z volane aplikace 
+\end{DoxyReturn}
+\index{Controller@{Controller}!run@{run}}
+\index{run@{run}!Controller@{Controller}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run ()}\label{class_controller_afb0fafe7e02a3ae1993c01c19fad2bae}
+Vstupni bod konrolery, podle typu pozadavku se rozhoduje, ma-\/li volat pohledy nebop metody. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+lib/controller.php\end{DoxyCompactItemize}

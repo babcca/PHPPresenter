@@ -1,0 +1,477 @@
+\section{Dokumentace souboru www/adminer.php}
+\label{da/d8e/adminer_8php}\index{www/adminer.php@{www/adminer.php}}
+\subsection*{Datové struktry}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf Adminer}
+\end{DoxyCompactItemize}
+\subsection*{Výčty}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf SERVER} 
+\item 
+enum {\bf DB} 
+\item 
+enum {\bf ME} 
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+if(\$pe) if(isset(\$\_\-GET[\char`\"{}file\char`\"{}])) {\bf connection} ()
+\item 
+{\bf idf\_\-unescape} (\$Q)
+\item 
+{\bf escape\_\-string} (\$b)
+\item 
+{\bf remove\_\-slashes} (\$tb)
+\item 
+{\bf bracket\_\-escape} (\$Q, \$lf=false)
+\item 
+{\bf h} (\$J)
+\item 
+{\bf nbsp} (\$J)
+\item 
+{\bf nl\_\-br} (\$J)
+\item 
+{\bf checkbox} (\$f, \$q, \$fb, \$Le=\char`\"{}\char`\"{}, \$Fe=\char`\"{}\char`\"{})
+\item 
+{\bf optionlist} (\$Tc, \$Af=null, \$Re=false)
+\item 
+{\bf html\_\-select} (\$f, \$Tc, \$q=\char`\"{}\char`\"{}, \$Sb=true)
+\item 
+{\bf confirm} (\$Fc=\char`\"{}\char`\"{}, \$Df=false)
+\item 
+{\bf js\_\-escape} (\$J)
+\item 
+{\bf ini\_\-bool} (\$Ef)
+\item 
+{\bf sid} ()
+\item 
+{\bf q} (\$J)
+\item 
+{\bf get\_\-vals} (\$j, \$C=0)
+\item 
+{\bf get\_\-key\_\-vals} (\$j, \$H=null)
+\item 
+{\bf get\_\-rows} (\$j, \$H=null, \$n=\char`\"{}$<$p class='error'$>$\char`\"{})
+\item 
+{\bf unique\_\-array} (\$a, \$I)
+\item 
+{\bf where} (\$s)
+\item 
+{\bf where\_\-check} (\$b)
+\item 
+{\bf where\_\-link} (\$k, \$C, \$q, \$Mf=\char`\"{}=\char`\"{})
+\item 
+{\bf cookie} (\$f, \$q)
+\item 
+{\bf restart\_\-session} ()
+\item 
+\& {\bf get\_\-session} (\$e)
+\item 
+{\bf set\_\-session} (\$e, \$b)
+\item 
+{\bf auth\_\-url} (\$Fb, \$F, \$O)
+\item 
+{\bf is\_\-ajax} ()
+\item 
+{\bf redirect} (\$ga, \$ta=null)
+\item 
+{\bf query\_\-redirect} (\$j, \$ga, \$ta, \$ad=true, \$Nf=true, \$ne=false)
+\item 
+{\bf queries} (\$j=null)
+\item 
+{\bf apply\_\-queries} (\$j, \$E, \$kf='table')
+\item 
+{\bf queries\_\-redirect} (\$ga, \$ta, \$ad)
+\item 
+{\bf remove\_\-from\_\-uri} (\$eb=\char`\"{}\char`\"{})
+\item 
+{\bf pagination} (\$Z, \$jf)
+\item 
+{\bf get\_\-file} (\$e, \$Fd=false)
+\item 
+{\bf upload\_\-error} (\$n)
+\item 
+{\bf odd} (\$c='class=\char`\"{}odd\char`\"{}')
+\item 
+{\bf json\_\-row} (\$e, \$b=null)
+\item 
+{\bf is\_\-utf8} (\$b)
+\item 
+{\bf repeat\_\-pattern} (\$ca, \$W)
+\item 
+{\bf shorten\_\-utf8} (\$J, \$W=80, \$if=\char`\"{}\char`\"{})
+\item 
+{\bf friendly\_\-url} (\$b)
+\item 
+{\bf hidden\_\-fields} (\$tb, \$of=array())
+\item 
+{\bf hidden\_\-fields\_\-get} ()
+\item 
+{\bf column\_\-foreign\_\-keys} (\$h)
+\item 
+{\bf enum\_\-input} (\$z, \$Ua, \$d, \$q, \$ac=null)
+\item 
+{\bf input} (\$d, \$q, \$K)
+\item 
+{\bf process\_\-input} (\$d)
+\item 
+{\bf search\_\-tables} ()
+\item 
+{\bf dump\_\-headers} (\$Wc, \$Cd=false)
+\item 
+{\bf dump\_\-csv} (\$a)
+\item 
+{\bf apply\_\-sql\_\-function} (\$K, \$C)
+\item 
+{\bf password\_\-file} ()
+\item 
+{\bf is\_\-mail} (\$pf)
+\item 
+{\bf is\_\-url} (\$J)
+\item 
+{\bf print\_\-fieldset} (\$R, \$wf, \$xf=false)
+\item 
+{\bf bold} (\$yf)
+\item 
+{\bf get\_\-lang} ()
+\item 
+{\bf lang} (\$tf, \$Rb)
+\end{DoxyCompactItemize}
+\subsection*{Proměnné}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$pe} = (!ereg('$^\wedge$(unsafe\_\-raw)?\$',ini\_\-get(\char`\"{}filter.default\char`\"{}))$|$$|$ini\_\-get(\char`\"{}filter.default\_\-flags\char`\"{}))
+\item 
+global {\bf \$o}
+\item 
+global {\bf \$g}
+\item 
+global {\bf \$la} = array()
+\item 
+global {\bf \$Qb}
+\item 
+global {\bf \$Eb}
+\item 
+global {\bf \$n}
+\item 
+global {\bf \$ba}
+\item 
+global {\bf \$ib}
+\item 
+global {\bf \$lc} = \$\_\-SERVER[\char`\"{}HTTPS\char`\"{}]\&\&strcasecmp(\$\_\-SERVER[\char`\"{}HTTPS\char`\"{}],\char`\"{}off\char`\"{})
+\item 
+global {\bf \$Xb}
+\item 
+global {\bf \$v}
+\item 
+global {\bf \$vf}
+\item 
+global {\bf \$Zf}
+\item 
+global {\bf \$db}
+\item 
+global {\bf \$Ka}
+\item 
+global {\bf \$N}
+\item 
+global {\bf \$Uf}
+\item 
+global {\bf \$S}
+\item 
+global {\bf \$mb}
+\item 
+global {\bf \$nc} = \char`\"{}3.2.2\char`\"{}
+\item 
+{\bf \$la} [\char`\"{}sqlite\char`\"{}] = \char`\"{}SQLite 3\char`\"{}
+\item 
+{\bf \$la} [\char`\"{}sqlite2\char`\"{}] = \char`\"{}SQLite 2\char`\"{}
+\item 
+if(isset(\$\_\-GET[\char`\"{}sqlite\char`\"{}])$|$$|$isset(\$\_\-GET[\char`\"{}sqlite2\char`\"{}])) {\bf \$la} [\char`\"{}pgsql\char`\"{}] = \char`\"{}PostgreSQL\char`\"{}
+\item 
+if(isset(\$\_\-GET[\char`\"{}pgsql\char`\"{}])) {\bf \$la} [\char`\"{}oracle\char`\"{}] = \char`\"{}Oracle\char`\"{}
+\item 
+if(isset(\$\_\-GET[\char`\"{}oracle\char`\"{}])) {\bf \$la} [\char`\"{}mssql\char`\"{}] = \char`\"{}MS SQL\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace výčtových typů}
+\index{adminer.php@{adminer.php}!DB@{DB}}
+\index{DB@{DB}!adminer.php@{adminer.php}}
+\subsubsection[{DB}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf DB}}\label{da/d8e/adminer_8php_ad4dd2bbef91d8d1a17ca7b9ad41203cd}
+\index{adminer.php@{adminer.php}!ME@{ME}}
+\index{ME@{ME}!adminer.php@{adminer.php}}
+\subsubsection[{ME}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ME}}\label{da/d8e/adminer_8php_aeb118d899043dc20122a190fbd0f6376}
+\index{adminer.php@{adminer.php}!SERVER@{SERVER}}
+\index{SERVER@{SERVER}!adminer.php@{adminer.php}}
+\subsubsection[{SERVER}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf SERVER}}\label{da/d8e/adminer_8php_ad9bdc1271f22ac106cb9088ecac6b8b1}
+
+
+\subsection{Dokumentace funkcí}
+\index{adminer.php@{adminer.php}!apply\_\-queries@{apply\_\-queries}}
+\index{apply\_\-queries@{apply\_\-queries}!adminer.php@{adminer.php}}
+\subsubsection[{apply\_\-queries}]{\setlength{\rightskip}{0pt plus 5cm}apply\_\-queries (\$ {\em j}, \/  \$ {\em E}, \/  \$ {\em kf} = {\ttfamily 'table'})}\label{da/d8e/adminer_8php_afd7597d2a6010f5e73edee03d8798fc0}
+\index{adminer.php@{adminer.php}!apply\_\-sql\_\-function@{apply\_\-sql\_\-function}}
+\index{apply\_\-sql\_\-function@{apply\_\-sql\_\-function}!adminer.php@{adminer.php}}
+\subsubsection[{apply\_\-sql\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}apply\_\-sql\_\-function (\$ {\em K}, \/  \$ {\em C})}\label{da/d8e/adminer_8php_a28b22fc08a82d31b9c8de8f73530e028}
+\index{adminer.php@{adminer.php}!auth\_\-url@{auth\_\-url}}
+\index{auth\_\-url@{auth\_\-url}!adminer.php@{adminer.php}}
+\subsubsection[{auth\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}auth\_\-url (\$ {\em Fb}, \/  \$ {\em F}, \/  \$ {\em O})}\label{da/d8e/adminer_8php_a817a599057b0ad34bafb7245462190dd}
+\index{adminer.php@{adminer.php}!bold@{bold}}
+\index{bold@{bold}!adminer.php@{adminer.php}}
+\subsubsection[{bold}]{\setlength{\rightskip}{0pt plus 5cm}bold (\$ {\em yf})}\label{da/d8e/adminer_8php_adcaff713bdd4f71b87ad5ab9e5946fc6}
+\index{adminer.php@{adminer.php}!bracket\_\-escape@{bracket\_\-escape}}
+\index{bracket\_\-escape@{bracket\_\-escape}!adminer.php@{adminer.php}}
+\subsubsection[{bracket\_\-escape}]{\setlength{\rightskip}{0pt plus 5cm}bracket\_\-escape (\$ {\em Q}, \/  \$ {\em lf} = {\ttfamily false})}\label{da/d8e/adminer_8php_a12d10560e59ae1598095f60ae2357b96}
+\index{adminer.php@{adminer.php}!checkbox@{checkbox}}
+\index{checkbox@{checkbox}!adminer.php@{adminer.php}}
+\subsubsection[{checkbox}]{\setlength{\rightskip}{0pt plus 5cm}checkbox (\$ {\em f}, \/  \$ {\em q}, \/  \$ {\em fb}, \/  \$ {\em Le} = {\ttfamily \char`\"{}\char`\"{}}, \/  \$ {\em Fe} = {\ttfamily \char`\"{}\char`\"{}})}\label{da/d8e/adminer_8php_a87b73350c518975d34a64aceaca6ee0f}
+\index{adminer.php@{adminer.php}!column\_\-foreign\_\-keys@{column\_\-foreign\_\-keys}}
+\index{column\_\-foreign\_\-keys@{column\_\-foreign\_\-keys}!adminer.php@{adminer.php}}
+\subsubsection[{column\_\-foreign\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}column\_\-foreign\_\-keys (\$ {\em h})}\label{da/d8e/adminer_8php_a16ea9af401643694731148bfd8283844}
+\index{adminer.php@{adminer.php}!confirm@{confirm}}
+\index{confirm@{confirm}!adminer.php@{adminer.php}}
+\subsubsection[{confirm}]{\setlength{\rightskip}{0pt plus 5cm}confirm (\$ {\em Fc} = {\ttfamily \char`\"{}\char`\"{}}, \/  \$ {\em Df} = {\ttfamily false})}\label{da/d8e/adminer_8php_a131d2dbcebb5a8661e950318f0430d43}
+\index{adminer.php@{adminer.php}!connection@{connection}}
+\index{connection@{connection}!adminer.php@{adminer.php}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}if (\$pe) if (isset(\$\_\-GET[\char`\"{}file\char`\"{}])) connection ()}\label{da/d8e/adminer_8php_a3bfab93019b02aa3082e52b69669231f}
+
+
+yH5BAEAAAEALAAAAAAIAAoAAAIPBIJplrGLnpQRqtOy3rsAADs=\char`\"{});break;case\char`\"{}loader.gif":echo \index{adminer.php@{adminer.php}!cookie@{cookie}}
+\index{cookie@{cookie}!adminer.php@{adminer.php}}
+\subsubsection[{cookie}]{\setlength{\rightskip}{0pt plus 5cm}cookie (\$ {\em f}, \/  \$ {\em q})}\label{da/d8e/adminer_8php_a1835151bc55ff449aa2177b1de041932}
+\index{adminer.php@{adminer.php}!dump\_\-csv@{dump\_\-csv}}
+\index{dump\_\-csv@{dump\_\-csv}!adminer.php@{adminer.php}}
+\subsubsection[{dump\_\-csv}]{\setlength{\rightskip}{0pt plus 5cm}dump\_\-csv (\$ {\em a})}\label{da/d8e/adminer_8php_afca89bf12e6c420579f9291eed21feb9}
+\index{adminer.php@{adminer.php}!dump\_\-headers@{dump\_\-headers}}
+\index{dump\_\-headers@{dump\_\-headers}!adminer.php@{adminer.php}}
+\subsubsection[{dump\_\-headers}]{\setlength{\rightskip}{0pt plus 5cm}dump\_\-headers (\$ {\em Wc}, \/  \$ {\em Cd} = {\ttfamily false})}\label{da/d8e/adminer_8php_a086366020e396134a6885ba21e85182d}
+\index{adminer.php@{adminer.php}!enum\_\-input@{enum\_\-input}}
+\index{enum\_\-input@{enum\_\-input}!adminer.php@{adminer.php}}
+\subsubsection[{enum\_\-input}]{\setlength{\rightskip}{0pt plus 5cm}enum\_\-input (\$ {\em z}, \/  \$ {\em Ua}, \/  \$ {\em d}, \/  \$ {\em q}, \/  \$ {\em ac} = {\ttfamily null})}\label{da/d8e/adminer_8php_ab02bc65ba77f284ab70c5464e33e7060}
+\index{adminer.php@{adminer.php}!escape\_\-string@{escape\_\-string}}
+\index{escape\_\-string@{escape\_\-string}!adminer.php@{adminer.php}}
+\subsubsection[{escape\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}escape\_\-string (\$ {\em b})}\label{da/d8e/adminer_8php_acc81706f2e32a017d7736a29e0ee1f8d}
+\index{adminer.php@{adminer.php}!friendly\_\-url@{friendly\_\-url}}
+\index{friendly\_\-url@{friendly\_\-url}!adminer.php@{adminer.php}}
+\subsubsection[{friendly\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}friendly\_\-url (\$ {\em b})}\label{da/d8e/adminer_8php_aacafd61b6846e0ee371336fa5c6bdb7d}
+\index{adminer.php@{adminer.php}!get\_\-file@{get\_\-file}}
+\index{get\_\-file@{get\_\-file}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-file (\$ {\em e}, \/  \$ {\em Fd} = {\ttfamily false})}\label{da/d8e/adminer_8php_a0cc6bfe819bf160581a8c02dbc623c85}
+\index{adminer.php@{adminer.php}!get\_\-key\_\-vals@{get\_\-key\_\-vals}}
+\index{get\_\-key\_\-vals@{get\_\-key\_\-vals}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-key\_\-vals}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-key\_\-vals (\$ {\em j}, \/  \$ {\em H} = {\ttfamily null})}\label{da/d8e/adminer_8php_ab7461e998d555c13365bb1e8e58ea3b6}
+\index{adminer.php@{adminer.php}!get\_\-lang@{get\_\-lang}}
+\index{get\_\-lang@{get\_\-lang}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-lang}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-lang ()}\label{da/d8e/adminer_8php_ac46fbb5b1ab4311816bc820a2f2abc6b}
+\index{adminer.php@{adminer.php}!get\_\-rows@{get\_\-rows}}
+\index{get\_\-rows@{get\_\-rows}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-rows}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-rows (\$ {\em j}, \/  \$ {\em H} = {\ttfamily null}, \/  \$ {\em n} = {\ttfamily \char`\"{}$<$p~class='error'$>$\char`\"{}})}\label{da/d8e/adminer_8php_a9ef1195040246791004d9175a1ccd4a2}
+\index{adminer.php@{adminer.php}!get\_\-session@{get\_\-session}}
+\index{get\_\-session@{get\_\-session}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}\& get\_\-session (\$ {\em e})}\label{da/d8e/adminer_8php_a1b2c48e0c4fa45f3ccc16e32f438a488}
+\index{adminer.php@{adminer.php}!get\_\-vals@{get\_\-vals}}
+\index{get\_\-vals@{get\_\-vals}!adminer.php@{adminer.php}}
+\subsubsection[{get\_\-vals}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-vals (\$ {\em j}, \/  \$ {\em C} = {\ttfamily 0})}\label{da/d8e/adminer_8php_a6d014c59ea27f076ca5cd85c83d24cc8}
+\index{adminer.php@{adminer.php}!h@{h}}
+\index{h@{h}!adminer.php@{adminer.php}}
+\subsubsection[{h}]{\setlength{\rightskip}{0pt plus 5cm}h (\$ {\em J})}\label{da/d8e/adminer_8php_ac09af8fb321ede7a24bc7d5a379edc77}
+\index{adminer.php@{adminer.php}!hidden\_\-fields@{hidden\_\-fields}}
+\index{hidden\_\-fields@{hidden\_\-fields}!adminer.php@{adminer.php}}
+\subsubsection[{hidden\_\-fields}]{\setlength{\rightskip}{0pt plus 5cm}hidden\_\-fields (\$ {\em tb}, \/  \$ {\em of} = {\ttfamily array()})}\label{da/d8e/adminer_8php_acfe79264b5c848afdbdf912b405b9aaf}
+\index{adminer.php@{adminer.php}!hidden\_\-fields\_\-get@{hidden\_\-fields\_\-get}}
+\index{hidden\_\-fields\_\-get@{hidden\_\-fields\_\-get}!adminer.php@{adminer.php}}
+\subsubsection[{hidden\_\-fields\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}hidden\_\-fields\_\-get ()}\label{da/d8e/adminer_8php_a437248901246aa0d4dca0bda20c2498e}
+\index{adminer.php@{adminer.php}!html\_\-select@{html\_\-select}}
+\index{html\_\-select@{html\_\-select}!adminer.php@{adminer.php}}
+\subsubsection[{html\_\-select}]{\setlength{\rightskip}{0pt plus 5cm}html\_\-select (\$ {\em f}, \/  \$ {\em Tc}, \/  \$ {\em q} = {\ttfamily \char`\"{}\char`\"{}}, \/  \$ {\em Sb} = {\ttfamily true})}\label{da/d8e/adminer_8php_a7b7ad229824469feacbe36540f29d19f}
+\index{adminer.php@{adminer.php}!idf\_\-unescape@{idf\_\-unescape}}
+\index{idf\_\-unescape@{idf\_\-unescape}!adminer.php@{adminer.php}}
+\subsubsection[{idf\_\-unescape}]{\setlength{\rightskip}{0pt plus 5cm}idf\_\-unescape (\$ {\em Q})}\label{da/d8e/adminer_8php_aedb9d24f8e980e2e54e3422f4516104d}
+\index{adminer.php@{adminer.php}!ini\_\-bool@{ini\_\-bool}}
+\index{ini\_\-bool@{ini\_\-bool}!adminer.php@{adminer.php}}
+\subsubsection[{ini\_\-bool}]{\setlength{\rightskip}{0pt plus 5cm}ini\_\-bool (\$ {\em Ef})}\label{da/d8e/adminer_8php_a87fd6b7e1641334966dca3d985e86614}
+\index{adminer.php@{adminer.php}!input@{input}}
+\index{input@{input}!adminer.php@{adminer.php}}
+\subsubsection[{input}]{\setlength{\rightskip}{0pt plus 5cm}input (\$ {\em d}, \/  \$ {\em q}, \/  \$ {\em K})}\label{da/d8e/adminer_8php_a154c95e2fbf3ed3b38876d02ca1d2ab4}
+\index{adminer.php@{adminer.php}!is\_\-ajax@{is\_\-ajax}}
+\index{is\_\-ajax@{is\_\-ajax}!adminer.php@{adminer.php}}
+\subsubsection[{is\_\-ajax}]{\setlength{\rightskip}{0pt plus 5cm}is\_\-ajax ()}\label{da/d8e/adminer_8php_ac17fc8a416ea79e9d5cb4dc9a8ff8c5c}
+\index{adminer.php@{adminer.php}!is\_\-mail@{is\_\-mail}}
+\index{is\_\-mail@{is\_\-mail}!adminer.php@{adminer.php}}
+\subsubsection[{is\_\-mail}]{\setlength{\rightskip}{0pt plus 5cm}is\_\-mail (\$ {\em pf})}\label{da/d8e/adminer_8php_a6151d0d3c7fd2e330782a476a6027c32}
+\index{adminer.php@{adminer.php}!is\_\-url@{is\_\-url}}
+\index{is\_\-url@{is\_\-url}!adminer.php@{adminer.php}}
+\subsubsection[{is\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}is\_\-url (\$ {\em J})}\label{da/d8e/adminer_8php_ac5480974116060c148e994ef8c168375}
+\index{adminer.php@{adminer.php}!is\_\-utf8@{is\_\-utf8}}
+\index{is\_\-utf8@{is\_\-utf8}!adminer.php@{adminer.php}}
+\subsubsection[{is\_\-utf8}]{\setlength{\rightskip}{0pt plus 5cm}is\_\-utf8 (\$ {\em b})}\label{da/d8e/adminer_8php_aa7da36d91c9d2de6088882e02bf606d1}
+\index{adminer.php@{adminer.php}!js\_\-escape@{js\_\-escape}}
+\index{js\_\-escape@{js\_\-escape}!adminer.php@{adminer.php}}
+\subsubsection[{js\_\-escape}]{\setlength{\rightskip}{0pt plus 5cm}js\_\-escape (\$ {\em J})}\label{da/d8e/adminer_8php_a5ce6cd58bc44f75fcd0ea2615c657ec8}
+\index{adminer.php@{adminer.php}!json\_\-row@{json\_\-row}}
+\index{json\_\-row@{json\_\-row}!adminer.php@{adminer.php}}
+\subsubsection[{json\_\-row}]{\setlength{\rightskip}{0pt plus 5cm}json\_\-row (\$ {\em e}, \/  \$ {\em b} = {\ttfamily null})}\label{da/d8e/adminer_8php_a06036707b83aca12d9dc4169f78c5a10}
+\index{adminer.php@{adminer.php}!lang@{lang}}
+\index{lang@{lang}!adminer.php@{adminer.php}}
+\subsubsection[{lang}]{\setlength{\rightskip}{0pt plus 5cm}lang (\$ {\em tf}, \/  \$ {\em Rb})}\label{da/d8e/adminer_8php_a99de5b18bf32dd99cc275cfb9f5ce484}
+\index{adminer.php@{adminer.php}!nbsp@{nbsp}}
+\index{nbsp@{nbsp}!adminer.php@{adminer.php}}
+\subsubsection[{nbsp}]{\setlength{\rightskip}{0pt plus 5cm}nbsp (\$ {\em J})}\label{da/d8e/adminer_8php_aa8556cc63ab75c4680780ed4712bc8f5}
+\index{adminer.php@{adminer.php}!nl\_\-br@{nl\_\-br}}
+\index{nl\_\-br@{nl\_\-br}!adminer.php@{adminer.php}}
+\subsubsection[{nl\_\-br}]{\setlength{\rightskip}{0pt plus 5cm}nl\_\-br (\$ {\em J})}\label{da/d8e/adminer_8php_afc7cac705afa7ec66028eee2b4a34d4b}
+\index{adminer.php@{adminer.php}!odd@{odd}}
+\index{odd@{odd}!adminer.php@{adminer.php}}
+\subsubsection[{odd}]{\setlength{\rightskip}{0pt plus 5cm}odd (\$ {\em c} = {\ttfamily '~class=\char`\"{}odd\char`\"{}'})}\label{da/d8e/adminer_8php_a67c873e44c2fe6150e59116f5d13a69b}
+\index{adminer.php@{adminer.php}!optionlist@{optionlist}}
+\index{optionlist@{optionlist}!adminer.php@{adminer.php}}
+\subsubsection[{optionlist}]{\setlength{\rightskip}{0pt plus 5cm}optionlist (\$ {\em Tc}, \/  \$ {\em Af} = {\ttfamily null}, \/  \$ {\em Re} = {\ttfamily false})}\label{da/d8e/adminer_8php_a7367a430071cebb34b7cf9558919af93}
+\index{adminer.php@{adminer.php}!pagination@{pagination}}
+\index{pagination@{pagination}!adminer.php@{adminer.php}}
+\subsubsection[{pagination}]{\setlength{\rightskip}{0pt plus 5cm}pagination (\$ {\em Z}, \/  \$ {\em jf})}\label{da/d8e/adminer_8php_afea1e3ce4790b5bf203748751db512b6}
+\index{adminer.php@{adminer.php}!password\_\-file@{password\_\-file}}
+\index{password\_\-file@{password\_\-file}!adminer.php@{adminer.php}}
+\subsubsection[{password\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}password\_\-file ()}\label{da/d8e/adminer_8php_a9ef8758bd2651d18e37a3e20b6d9c1fc}
+\index{adminer.php@{adminer.php}!print\_\-fieldset@{print\_\-fieldset}}
+\index{print\_\-fieldset@{print\_\-fieldset}!adminer.php@{adminer.php}}
+\subsubsection[{print\_\-fieldset}]{\setlength{\rightskip}{0pt plus 5cm}print\_\-fieldset (\$ {\em R}, \/  \$ {\em wf}, \/  \$ {\em xf} = {\ttfamily false})}\label{da/d8e/adminer_8php_aca54c5e4df8dd2c192a140cd44104216}
+\index{adminer.php@{adminer.php}!process\_\-input@{process\_\-input}}
+\index{process\_\-input@{process\_\-input}!adminer.php@{adminer.php}}
+\subsubsection[{process\_\-input}]{\setlength{\rightskip}{0pt plus 5cm}process\_\-input (\$ {\em d})}\label{da/d8e/adminer_8php_a21dc6683df06db5d432e8dd152dc39d0}
+\index{adminer.php@{adminer.php}!q@{q}}
+\index{q@{q}!adminer.php@{adminer.php}}
+\subsubsection[{q}]{\setlength{\rightskip}{0pt plus 5cm}q (\$ {\em J})}\label{da/d8e/adminer_8php_a0ff8bc3bc4a24cc21f13ab0e49c7e385}
+\index{adminer.php@{adminer.php}!queries@{queries}}
+\index{queries@{queries}!adminer.php@{adminer.php}}
+\subsubsection[{queries}]{\setlength{\rightskip}{0pt plus 5cm}queries (\$ {\em j} = {\ttfamily null})}\label{da/d8e/adminer_8php_a0604e433e2cfb29dd36d787e8ca4aa96}
+\index{adminer.php@{adminer.php}!queries\_\-redirect@{queries\_\-redirect}}
+\index{queries\_\-redirect@{queries\_\-redirect}!adminer.php@{adminer.php}}
+\subsubsection[{queries\_\-redirect}]{\setlength{\rightskip}{0pt plus 5cm}queries\_\-redirect (\$ {\em ga}, \/  \$ {\em ta}, \/  \$ {\em ad})}\label{da/d8e/adminer_8php_a3828812a57b6977e548d8a3056a6ac3f}
+\index{adminer.php@{adminer.php}!query\_\-redirect@{query\_\-redirect}}
+\index{query\_\-redirect@{query\_\-redirect}!adminer.php@{adminer.php}}
+\subsubsection[{query\_\-redirect}]{\setlength{\rightskip}{0pt plus 5cm}query\_\-redirect (\$ {\em j}, \/  \$ {\em ga}, \/  \$ {\em ta}, \/  \$ {\em ad} = {\ttfamily true}, \/  \$ {\em Nf} = {\ttfamily true}, \/  \$ {\em ne} = {\ttfamily false})}\label{da/d8e/adminer_8php_a22508a7ba254f3c21ac8eaf128920da0}
+\index{adminer.php@{adminer.php}!redirect@{redirect}}
+\index{redirect@{redirect}!adminer.php@{adminer.php}}
+\subsubsection[{redirect}]{\setlength{\rightskip}{0pt plus 5cm}redirect (\$ {\em ga}, \/  \$ {\em ta} = {\ttfamily null})}\label{da/d8e/adminer_8php_a3ddd37c39eab329dd36dee837c3e03c1}
+\index{adminer.php@{adminer.php}!remove\_\-from\_\-uri@{remove\_\-from\_\-uri}}
+\index{remove\_\-from\_\-uri@{remove\_\-from\_\-uri}!adminer.php@{adminer.php}}
+\subsubsection[{remove\_\-from\_\-uri}]{\setlength{\rightskip}{0pt plus 5cm}remove\_\-from\_\-uri (\$ {\em eb} = {\ttfamily \char`\"{}\char`\"{}})}\label{da/d8e/adminer_8php_a6b37f7fe7e8eb0e372cfdafe0d0d1fdd}
+\index{adminer.php@{adminer.php}!remove\_\-slashes@{remove\_\-slashes}}
+\index{remove\_\-slashes@{remove\_\-slashes}!adminer.php@{adminer.php}}
+\subsubsection[{remove\_\-slashes}]{\setlength{\rightskip}{0pt plus 5cm}remove\_\-slashes (\$ {\em tb})}\label{da/d8e/adminer_8php_a3355774bd7794bc8955f836c8035ff28}
+\index{adminer.php@{adminer.php}!repeat\_\-pattern@{repeat\_\-pattern}}
+\index{repeat\_\-pattern@{repeat\_\-pattern}!adminer.php@{adminer.php}}
+\subsubsection[{repeat\_\-pattern}]{\setlength{\rightskip}{0pt plus 5cm}repeat\_\-pattern (\$ {\em ca}, \/  \$ {\em W})}\label{da/d8e/adminer_8php_aecb2a1be9f2c152af0e9776f48fd9c86}
+\index{adminer.php@{adminer.php}!restart\_\-session@{restart\_\-session}}
+\index{restart\_\-session@{restart\_\-session}!adminer.php@{adminer.php}}
+\subsubsection[{restart\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}restart\_\-session ()}\label{da/d8e/adminer_8php_acb7c0f0e65f5baf4689318050fc0c600}
+\index{adminer.php@{adminer.php}!search\_\-tables@{search\_\-tables}}
+\index{search\_\-tables@{search\_\-tables}!adminer.php@{adminer.php}}
+\subsubsection[{search\_\-tables}]{\setlength{\rightskip}{0pt plus 5cm}search\_\-tables ()}\label{da/d8e/adminer_8php_a7891bc67eb065c5ca2990723394d4512}
+\index{adminer.php@{adminer.php}!set\_\-session@{set\_\-session}}
+\index{set\_\-session@{set\_\-session}!adminer.php@{adminer.php}}
+\subsubsection[{set\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}set\_\-session (\$ {\em e}, \/  \$ {\em b})}\label{da/d8e/adminer_8php_af30d4875434e1d59fdbb0294f983add3}
+\index{adminer.php@{adminer.php}!shorten\_\-utf8@{shorten\_\-utf8}}
+\index{shorten\_\-utf8@{shorten\_\-utf8}!adminer.php@{adminer.php}}
+\subsubsection[{shorten\_\-utf8}]{\setlength{\rightskip}{0pt plus 5cm}shorten\_\-utf8 (\$ {\em J}, \/  \$ {\em W} = {\ttfamily 80}, \/  \$ {\em if} = {\ttfamily \char`\"{}\char`\"{}})}\label{da/d8e/adminer_8php_aad163e09b325036db863b42258ad828c}
+\index{adminer.php@{adminer.php}!sid@{sid}}
+\index{sid@{sid}!adminer.php@{adminer.php}}
+\subsubsection[{sid}]{\setlength{\rightskip}{0pt plus 5cm}sid ()}\label{da/d8e/adminer_8php_a30b416c35150ab6bdde364f527f612bd}
+\index{adminer.php@{adminer.php}!unique\_\-array@{unique\_\-array}}
+\index{unique\_\-array@{unique\_\-array}!adminer.php@{adminer.php}}
+\subsubsection[{unique\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}unique\_\-array (\$ {\em a}, \/  \$ {\em I})}\label{da/d8e/adminer_8php_ab6128f1b6aea8daddbba80c5e35175a3}
+\index{adminer.php@{adminer.php}!upload\_\-error@{upload\_\-error}}
+\index{upload\_\-error@{upload\_\-error}!adminer.php@{adminer.php}}
+\subsubsection[{upload\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}upload\_\-error (\$ {\em n})}\label{da/d8e/adminer_8php_a55dfe980aae8418e7146a5cf9eb94e3a}
+\index{adminer.php@{adminer.php}!where@{where}}
+\index{where@{where}!adminer.php@{adminer.php}}
+\subsubsection[{where}]{\setlength{\rightskip}{0pt plus 5cm}where (\$ {\em s})}\label{da/d8e/adminer_8php_a6fc9850d1e5850a60148a225f5ae3aab}
+\index{adminer.php@{adminer.php}!where\_\-check@{where\_\-check}}
+\index{where\_\-check@{where\_\-check}!adminer.php@{adminer.php}}
+\subsubsection[{where\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}where\_\-check (\$ {\em b})}\label{da/d8e/adminer_8php_aa470b46b3abf767374da854c17bf9c31}
+\index{adminer.php@{adminer.php}!where\_\-link@{where\_\-link}}
+\index{where\_\-link@{where\_\-link}!adminer.php@{adminer.php}}
+\subsubsection[{where\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}where\_\-link (\$ {\em k}, \/  \$ {\em C}, \/  \$ {\em q}, \/  \$ {\em Mf} = {\ttfamily \char`\"{}=\char`\"{}})}\label{da/d8e/adminer_8php_ab1be2cb9312151557a77e4d899d458ff}
+
+
+\subsection{Dokumentace proměnných}
+\index{adminer.php@{adminer.php}!\$ba@{\$ba}}
+\index{\$ba@{\$ba}!adminer.php@{adminer.php}}
+\subsubsection[{\$ba}]{\setlength{\rightskip}{0pt plus 5cm}global \$ba}\label{da/d8e/adminer_8php_a782412704ff779e5ac3abcf3241345b8}
+\index{adminer.php@{adminer.php}!\$db@{\$db}}
+\index{\$db@{\$db}!adminer.php@{adminer.php}}
+\subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}global \$db}\label{da/d8e/adminer_8php_a907d78797a1b764e913b0c565a5097b0}
+\index{adminer.php@{adminer.php}!\$Eb@{\$Eb}}
+\index{\$Eb@{\$Eb}!adminer.php@{adminer.php}}
+\subsubsection[{\$Eb}]{\setlength{\rightskip}{0pt plus 5cm}global \$Eb}\label{da/d8e/adminer_8php_a9dd4c69e56a9ab8aa3a1666bef6edd28}
+\index{adminer.php@{adminer.php}!\$g@{\$g}}
+\index{\$g@{\$g}!adminer.php@{adminer.php}}
+\subsubsection[{\$g}]{\setlength{\rightskip}{0pt plus 5cm}global \$g}\label{da/d8e/adminer_8php_aefddeee0767e684a87f658cf7a43b72b}
+\index{adminer.php@{adminer.php}!\$ib@{\$ib}}
+\index{\$ib@{\$ib}!adminer.php@{adminer.php}}
+\subsubsection[{\$ib}]{\setlength{\rightskip}{0pt plus 5cm}global \$ib}\label{da/d8e/adminer_8php_acc3a1155a1119c46362549a755065360}
+\index{adminer.php@{adminer.php}!\$Ka@{\$Ka}}
+\index{\$Ka@{\$Ka}!adminer.php@{adminer.php}}
+\subsubsection[{\$Ka}]{\setlength{\rightskip}{0pt plus 5cm}global \$Ka}\label{da/d8e/adminer_8php_a280e758c458c36b42e49d51eeb3c642a}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}if (isset(\$\_\-GET[\char`\"{}oracle\char`\"{}])) \$la[\char`\"{}mssql\char`\"{}] = \char`\"{}MS SQL\char`\"{}}\label{da/d8e/adminer_8php_abdc2513a81654112bf5015ab898754b5}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}if (isset(\$\_\-GET[\char`\"{}pgsql\char`\"{}])) \$la[\char`\"{}oracle\char`\"{}] = \char`\"{}Oracle\char`\"{}}\label{da/d8e/adminer_8php_ad5cce424830ff525347dd68dcb45a358}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}if (isset(\$\_\-GET[\char`\"{}sqlite\char`\"{}])$|$$|$isset(\$\_\-GET[\char`\"{}sqlite2\char`\"{}])) \$la[\char`\"{}pgsql\char`\"{}] = \char`\"{}PostgreSQL\char`\"{}}\label{da/d8e/adminer_8php_afbe64983cbe62a824af98bc3317dcd8f}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}\$la[\char`\"{}sqlite2\char`\"{}] = \char`\"{}SQLite 2\char`\"{}}\label{da/d8e/adminer_8php_a3cb2a91912c0eabafbca3ad4296f94ad}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}\$la[\char`\"{}sqlite\char`\"{}] = \char`\"{}SQLite 3\char`\"{}}\label{da/d8e/adminer_8php_abcfc18dba6ce264426815166464fb3da}
+\index{adminer.php@{adminer.php}!\$la@{\$la}}
+\index{\$la@{\$la}!adminer.php@{adminer.php}}
+\subsubsection[{\$la}]{\setlength{\rightskip}{0pt plus 5cm}if (isset(\$\_\-GET[\char`\"{}mssql\char`\"{}])) \$la = array()}\label{da/d8e/adminer_8php_a0530e7a677d318c4e7c9a7bcc040481b}
+\index{adminer.php@{adminer.php}!\$lc@{\$lc}}
+\index{\$lc@{\$lc}!adminer.php@{adminer.php}}
+\subsubsection[{\$lc}]{\setlength{\rightskip}{0pt plus 5cm}if (!isset(\$\_\-SERVER[\char`\"{}REQUEST\_\-URI\char`\"{}])) \$lc = \$\_\-SERVER[\char`\"{}HTTPS\char`\"{}]\&\&strcasecmp(\$\_\-SERVER[\char`\"{}HTTPS\char`\"{}],\char`\"{}off\char`\"{})}\label{da/d8e/adminer_8php_a05f3d4bd2b02633f83b6c8494163b323}
+\index{adminer.php@{adminer.php}!\$mb@{\$mb}}
+\index{\$mb@{\$mb}!adminer.php@{adminer.php}}
+\subsubsection[{\$mb}]{\setlength{\rightskip}{0pt plus 5cm}global \$mb}\label{da/d8e/adminer_8php_a07e8c381a870f2fc6bb1ec6030fda6b5}
+\index{adminer.php@{adminer.php}!\$N@{\$N}}
+\index{\$N@{\$N}!adminer.php@{adminer.php}}
+\subsubsection[{\$N}]{\setlength{\rightskip}{0pt plus 5cm}global \$N}\label{da/d8e/adminer_8php_a77693a9216d29b1c9cb361c7d03410cd}
+\index{adminer.php@{adminer.php}!\$n@{\$n}}
+\index{\$n@{\$n}!adminer.php@{adminer.php}}
+\subsubsection[{\$n}]{\setlength{\rightskip}{0pt plus 5cm}global \$n}\label{da/d8e/adminer_8php_a78b95310c08cdfc3365c920a25551bd2}
+\index{adminer.php@{adminer.php}!\$nc@{\$nc}}
+\index{\$nc@{\$nc}!adminer.php@{adminer.php}}
+\subsubsection[{\$nc}]{\setlength{\rightskip}{0pt plus 5cm}\$nc = \char`\"{}3.2.2\char`\"{}}\label{da/d8e/adminer_8php_a690c1f5d1669e041b724523dee2c44b7}
+\index{adminer.php@{adminer.php}!\$o@{\$o}}
+\index{\$o@{\$o}!adminer.php@{adminer.php}}
+\subsubsection[{\$o}]{\setlength{\rightskip}{0pt plus 5cm}global \$o}\label{da/d8e/adminer_8php_ae1e1e5643157fdd93b96903bb96e08db}
+\index{adminer.php@{adminer.php}!\$pe@{\$pe}}
+\index{\$pe@{\$pe}!adminer.php@{adminer.php}}
+\subsubsection[{\$pe}]{\setlength{\rightskip}{0pt plus 5cm}\$pe = (!ereg('$^\wedge$(unsafe\_\-raw)?\$',ini\_\-get(\char`\"{}filter.default\char`\"{}))$|$$|$ini\_\-get(\char`\"{}filter.default\_\-flags\char`\"{}))}\label{da/d8e/adminer_8php_a460b4bb3985fb77ef7420d484f7d87e1}
+\index{adminer.php@{adminer.php}!\$Qb@{\$Qb}}
+\index{\$Qb@{\$Qb}!adminer.php@{adminer.php}}
+\subsubsection[{\$Qb}]{\setlength{\rightskip}{0pt plus 5cm}global \$Qb}\label{da/d8e/adminer_8php_a9ae5d2560c82c6dd46cc6870aa84c633}
+\index{adminer.php@{adminer.php}!\$S@{\$S}}
+\index{\$S@{\$S}!adminer.php@{adminer.php}}
+\subsubsection[{\$S}]{\setlength{\rightskip}{0pt plus 5cm}global \$S}\label{da/d8e/adminer_8php_aa8bfb3e7a534166b0b2174bbe2ba5e63}
+\index{adminer.php@{adminer.php}!\$Uf@{\$Uf}}
+\index{\$Uf@{\$Uf}!adminer.php@{adminer.php}}
+\subsubsection[{\$Uf}]{\setlength{\rightskip}{0pt plus 5cm}global \$Uf}\label{da/d8e/adminer_8php_a82aa96c566851b24ead3b2941b891a25}
+\index{adminer.php@{adminer.php}!\$v@{\$v}}
+\index{\$v@{\$v}!adminer.php@{adminer.php}}
+\subsubsection[{\$v}]{\setlength{\rightskip}{0pt plus 5cm}global \$v}\label{da/d8e/adminer_8php_ad0b17243f84a65409776b0f68a12c779}
+\index{adminer.php@{adminer.php}!\$vf@{\$vf}}
+\index{\$vf@{\$vf}!adminer.php@{adminer.php}}
+\subsubsection[{\$vf}]{\setlength{\rightskip}{0pt plus 5cm}global \$vf}\label{da/d8e/adminer_8php_acad70a11d2be1695aa43148a9ccc6eb2}
+\index{adminer.php@{adminer.php}!\$Xb@{\$Xb}}
+\index{\$Xb@{\$Xb}!adminer.php@{adminer.php}}
+\subsubsection[{\$Xb}]{\setlength{\rightskip}{0pt plus 5cm}global \$Xb}\label{da/d8e/adminer_8php_af9d85996d0a9c62d70681b29415ab7fd}
+\index{adminer.php@{adminer.php}!\$Zf@{\$Zf}}
+\index{\$Zf@{\$Zf}!adminer.php@{adminer.php}}
+\subsubsection[{\$Zf}]{\setlength{\rightskip}{0pt plus 5cm}global \$Zf}\label{da/d8e/adminer_8php_a2b1caa9ef9b49b478106ea46b6bed089}

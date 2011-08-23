@@ -1,0 +1,54 @@
+\section{Dokumentace souboru lib/render.php}
+\label{d1/d0e/render_8php}\index{lib/render.php@{lib/render.php}}
+\subsection*{Datové struktry}
+\begin{DoxyCompactItemize}
+\item 
+class {\bf BHead}
+\item 
+class {\bf BQueue}
+\item 
+class {\bf BRender}
+\end{DoxyCompactItemize}
+\subsection*{Funkce}
+\begin{DoxyCompactItemize}
+\item 
+{\bf smarty\_\-function\_\-debug\_\-info} ()
+\item 
+{\bf smarty\_\-function\_\-call\_\-app} (\$param, \$template)
+\item 
+{\bf edit\_\-url} (\$url)
+\item 
+{\bf smarty\_\-function\_\-edit\_\-url} (\$params, \$template)
+\item 
+{\bf smarty\_\-function\_\-get\_\-message} (\$p, \$t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace funkcí}
+\index{render.php@{render.php}!edit\_\-url@{edit\_\-url}}
+\index{edit\_\-url@{edit\_\-url}!render.php@{render.php}}
+\subsubsection[{edit\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}edit\_\-url (\$ {\em url})}\label{d1/d0e/render_8php_a9afb6c9daf92e71e2b59d78b9b688fa7}
+\index{render.php@{render.php}!smarty\_\-function\_\-call\_\-app@{smarty\_\-function\_\-call\_\-app}}
+\index{smarty\_\-function\_\-call\_\-app@{smarty\_\-function\_\-call\_\-app}!render.php@{render.php}}
+\subsubsection[{smarty\_\-function\_\-call\_\-app}]{\setlength{\rightskip}{0pt plus 5cm}smarty\_\-function\_\-call\_\-app (\$ {\em param}, \/  \$ {\em template})}\label{d1/d0e/render_8php_a5a56657aec41317d4328a37c59c1d574}
+Smarty plugin pro prime volani plikaci a method z templatu 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$param('param'=$>$parametry pro aplikaci oddelene carkou \item[{\em Smarty\_\-template}]\$template \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+Vystup z vybrane aplikace 
+\end{DoxyReturn}
+\index{render.php@{render.php}!smarty\_\-function\_\-debug\_\-info@{smarty\_\-function\_\-debug\_\-info}}
+\index{smarty\_\-function\_\-debug\_\-info@{smarty\_\-function\_\-debug\_\-info}!render.php@{render.php}}
+\subsubsection[{smarty\_\-function\_\-debug\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}smarty\_\-function\_\-debug\_\-info ()}\label{d1/d0e/render_8php_a209a8714d4750135017fa6b41b4d232b}
+\index{render.php@{render.php}!smarty\_\-function\_\-edit\_\-url@{smarty\_\-function\_\-edit\_\-url}}
+\index{smarty\_\-function\_\-edit\_\-url@{smarty\_\-function\_\-edit\_\-url}!render.php@{render.php}}
+\subsubsection[{smarty\_\-function\_\-edit\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}smarty\_\-function\_\-edit\_\-url (\$ {\em params}, \/  \$ {\em template})}\label{d1/d0e/render_8php_a2929fff7f695bfbbf99a08cf52c07745}
+\index{render.php@{render.php}!smarty\_\-function\_\-get\_\-message@{smarty\_\-function\_\-get\_\-message}}
+\index{smarty\_\-function\_\-get\_\-message@{smarty\_\-function\_\-get\_\-message}!render.php@{render.php}}
+\subsubsection[{smarty\_\-function\_\-get\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}smarty\_\-function\_\-get\_\-message (\$ {\em p}, \/  \$ {\em t})}\label{d1/d0e/render_8php_ad209079248b09e2f96fa83c1427c9a90}
+Vypise iformacni zpravy do templatu 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$p('id'=$>$id zpravy, 'timeout'=$>$ pokud nastaven za pomoci JQuery se po uplynuti schova) \item[{\em Smarty\_\-template}]\$t \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+string 
+\end{DoxyReturn}

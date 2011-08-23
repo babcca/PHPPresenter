@@ -1,0 +1,3 @@
+<?php
+	$ttable = array();
+?>

@@ -1,0 +1,65 @@
+\section{Dokumentace třídy AObject}
+\label{d9/d90/class_a_object}\index{AObject@{AObject}}
+Diagram dědičnosti pro třídu AObject:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12cm]{d9/d90/class_a_object}
+\end{center}
+\end{figure}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \_\-\_\-construct} (\$app)
+\item 
+{\bf send\_\-data} (\$dest, \$data, \$source)
+\item 
+{\bf get\_\-data} (\$id)
+\item 
+{\bf set\_\-message} (\$message, \$id= '')
+\item 
+{\bf set\_\-title} (\$title)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailní popis}
+Zakladni objekt pro aplikace, jsou potomkem tridy Render. \begin{DoxyAuthor}{Autor}
+Petr Babicka 
+\end{DoxyAuthor}
+
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\index{AObject@{AObject}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!AObject@{AObject}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em app})}\label{d9/d90/class_a_object_a780a02ea7ec3b69af93d4139793e0df9}
+Kontruktor tridy 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app NAzev apliakce \end{DoxyParams}
+
+
+TODO: Inicializace smarty 
+
+Reimplementuje stejnojmenný prvek z {\bf BRender} \doxyref{}{s.}{d5/dcd/class_b_render_a780a02ea7ec3b69af93d4139793e0df9}.
+
+\subsection{Dokumentace k metodám}
+\index{AObject@{AObject}!get\_\-data@{get\_\-data}}
+\index{get\_\-data@{get\_\-data}!AObject@{AObject}}
+\subsubsection[{get\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-data (\$ {\em id})}\label{d9/d90/class_a_object_a9f5185461d461fcf8a41d47961e162ed}
+
+
+Reimplementováno v {\bf index\_\-model} \doxyref{}{s.}{d4/da5/classindex__model_a9f5185461d461fcf8a41d47961e162ed}.\index{AObject@{AObject}!send\_\-data@{send\_\-data}}
+\index{send\_\-data@{send\_\-data}!AObject@{AObject}}
+\subsubsection[{send\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}send\_\-data (\$ {\em dest}, \/  \$ {\em data}, \/  \$ {\em source})}\label{d9/d90/class_a_object_aa18209f768abccf647c8f7ea61159a3f}
+\index{AObject@{AObject}!set\_\-message@{set\_\-message}}
+\index{set\_\-message@{set\_\-message}!AObject@{AObject}}
+\subsubsection[{set\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}set\_\-message (\$ {\em message}, \/  \$ {\em id} = {\ttfamily ''})}\label{d9/d90/class_a_object_aaa1d236142bc5b5320254dadf0c707af}
+Ulozi do session data pod identifikatorem, jeden identifikator muze mit vice polozek. 
+\begin{DoxyParams}{Parametry}
+\item[{\em mixed}]\$message Data k ulozeni \item[{\em string}]\$id Identifikator pro pristup \end{DoxyParams}
+\index{AObject@{AObject}!set\_\-title@{set\_\-title}}
+\index{set\_\-title@{set\_\-title}!AObject@{AObject}}
+\subsubsection[{set\_\-title}]{\setlength{\rightskip}{0pt plus 5cm}set\_\-title (\$ {\em title})}\label{d9/d90/class_a_object_a77fbf5b705d3f0142f8ba77f8364cf45}
+
+
+Dokumentace pro tuto třídu byla generována z následujícího souboru:\begin{DoxyCompactItemize}
+\item 
+lib/{\bf aobject.php}\end{DoxyCompactItemize}

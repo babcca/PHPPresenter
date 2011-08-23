@@ -1,0 +1,172 @@
+\section{Dokumentace třídy Controller}
+\label{d8/d87/class_controller}\index{Controller@{Controller}}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \_\-\_\-construct} ()
+\item 
+{\bf run} ()
+\item 
+{\bf call} (\$app, \$method, \$params=array())
+\item 
+{\bf register\_\-view} (\$app, \$callback)
+\item 
+{\bf register\_\-method} (\$app, \$callback)
+\end{DoxyCompactItemize}
+\subsection*{Datové položky}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$post\_\-refresh} = true
+\item 
+{\bf \$use\_\-default} = false
+\end{DoxyCompactItemize}
+\subsection*{Privátní metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf process} (\$url, \$source, \$dapp= 'default', \$dmethod= 'default')
+\item 
+{\bf run\_\-view} ()
+\item 
+{\bf run\_\-method} ()
+\item 
+{\bf check\_\-permision} (\$app)
+\item 
+{\bf parse\_\-extended} (\$what, \$where, \$use\_\-default)
+\item 
+{\bf call\_\-method} (\$data, \$url, \$use\_\-default=false)
+\item 
+{\bf check\_\-param} (\$param, \$pattern)
+\end{DoxyCompactItemize}
+\subsection*{Privátní atributy}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$callbacks\_\-view} = array()
+\item 
+{\bf \$callbacks\_\-method} = array()
+\item 
+{\bf \$process\_\-list} = array()
+\item 
+{\bf \$alowed\_\-shortcut}
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\index{Controller@{Controller}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!Controller@{Controller}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct ()}\label{d8/d87/class_controller_a095c5d389db211932136b53f25f39685}
+
+
+\subsection{Dokumentace k metodám}
+\index{Controller@{Controller}!call@{call}}
+\index{call@{call}!Controller@{Controller}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}call (\$ {\em app}, \/  \$ {\em method}, \/  \$ {\em params} = {\ttfamily array()})}\label{d8/d87/class_controller_aeaf0df229f460bc4171c34710ca7e301}
+Zjednudusene volani pohledu z aplikaci pro smarty plugin, kontroluje se zda ma uzivatel pravo volat dany pohled, pokud ne tak bude presmerovan na prihlasovaci stranku. 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app Nazev registrovane aplikace \item[{\em string}]\$method Nazev volane metody (pohledu) \item[{\em array}]\$params Paramatery pro dany pohled \end{DoxyParams}
+
+\begin{DoxyExceptions}{Výjimky}
+\item[{\em Exception}]Vyjimka pro nenalezenou aplikaci \end{DoxyExceptions}
+\begin{DoxyReturn}{Návratová hodnota}
+Vystup z volane aplikace 
+\end{DoxyReturn}
+\index{Controller@{Controller}!call\_\-method@{call\_\-method}}
+\index{call\_\-method@{call\_\-method}!Controller@{Controller}}
+\subsubsection[{call\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}call\_\-method (\$ {\em data}, \/  \$ {\em url}, \/  \$ {\em use\_\-default} = {\ttfamily false})\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_af4bf4c4cb4e91bb1e5ed51587e17ce49}
+Vola metodu z dane tridy, vytvari se pozue jedna instance teto tridy po celou dobu behu scriptu. 
+\begin{DoxyParams}{Parametry}
+\item[{\em \doxyref{callback\_\-struct}{s.}{d7/df8/classcallback__struct}}]\$data Data aplikace \item[{\em array}]\$url Vstupni pole argumentu \item[{\em bool}]\$use\_\-default = false \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+mixed 
+\end{DoxyReturn}
+\index{Controller@{Controller}!check\_\-param@{check\_\-param}}
+\index{check\_\-param@{check\_\-param}!Controller@{Controller}}
+\subsubsection[{check\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}check\_\-param (\$ {\em param}, \/  \$ {\em pattern})\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_acbbd8edf90f206e012d06656e5aa3e75}
+Return true when \$param is validate by \$pattern
+
+
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$param Checked string \item[{\em pattern\_\-type}]\$pattern Awayble \$pattaren: \%(regexp) =$>$ check by regexpresion \%$<$function$>$ =$>$ check by function \%\{enum,value\} =$>$ check if \$param is in enumeration Shorcuts of \$pattern: all =$>$ match with every input num =$>$ match with positove numbers \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+true when match is found otherwise false 
+\end{DoxyReturn}
+\index{Controller@{Controller}!check\_\-permision@{check\_\-permision}}
+\index{check\_\-permision@{check\_\-permision}!Controller@{Controller}}
+\subsubsection[{check\_\-permision}]{\setlength{\rightskip}{0pt plus 5cm}check\_\-permision (\$ {\em app})\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_ae63f3a4c8283e84704b9b54bd4eae94b}
+Kontrola ma-\/li uzivatel pravo volat danou aplikaci Prenechano na aplikaci auth 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app Jmeno aplikace \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+bool true ma-\/li uzivatel pravo, jinak false 
+\end{DoxyReturn}
+\index{Controller@{Controller}!parse\_\-extended@{parse\_\-extended}}
+\index{parse\_\-extended@{parse\_\-extended}!Controller@{Controller}}
+\subsubsection[{parse\_\-extended}]{\setlength{\rightskip}{0pt plus 5cm}parse\_\-extended (\$ {\em what}, \/  \$ {\em where}, \/  \$ {\em use\_\-default})\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_aa7b0f4bb6ddc5e755ec9e50fb88a3095}
+Parsovani rozsireneho zadavani typu parametru 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$what('parametr'=$>$vzor) \item[{\em array}]\$where('parametr'=$>$'hodnota') vstupni pole ke kontrole \item[{\em bool}]\$use\_\-default nebude-\/li parametr nalezen ma se pouzit defaultni hodnota \end{DoxyParams}
+
+\begin{DoxyExceptions}{Výjimky}
+\item[{\em Exception}]Spatny format parametru nebo parametr nebyl nalezen \end{DoxyExceptions}
+\begin{DoxyReturn}{Návratová hodnota}
+array Pole parametru ('parametr'=$>$'hodnota') 
+\end{DoxyReturn}
+\index{Controller@{Controller}!process@{process}}
+\index{process@{process}!Controller@{Controller}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}process (\$ {\em url}, \/  \$ {\em source}, \/  \$ {\em dapp} = {\ttfamily 'default'}, \/  \$ {\em dmethod} = {\ttfamily 'default'})\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a826a0f54e1b922e615e377d53712b6bb}
+Plnohodnotene volani aplikaci s paramety a kontrolou pristupu k dane metode Ulozi do fronty vystup z volane aplikace 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$url = (app, method, $<$parametry$>$ \item[{\em string}]\$source = callbacks\_\-view $|$ callbacks\_\-method \item[{\em string}]\$dapp defaultni aplikace \item[{\em string}]\$dmethod defaultni metoda \end{DoxyParams}
+\index{Controller@{Controller}!register\_\-method@{register\_\-method}}
+\index{register\_\-method@{register\_\-method}!Controller@{Controller}}
+\subsubsection[{register\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}register\_\-method (\$ {\em app}, \/  \$ {\em callback})}\label{d8/d87/class_controller_ab8f19c8e0644dfca30439771599db37f}
+Registrace metodovych casti aplikace 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app Nazev apliakce \item[{\em \doxyref{callback\_\-struct}{s.}{d7/df8/classcallback__struct}}]\$callback Struktura s nastavenim volane metody \end{DoxyParams}
+\index{Controller@{Controller}!register\_\-view@{register\_\-view}}
+\index{register\_\-view@{register\_\-view}!Controller@{Controller}}
+\subsubsection[{register\_\-view}]{\setlength{\rightskip}{0pt plus 5cm}register\_\-view (\$ {\em app}, \/  \$ {\em callback})}\label{d8/d87/class_controller_a3fc2884eb21d9e131b5cf6cf67933b32}
+Registrace pohledovych casti aplikace 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app Nazev apliakce \item[{\em \doxyref{callback\_\-struct}{s.}{d7/df8/classcallback__struct}}]\$callback Struktura s nastavenim volane metody \end{DoxyParams}
+\index{Controller@{Controller}!run@{run}}
+\index{run@{run}!Controller@{Controller}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run ()}\label{d8/d87/class_controller_afb0fafe7e02a3ae1993c01c19fad2bae}
+Vstupni bod konrolery, podle typu pozadavku se rozhoduje, ma-\/li volat pohledy nebop metody. \index{Controller@{Controller}!run\_\-method@{run\_\-method}}
+\index{run\_\-method@{run\_\-method}!Controller@{Controller}}
+\subsubsection[{run\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}run\_\-method ()\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a086fdb09f076e32102d005edcb41e7e8}
+Volani metody z \$\_\-POST pozadavku Je-\/li nastaven post\_\-refresh pak po provedeni dojde k obnove stranky, zamezeni znovu odesilani dat. \index{Controller@{Controller}!run\_\-view@{run\_\-view}}
+\index{run\_\-view@{run\_\-view}!Controller@{Controller}}
+\subsubsection[{run\_\-view}]{\setlength{\rightskip}{0pt plus 5cm}run\_\-view ()\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a687c0370f89c67c7981a106168076eb8}
+Volani pohledu z \$\_\-GET pozadavku 
+
+\subsection{Dokumentace k položkám}
+\index{Controller@{Controller}!\$alowed\_\-shortcut@{\$alowed\_\-shortcut}}
+\index{\$alowed\_\-shortcut@{\$alowed\_\-shortcut}!Controller@{Controller}}
+\subsubsection[{\$alowed\_\-shortcut}]{\setlength{\rightskip}{0pt plus 5cm}\$alowed\_\-shortcut\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a478fd685763032829147b639be6435d9}
+{\bfseries Initializer:}
+\begin{DoxyCode}
+ array( 
+                                '%num'=>'[0-9]+',
+                                '%string' => '[a-zA-Z ]+'
+                )
+\end{DoxyCode}
+\index{Controller@{Controller}!\$callbacks\_\-method@{\$callbacks\_\-method}}
+\index{\$callbacks\_\-method@{\$callbacks\_\-method}!Controller@{Controller}}
+\subsubsection[{\$callbacks\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}\$callbacks\_\-method = array()\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a7f36cd2a50742fcffacc9810baa87456}
+Registrovane metody \index{Controller@{Controller}!\$callbacks\_\-view@{\$callbacks\_\-view}}
+\index{\$callbacks\_\-view@{\$callbacks\_\-view}!Controller@{Controller}}
+\subsubsection[{\$callbacks\_\-view}]{\setlength{\rightskip}{0pt plus 5cm}\$callbacks\_\-view = array()\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a83b7c808a88051711fe799dbec5a3ed2}
+Registrovane pohledy \index{Controller@{Controller}!\$post\_\-refresh@{\$post\_\-refresh}}
+\index{\$post\_\-refresh@{\$post\_\-refresh}!Controller@{Controller}}
+\subsubsection[{\$post\_\-refresh}]{\setlength{\rightskip}{0pt plus 5cm}\${\bf post\_\-refresh} = true}\label{d8/d87/class_controller_a8a59b03c764cd53a7ad5bdf4461caebb}
+Refresh po POST pozadavku \index{Controller@{Controller}!\$process\_\-list@{\$process\_\-list}}
+\index{\$process\_\-list@{\$process\_\-list}!Controller@{Controller}}
+\subsubsection[{\$process\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}\$process\_\-list = array()\hspace{0.3cm}{\ttfamily  [private]}}\label{d8/d87/class_controller_a2d3ee2907b8b81d98389e2881384fdbb}
+Seznam bezicich apliakci (vytvorenych instanci \index{Controller@{Controller}!\$use\_\-default@{\$use\_\-default}}
+\index{\$use\_\-default@{\$use\_\-default}!Controller@{Controller}}
+\subsubsection[{\$use\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}\$use\_\-default = false}\label{d8/d87/class_controller_afbd7e0101257bd5afcf70f0ea331e30a}
+Pokud neni vyplnen argument, ma se pouzit defaultni 
+
+Dokumentace pro tuto třídu byla generována z následujícího souboru:\begin{DoxyCompactItemize}
+\item 
+lib/{\bf controller.php}\end{DoxyCompactItemize}

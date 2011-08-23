@@ -1,0 +1,78 @@
+\section{Dokumentace třídy callback\_\-struct}
+\label{d7/df8/classcallback__struct}\index{callback\_\-struct@{callback\_\-struct}}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \_\-\_\-construct} (\$value)
+\item 
+{\bf insert} (\$value)
+\item 
+{\bf \_\-\_\-get} (\$key)
+\end{DoxyCompactItemize}
+\subsection*{Privátní metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf merge} (\$value)
+\end{DoxyCompactItemize}
+\subsection*{Privátní atributy}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$data} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailní popis}
+Struktura pro udrzovani nastaveni jednotlivych metod, kazda plikace ma vlastni. \begin{DoxyAuthor}{Autor}
+Petr Babicka 
+\end{DoxyAuthor}
+
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\index{callback\_\-struct@{callback\_\-struct}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!callback_struct@{callback\_\-struct}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em value})}\label{d7/df8/classcallback__struct_a7e17a19b592345a03763f050fffe0ce7}
+
+
+\subsection{Dokumentace k metodám}
+\index{callback\_\-struct@{callback\_\-struct}!\_\-\_\-get@{\_\-\_\-get}}
+\index{\_\-\_\-get@{\_\-\_\-get}!callback_struct@{callback\_\-struct}}
+\subsubsection[{\_\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-get (\$ {\em key})}\label{d7/df8/classcallback__struct_a4537dad3b44254124991341cc91b28fb}
+Vyhleda nastaveni podle nazvu metody
+
+
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$key Nazev hledane motody \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+data nebo null 
+\end{DoxyReturn}
+\index{callback\_\-struct@{callback\_\-struct}!insert@{insert}}
+\index{insert@{insert}!callback_struct@{callback\_\-struct}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}insert (\$ {\em value})}\label{d7/df8/classcallback__struct_a62cf320fe353f6eb1297d7d9ad7ea0fd}
+Vlozeni uzivatelskeho nastaveni do struktury, provadi se mergovani 
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$value Uzivatelske hodnoty \end{DoxyParams}
+
+\begin{DoxyExceptions}{Výjimky}
+\item[{\em Exception}]Pokud nebyli vyplneny povinne parametry \end{DoxyExceptions}
+\index{callback\_\-struct@{callback\_\-struct}!merge@{merge}}
+\index{merge@{merge}!callback_struct@{callback\_\-struct}}
+\subsubsection[{merge}]{\setlength{\rightskip}{0pt plus 5cm}merge (\$ {\em value})\hspace{0.3cm}{\ttfamily  [private]}}\label{d7/df8/classcallback__struct_abf502a7547e415ed6bb157070d60e5b5}
+Spoji defaultni hodnoty se zadanymi
+
+
+\begin{DoxyParams}{Parametry}
+\item[{\em array}]\$value Uzivatelske hodnoty \end{DoxyParams}
+\begin{DoxyReturn}{Návratová hodnota}
+Vyplnenou datovou strukturu 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentace k položkám}
+\index{callback\_\-struct@{callback\_\-struct}!\$data@{\$data}}
+\index{\$data@{\$data}!callback_struct@{callback\_\-struct}}
+\subsubsection[{\$data}]{\setlength{\rightskip}{0pt plus 5cm}\$data = array()\hspace{0.3cm}{\ttfamily  [private]}}\label{d7/df8/classcallback__struct_a6efc15b5a2314dd4b5aaa556a375c6d6}
+
+
+Dokumentace pro tuto třídu byla generována z následujícího souboru:\begin{DoxyCompactItemize}
+\item 
+lib/{\bf controller.php}\end{DoxyCompactItemize}

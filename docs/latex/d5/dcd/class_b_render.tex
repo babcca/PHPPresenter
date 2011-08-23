@@ -1,0 +1,115 @@
+\section{Dokumentace třídy BRender}
+\label{d5/dcd/class_b_render}\index{BRender@{BRender}}
+Diagram dědičnosti pro třídu BRender:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12cm]{d5/dcd/class_b_render}
+\end{center}
+\end{figure}
+\subsection*{Veřejné metody}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \_\-\_\-construct} (\$app)
+\item 
+{\bf debug} (\$data)
+\item 
+{\bf header} (\$head)
+\item 
+{\bf write} (\$template, \$args\_\-array=array())
+\item 
+{\bf push} (\$str)
+\item 
+{\bf parse} (\$template, \$args\_\-array=array())
+\item 
+{\bf get\_\-translate} (\$lang)
+\item 
+{\bf dump} ()
+\end{DoxyCompactItemize}
+\subsection*{Statické veřejné atributy}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$debug\_\-data} = array()
+\end{DoxyCompactItemize}
+\subsection*{Statické chráněné atributy}
+\begin{DoxyCompactItemize}
+\item 
+static {\bf \$head}
+\end{DoxyCompactItemize}
+\subsection*{Privátní atributy}
+\begin{DoxyCompactItemize}
+\item 
+{\bf \$queue}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailní popis}
+Potomek Smarty, uklada data do staticke fronty, ktere posleze najednou vykresli (vypise). Ruzne instance zdili stejnou frontu. \begin{DoxyAuthor}{Autor}
+Petr Babicka 
+\end{DoxyAuthor}
+
+
+\subsection{Dokumentace konstruktoru a destruktoru}
+\index{BRender@{BRender}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!BRender@{BRender}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em app})}\label{d5/dcd/class_b_render_a780a02ea7ec3b69af93d4139793e0df9}
+Kontruktor tridy 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$app NAzev apliakce \end{DoxyParams}
+
+
+TODO: Inicializace smarty 
+
+Reimplementováno v {\bf AObject} \doxyref{}{s.}{d9/d90/class_a_object_a780a02ea7ec3b69af93d4139793e0df9}.
+
+\subsection{Dokumentace k metodám}
+\index{BRender@{BRender}!debug@{debug}}
+\index{debug@{debug}!BRender@{BRender}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}debug (\$ {\em data})}\label{d5/dcd/class_b_render_ace7c8b5c0b81c3121cecc9a876253daf}
+\index{BRender@{BRender}!dump@{dump}}
+\index{dump@{dump}!BRender@{BRender}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}dump ()}\label{d5/dcd/class_b_render_a5bf63e4ac70cfd9d97e3f2eab936ec8b}
+\index{BRender@{BRender}!get\_\-translate@{get\_\-translate}}
+\index{get\_\-translate@{get\_\-translate}!BRender@{BRender}}
+\subsubsection[{get\_\-translate}]{\setlength{\rightskip}{0pt plus 5cm}get\_\-translate (\$ {\em lang})}\label{d5/dcd/class_b_render_a01b9cd553b1fa3d9c1eb256a873a6c80}
+Prida do templatu translacni tabulku trans, podle zvoleneho jazyka. 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$lang \end{DoxyParams}
+\index{BRender@{BRender}!header@{header}}
+\index{header@{header}!BRender@{BRender}}
+\subsubsection[{header}]{\setlength{\rightskip}{0pt plus 5cm}header (\$ {\em head})}\label{d5/dcd/class_b_render_a969f39fccfe65db701fae3b86b47d7ea}
+\index{BRender@{BRender}!parse@{parse}}
+\index{parse@{parse}!BRender@{BRender}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}parse (\$ {\em template}, \/  \$ {\em args\_\-array} = {\ttfamily array()})}\label{d5/dcd/class_b_render_a83fa477cbd60f7d95e862ecd5b92cad2}
+Spusti prasovani templatu a vrati vysledek. 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$template Smarty template $|$ Smarty template string \item[{\em array}]\$args\_\-array Smarty template argumenty \end{DoxyParams}
+\index{BRender@{BRender}!push@{push}}
+\index{push@{push}!BRender@{BRender}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}push (\$ {\em str})}\label{d5/dcd/class_b_render_a51056359088bccf086f2bfc2d4e6ffc7}
+Ulozeni dat primo do fronty. 
+\begin{DoxyParams}{Parametry}
+\item[{\em string}]\$str \end{DoxyParams}
+\index{BRender@{BRender}!write@{write}}
+\index{write@{write}!BRender@{BRender}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}write (\$ {\em template}, \/  \$ {\em args\_\-array} = {\ttfamily array()})}\label{d5/dcd/class_b_render_aece8c80639c3456566dc8a9b48657abf}
+Zapise template data do fronty. 
+\begin{DoxyParams}{Parametry}
+\item[{\em \$template}]Smarty template jako retezec\par
+Smarty template soubor \item[{\em \$args\_\-array}]Argumenty pro Smarty templaty \end{DoxyParams}
+
+
+\subsection{Dokumentace k položkám}
+\index{BRender@{BRender}!\$debug\_\-data@{\$debug\_\-data}}
+\index{\$debug\_\-data@{\$debug\_\-data}!BRender@{BRender}}
+\subsubsection[{\$debug\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}\$debug\_\-data = array()\hspace{0.3cm}{\ttfamily  [static]}}\label{d5/dcd/class_b_render_a1e72c2b7d78efd318189415bfc94982b}
+\index{BRender@{BRender}!\$head@{\$head}}
+\index{\$head@{\$head}!BRender@{BRender}}
+\subsubsection[{\$head}]{\setlength{\rightskip}{0pt plus 5cm}\$head\hspace{0.3cm}{\ttfamily  [static, protected]}}\label{d5/dcd/class_b_render_a687ea7fcd78263867b5bd34ed56b6379}
+\index{BRender@{BRender}!\$queue@{\$queue}}
+\index{\$queue@{\$queue}!BRender@{BRender}}
+\subsubsection[{\$queue}]{\setlength{\rightskip}{0pt plus 5cm}\$queue\hspace{0.3cm}{\ttfamily  [private]}}\label{d5/dcd/class_b_render_a4a0b48f6ae2fcb248a4f0288c7c344a6}
+
+
+Dokumentace pro tuto třídu byla generována z následujícího souboru:\begin{DoxyCompactItemize}
+\item 
+lib/{\bf render.php}\end{DoxyCompactItemize}
